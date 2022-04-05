@@ -19,9 +19,10 @@ function checkValidation() {
   const inputProgram = program.value;
 
   // Name
-  if (inputName === "" || inputName === null) {
+  if (inputName === "") {
     document.querySelector(".errorFname").style.display = "block";
     firstName.classList.add("error-border");
+    return false;
   } else {
     document.querySelector(".errorFname").style.display = "none";
     firstName.classList.remove("error-border");
@@ -31,6 +32,7 @@ function checkValidation() {
   if (inputEmail === "") {
     document.querySelector(".errorEmail").style.display = "block";
     email.classList.add("error-border");
+    return false;
   } else {
     document.querySelector(".errorEmail").style.display = "none";
     email.classList.remove("error-border");
@@ -40,6 +42,7 @@ function checkValidation() {
   if (inputNumber === "") {
     document.querySelector(".errorNumber").style.display = "block";
     number.classList.add("error-border");
+    return false;
   } else {
     document.querySelector(".errorNumber").style.display = "none";
     number.classList.remove("error-border");
@@ -49,16 +52,21 @@ function checkValidation() {
   if (inputProgram === "") {
     document.querySelector(".errorProgram").style.display = "block";
     program.classList.add("error-border");
+    return false;
   } else {
     document.querySelector(".errorProgram").style.display = "none";
     program.classList.remove("error-border");
   }
+
+  return true;
 }
 
 function clearValues() {
-  firstName.value = "";
-  lastName.value = "";
-  email.value = "";
-  number.value = "";
-  program.value = "";
+  if (checkValidation() === true) {
+    firstName.value = "";
+    lastName.value = "";
+    email.value = "";
+    number.value = "";
+    program.value = "";
+  }
 }
