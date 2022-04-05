@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <form id="form">
+        <div class="form-header">
+          <h1>Registration Form</h1>
+        </div>
+        <!-- First Name -->
+        <label for="fname">First Name</label>
+        <input
+          type="text"
+          name="fname"
+          id="fname"
+          onkeyup="checkValidation()"
+          placeholder="Jhon"
+        />
+        <p class="error errorFname">You must enter your name</p>
+
+        <!-- Last Name -->
+        <label for="lname">Last Name</label>
+        <input
+          type="text"
+          name="lname"
+          id="lname"
+          onkeyup="checkValidation()"
+          placeholder="Doe"
+        />
+
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          onkeyup="checkValidation()"
+          placeholder="jhondoe@email.com"
+        />
+        <p class="error errorEmail">Please enter your email</p>
+
+        <!-- Phone Number -->
+        <label for="number">Phone Number</label>
+        <input
+          type="number"
+          name="number"
+          id="number"
+          onkeyup="checkValidation()"
+        />
+        <p class="error errorNumber">Please provide a phone number</p>
+
+        <!-- Selected Program -->
+        <label for="program">Program</label>
+        <select name="program" id="program" onchange="checkValidation()">
+          <option value="">Choose Your Program</option>
+          <option value="engineer">Software Engineer</option>
+          <option value="business">Digital Business</option>
+          <option value="admin">Digital System Administration</option>
+        </select>
+        <p class="error errorProgram">Please choose your program</p>
+
+        <div class="submit">
+          <input type="submit" value="Register" class="active" />
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
