@@ -23,13 +23,15 @@
   padding-top: 0;
 }
 
-.hero-title {
+.hero-header {
   font-size: 2rem;
+  color: #3d3d3d;
 }
 
 .hero-text p {
   font-size: 1.4rem;
   font-weight: 300;
+  color: #3d3d3d;
 }
 
 .btn-learn {
@@ -62,9 +64,46 @@
 }
 
 /* Partner */
-#partner {
-  height: 150px;
-  background-color: rgb(250, 250, 250);
+#partners {
+  padding: 20px;
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  justify-content: center;
+}
+
+.partners-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.partner-header {
+  font-size: 1.7rem;
+  color: #525252;
+  text-align: center;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.partner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.partner-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 80px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.partner-logo img {
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 1200px) {
@@ -104,7 +143,7 @@
     height: 350px;
   }
 
-  .hero-title {
+  .hero-header {
     font-size: 2rem;
   }
   .hero-text p {
@@ -116,6 +155,7 @@
   #hero-banner {
     min-height: 50vh;
     padding: 20px;
+    padding-bottom: 40px;
   }
   .hero-text,
   .hero-image {
@@ -124,7 +164,7 @@
     padding: 0;
   }
 
-  .hero-title {
+  .hero-header {
     font-size: 1.5rem;
   }
   .hero-text p {
@@ -134,5 +174,10 @@
   .btn-learn {
     margin-top: 10px;
     padding: 8px 24px;
+  }
+
+  .partner-logo {
+    width: 125px;
+    height: 65px;
   }
 }
