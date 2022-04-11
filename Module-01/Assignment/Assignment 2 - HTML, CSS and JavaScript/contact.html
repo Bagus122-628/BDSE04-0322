@@ -40,7 +40,7 @@
       </div>
     </nav>
 
-    <!-- Contact -->
+    <!-- Contact Banner -->
     <section id="contact">
       <div class="contact-text">
         <h1>Get in touch</h1>
@@ -52,7 +52,8 @@
       <div class="contact-image"></div>
     </section>
 
-    <div class="contact-information">
+    <!-- Contact Information -->
+    <section id="contact-information">
       <div class="contact-box">
         <i class="fa-solid fa-phone header"></i>
         <span>Contact Customer Support</span>
@@ -73,7 +74,42 @@
           <i class="fa-brands fa-youtube"></i>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form">
+      <h1 class="contact-form-header">Have some questions?</h1>
+      <div class="form-container">
+        <i class="fa-solid fa-envelopes-bulk"></i>
+        <form id="form">
+          <!-- Name -->
+          <input type="text" name="fname" id="fname" placeholder="First Name" />
+          <!-- <p class="error errorFname">You must enter your First Name</p> -->
+
+          <input type="text" name="fname" id="fname" placeholder="Last Name" />
+          <!-- <p class="error errorFname">You must enter your Last Name</p> -->
+
+          <!-- Email -->
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="What's your email?"
+          />
+          <!-- <p class="error errorEmail">Please enter your email</p> -->
+
+          <!-- Text -->
+          <textarea
+            name="text-area"
+            id="textArea"
+            placeholder="Your questions..."
+          ></textarea>
+          <!-- <p class="error errorText">Please enter your questions</p> -->
+
+          <input type="submit" value="SEND MESSAGE" class="btn-submit" />
+        </form>
+      </div>
+    </section>
 
     <script src="js/script.js"></script>
   </body>

@@ -4,7 +4,10 @@
   min-height: 50vh;
   display: flex;
   justify-content: space-between;
-  background-color: #f5f5f5;
+  background-image: url(../img/Hero-banner/4907157.jpg);
+  background-size: cover;
+  background-position: center;
+  transition: 0.3s;
 }
 
 .contact-text {
@@ -15,6 +18,8 @@
 }
 .contact-text h1 {
   font-size: 3rem;
+  color: #2e2e2e;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .contact-image {
@@ -27,11 +32,12 @@
 }
 
 /* Contact box */
-.contact-information {
+#contact-information {
   display: flex;
   margin: 0 auto;
   width: 80%;
 }
+
 .contact-box {
   margin: -70px 20px 10px 20px;
   display: flex;
@@ -41,6 +47,9 @@
   align-items: center;
   padding: 50px;
   width: 50%;
+  transition: 0.3s;
+  position: relative;
+  z-index: 200;
 }
 
 .contact-box i.header {
@@ -88,9 +97,81 @@
   opacity: 0.7;
 }
 
+/* Contact Form */
+#contact-form {
+  margin-top: 50px;
+  padding: 70px 0 100px 0;
+  background-color: #f5f5f5;
+}
+
+.contact-form-header {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 30px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.form-container i {
+  font-size: 25rem;
+  color: #118a84;
+  padding-top: 20px;
+  width: 50%;
+}
+
+form {
+  width: 40vh;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1.5px solid #5c5c5c;
+  margin-bottom: 25px;
+}
+
+.btn-submit {
+  background-color: #118a84;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  opacity: 0.7;
+}
+
 @media (min-width: 1400px) {
+  #contact {
+    min-height: 60vh;
+  }
+  .contact-image {
+    max-height: 60vh;
+  }
   .contact-text {
     padding-left: 20%;
+    padding-bottom: 50px;
+  }
+
+  .contact-text p {
+    padding-right: 20px;
+  }
+
+  /* Form */
+  .form-container i {
+    width: 40%;
+  }
+
+  form {
+    width: 50vh;
   }
 }
 
@@ -111,7 +192,7 @@
     font-size: 2.5rem;
   }
 
-  .contact-information {
+  #contact-information {
     flex-direction: column;
   }
 
@@ -126,6 +207,15 @@
   .contact-box:nth-child(2) {
     margin: 80px auto;
   }
+
+  /* Form */
+  form {
+    width: 80vh;
+    padding: 0 30px;
+  }
+  .form-container i {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -134,8 +224,6 @@
     background-image: url(../img/Contact/contact-us.png);
     background-size: cover;
     background-position: center;
-    color: #fff;
-    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 100;
   }
@@ -151,11 +239,27 @@
     right: 0;
   }
 
+  .contact-text {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .contact-text h1 {
+    color: #fff;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .contact-text p {
+    font-size: 0.9rem;
+  }
+
   .contact-image {
     display: none;
   }
 
-  .contact-information {
+  #contact-information {
     width: 85%;
   }
 
@@ -175,5 +279,8 @@
 @media (max-width: 500px) {
   #contact {
     min-height: 30vh;
+  }
+  .contact-box span {
+    text-align: center;
   }
 }
