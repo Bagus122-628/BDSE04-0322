@@ -241,6 +241,7 @@ form textarea {
 
   .contact-text {
     text-align: center;
+    margin: 0 auto;
     padding: 20px;
     color: #fff;
     text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
