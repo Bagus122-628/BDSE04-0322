@@ -1,14 +1,23 @@
 const frontend = document.getElementById("frontend");
 const backend = document.getElementById("backend");
-const coursePath = document.querySelector(".course-path-content");
+const coursePath = document.querySelector("#path-content");
+const frontEnd992px = document.getElementById("show-front-end");
+const backEnd992px = document.getElementById("show-back-end");
 
 frontend.addEventListener("click", () => {
   coursePath.innerHTML = showFrontEnd();
+  frontend.classList.add("active");
+  backend.classList.remove("active");
 });
 
 backend.addEventListener("click", () => {
   coursePath.innerHTML = showBackEnd();
+  backend.classList.add("active");
+  frontend.classList.remove("active");
 });
+
+frontEnd992px.innerHTML = showFrontEnd();
+backEnd992px.innerHTML = showBackEnd();
 
 // Front-End Course
 function showFrontEnd() {
