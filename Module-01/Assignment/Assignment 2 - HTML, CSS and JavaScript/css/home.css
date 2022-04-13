@@ -1,6 +1,10 @@
 /* Hero Banner */
+body {
+  height: 300vh;
+}
+
 #hero-banner {
-  min-height: 55vh;
+  min-height: 60vh;
   background-image: url(../img/Hero-banner/5570863.jpg);
   background-size: cover;
   background-position: center;
@@ -65,10 +69,11 @@
 
 /* Partner */
 #partners {
-  padding: 20px;
-  background-color: rgb(245, 245, 245);
+  padding: 40px 20px 70px 20px;
+  background-color: rgb(250, 250, 250);
   display: flex;
   justify-content: center;
+  box-shadow: 0px -1px 15px 3px rgba(0, 0, 0, 0.15);
 }
 
 .partners-container {
@@ -79,10 +84,11 @@
 }
 
 .partner-header {
-  font-size: 1.7rem;
+  font-size: 2rem;
   color: #525252;
   text-align: center;
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
 }
 
 .partner {
@@ -104,6 +110,106 @@
 .partner-logo img {
   width: 100%;
   height: 100%;
+}
+
+/* Our Company */
+#company {
+  margin-top: -1px;
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.company-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+}
+
+.company-header {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.company-container h2 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #3d3d3d;
+}
+
+.company-header p {
+  font-weight: 300;
+  max-width: 800px;
+}
+
+.company-feature {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feature-box {
+  width: 350px;
+  margin: 20px;
+  box-shadow: 1px 2px 15px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.feature-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-img img {
+  width: 100%;
+  height: 200px;
+  padding-bottom: 20px;
+}
+
+.feature-text {
+  padding: 0px 20px;
+  margin-bottom: 20px;
+}
+
+.feature-text h3 {
+  color: #3d3d3d;
+  margin-bottom: 6px;
+  font-size: 1.15rem;
+}
+
+.feature-text p {
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.btn-learn-more {
+  display: flex;
+  justify-content: center;
+  padding: 0px 20px 20px 20px;
+}
+
+.btn-learn-more button {
+  width: 100%;
+  padding: 10px;
+  background-color: #118a84;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 5px;
 }
 
 @media (max-width: 1200px) {
@@ -169,10 +275,11 @@
   }
   .hero-text p {
     font-size: 1rem;
+    margin-top: 5px;
   }
 
   .btn-learn {
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 8px 24px;
   }
 
