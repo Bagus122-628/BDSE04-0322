@@ -38,30 +38,30 @@ function showFrontEnd() {
         	</div>
         	<hr />
         	<div class="content-box-wrapper">
-            <div class="content-box">
-							<img src="img/Logo/html.png" alt="" />
-							<div class="text">
-								<h4>HTML5</h4>
-								<p><i class="fa-solid fa-star"></i> 4,89</p>
-								<p><i class="fa-solid fa-award"></i> Beginner</p>
-							</div>
-            </div>
-            <div class="content-box">
-							<img src="img/Logo/css.png" alt="" />
-							<div class="text">
-								<h4>CSS3</h4>
-								<p><i class="fa-solid fa-star"></i> 4,84</p>
-								<p><i class="fa-solid fa-award"></i> Beginner</p>
-							</div>
-            </div>
-            <div class="content-box">
-							<img src="img/Logo/javascript.png" alt="" />
-							<div class="text">
-								<h4>Javascript</h4>
-								<p><i class="fa-solid fa-star"></i> 4,82</p>
-								<p><i class="fa-solid fa-award"></i> Intermediate</p>
-							</div>
-            </div>
+				<div class="content-box">
+					<img src="img/Logo/html.png" alt="" />
+					<div class="text">
+						<h4>HTML5</h4>
+						<p><i class="fa-solid fa-star"></i> 4,89</p>
+						<p><i class="fa-solid fa-award"></i> Beginner</p>
+					</div>
+				</div>
+				<div class="content-box">
+					<img src="img/Logo/css.png" alt="" />
+					<div class="text">
+						<h4>CSS3</h4>
+						<p><i class="fa-solid fa-star"></i> 4,84</p>
+						<p><i class="fa-solid fa-award"></i> Beginner</p>
+					</div>
+				</div>
+				<div class="content-box">
+					<img src="img/Logo/javascript.png" alt="" />
+					<div class="text">
+						<h4>Javascript</h4>
+						<p><i class="fa-solid fa-star"></i> 4,82</p>
+						<p><i class="fa-solid fa-award"></i> Intermediate</p>
+					</div>
+				</div>
         	</div>`;
 }
 
@@ -75,43 +75,43 @@ function showBackEnd() {
             </div>
             <div class="description">
             	<p>
-								The curriculum was compiled by ABC Learning Center together with
-								AWS and the Back-End Development industry. Students are prepared
-								to become Back-End Developers according to industry needs.
+					The curriculum was compiled by ABC Learning Center together with
+					AWS and the Back-End Development industry. Students are prepared
+					to become Back-End Developers according to industry needs.
             	</p>
             </div>
         	</div>
         	<hr />
         	<div class="content-box-wrapper">
-						<div class="content-box">
-							<div class="content-box-image-wrapper">
-								<img src="img/Logo/javascript.png" alt="" />
-							</div>
-							<div class="text">
-								<h4>Javascript</h4>
-								<p><i class="fa-solid fa-star"></i> 4,82</p>
-								<p><i class="fa-solid fa-award"></i> Beginner</p>
-							</div>
-						</div>
-            <div class="content-box">
-							<div class="content-box-image-wrapper">
-								<img src="img/Logo/java.png" alt="Java" />
-							</div>
-							<div class="text">
-								<h4>Java</h4>
-								<p><i class="fa-solid fa-star"></i> 4,79</p>
-								<p><i class="fa-solid fa-award"></i> Intermediate</p>
-							</div>
-            </div>
-            <div class="content-box">
-							<div class="content-box-image-wrapper">
-								<img src="img/Logo/aws.png" alt="AWS" />
-							</div>
-							<div class="text">
-								<h4>AWS</h4>
-								<p><i class="fa-solid fa-star"></i> 4,89</p>
-								<p><i class="fa-solid fa-award"></i> Intermediate</p>
-							</div>
-            </div>
+				<div class="content-box">
+					<div class="content-box-image-wrapper">
+						<img src="img/Logo/javascript.png" alt="" />
+					</div>
+					<div class="text">
+						<h4>Javascript</h4>
+						<p><i class="fa-solid fa-star"></i> 4,82</p>
+						<p><i class="fa-solid fa-award"></i> Beginner</p>
+					</div>
+				</div>
+            	<div class="content-box">
+					<div class="content-box-image-wrapper">
+						<img src="img/Logo/java.png" alt="Java" />
+					</div>
+					<div class="text">
+						<h4>Java</h4>
+						<p><i class="fa-solid fa-star"></i> 4,79</p>
+						<p><i class="fa-solid fa-award"></i> Intermediate</p>
+					</div>
+            	</div>
+            	<div class="content-box">
+					<div class="content-box-image-wrapper">
+						<img src="img/Logo/aws.png" alt="AWS" />
+					</div>
+					<div class="text">
+						<h4>AWS</h4>
+						<p><i class="fa-solid fa-star"></i> 4,89</p>
+						<p><i class="fa-solid fa-award"></i> Intermediate</p>
+					</div>
+            	</div>
         	</div>`;
 }
