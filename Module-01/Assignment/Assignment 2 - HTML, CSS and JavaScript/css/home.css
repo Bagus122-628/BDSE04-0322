@@ -66,7 +66,6 @@
 /* Partner */
 #partners {
   padding: 40px 20px 70px 20px;
-  background-color: rgb(250, 250, 250);
   display: flex;
   justify-content: center;
   box-shadow: 0px -1px 15px 3px rgba(0, 0, 0, 0.15);
@@ -106,6 +105,38 @@
 .partner-logo img {
   width: 100%;
   height: 100%;
+}
+
+/* Students Counter */
+#student-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+  padding: 20px 0;
+  background-color: #118a84;
+}
+
+#student-counter .container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.student-box {
+  padding: 0 50px;
+  text-align: center;
+  color: #fff;
+}
+
+.student-box span {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.student-box p {
+  margin-top: -6px;
+  padding-left: 5px;
 }
 
 /* Our Company */
@@ -402,6 +433,10 @@
   .course-container {
     width: 80%;
   }
+
+  #student-counter .container {
+    width: 80%;
+  }
 }
 
 @media (max-width: 992px) {
@@ -464,6 +499,10 @@
   #show-back-end {
     display: block;
   }
+
+  #student-counter .container {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -492,6 +531,10 @@
 
   .content-box-image-wrapper {
     height: 120px;
+  }
+
+  .student-box {
+    padding: 0 20px;
   }
 }
 
@@ -524,5 +567,15 @@
   .partner-logo {
     width: 125px;
     height: 65px;
+  }
+
+  .student-box span {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  #student-counter .container {
+    flex-wrap: wrap;
   }
 }
