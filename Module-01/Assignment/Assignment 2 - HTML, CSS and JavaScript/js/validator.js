@@ -8,6 +8,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   checkValidation();
+  clearValues();
 });
 
 function checkValidation() {
@@ -20,6 +21,7 @@ function checkValidation() {
   if (inputFName === null || inputFName === "") {
     document.querySelector(".errorFname").style.display = "block";
     firstName.classList.add("error-border");
+    return false;
   } else {
     document.querySelector(".errorFname").style.display = "none";
     firstName.classList.remove("error-border");
@@ -29,6 +31,7 @@ function checkValidation() {
   if (inputLName === null || inputLName === "") {
     document.querySelector(".errorLname").style.display = "block";
     lastName.classList.add("error-border");
+    return false;
   } else {
     document.querySelector(".errorLname").style.display = "none";
     lastName.classList.remove("error-border");
@@ -38,6 +41,7 @@ function checkValidation() {
   if (inputEmail === null || inputEmail === "") {
     document.querySelector(".errorEmail").style.display = "block";
     email.classList.add("error-border");
+    return false;
   } else {
     document.querySelector(".errorEmail").style.display = "none";
     email.classList.remove("error-border");
@@ -47,8 +51,20 @@ function checkValidation() {
   if (inputText === null || inputText === "") {
     document.querySelector(".errorText").style.display = "block";
     textArea.classList.add("error-border");
+    return false;
   } else {
     document.querySelector(".errorText").style.display = "none";
     textArea.classList.remove("error-border");
+  }
+
+  return true;
+}
+
+function clearValues() {
+  const valid = checkValidation();
+
+  if (valid) {
+    alert("Thanks For Your Message!");
+    form.reset();
   }
 }
