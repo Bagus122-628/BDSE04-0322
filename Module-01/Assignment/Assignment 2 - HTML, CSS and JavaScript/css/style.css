@@ -29,6 +29,10 @@ nav {
 }
 
 /* Logo */
+.anchor-logo {
+  text-decoration: none;
+}
+
 .nav-logo {
   display: flex;
   align-items: center;

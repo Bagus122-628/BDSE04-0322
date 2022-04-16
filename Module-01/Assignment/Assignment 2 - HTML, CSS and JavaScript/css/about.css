@@ -80,6 +80,7 @@
 
 /* History */
 #history {
+  scroll-margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +125,7 @@
 
 /* Our Team */
 #our-team {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -228,6 +229,9 @@
 }
 
 @media (max-width: 768px) {
+  #our-team {
+    scroll-margin-top: 50px;
+  }
   .hero-container {
     text-align: center;
   }
