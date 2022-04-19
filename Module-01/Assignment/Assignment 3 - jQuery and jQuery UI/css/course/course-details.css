@@ -293,6 +293,12 @@
   margin-top: 20px;
 }
 
+.cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 1600px) {
   .container {
     width: 80%;
@@ -371,7 +377,8 @@
     text-align: center;
   }
 
-  .topic-image {
+  .topic-image,
+  .cntr {
     display: none;
   }
 
