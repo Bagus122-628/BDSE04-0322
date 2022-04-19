@@ -216,6 +216,85 @@ body {
   opacity: 0.7;
 }
 
+/* Student Testimonial */
+#student-testimonial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-testimonial {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-header {
+  /* text-align: center; */
+  margin-bottom: 20px;
+}
+
+.testimonial-header h2 {
+  font-size: 2rem;
+  color: #118a84;
+}
+
+.testimonial {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 25px;
+  margin-right: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.card-header {
+  display: flex;
+}
+
+.card-header .image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30px;
+}
+
+.card-header .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-header-text span {
+  font-size: 1.1rem;
+}
+
+.card-header-text p {
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.card-header .star {
+  color: #ffc107;
+}
+
+.card-body {
+  margin-top: 20px;
+}
+
 @media (max-width: 1600px) {
   .container {
     width: 80%;
@@ -225,6 +304,7 @@ body {
     width: 90%;
   }
 }
+
 @media (max-width: 1200px) {
   .container {
     width: 90%;
@@ -234,6 +314,7 @@ body {
     width: 100%;
   }
 }
+
 @media (max-width: 992px) {
   #hero-banner {
     margin-top: 60px;
@@ -263,7 +344,18 @@ body {
     width: 100%;
     margin-top: 30px;
   }
+
+  .testimonial {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 30px;
+    margin-right: 0;
+  }
 }
+
 @media (max-width: 768px) {
   #facilities {
     padding-top: 30px;
@@ -284,7 +376,12 @@ body {
   .topic-image {
     display: none;
   }
+
+  #course-topic {
+    margin-bottom: 0;
+  }
 }
+
 @media (max-width: 500px) {
   #hero-banner {
     min-height: 40vh;
