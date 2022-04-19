@@ -2,10 +2,6 @@
   width: 70%;
 }
 
-body {
-  height: 1000vh;
-}
-
 /* Hero Banner */
 #hero-banner {
   background-image: url(../../img/Hero-banner/hero-bg.jpg);
@@ -124,6 +120,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .what-will-you-learn .container {
@@ -221,6 +218,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .student-testimonial {
