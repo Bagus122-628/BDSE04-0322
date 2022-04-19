@@ -11,3 +11,16 @@ hamburgerMenu.addEventListener("click", () => {
   menu2.classList.toggle("active");
   menu3.classList.toggle("active");
 });
+
+$(document).ready(function () {
+  $("#dropdown").on("click", () => {
+    $("#dropdown-menu").toggleClass("show");
+  });
+});
+
+$(document).on("click", function (event) {
+  const trigger = $("#dropdown");
+  if (trigger !== event.target && !trigger.has(event.target).length) {
+    $("#dropdown-menu").removeClass("show");
+  }
+});

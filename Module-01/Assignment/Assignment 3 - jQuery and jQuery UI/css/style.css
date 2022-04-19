@@ -86,6 +86,49 @@ nav {
   background-color: rgb(245, 245, 245);
 }
 
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+#dropdown-link {
+  cursor: pointer;
+}
+
+.dropdown .dropdown-menu {
+  position: absolute;
+  padding: 0;
+  width: 130px;
+  padding: 10px;
+  align-items: center;
+  font-size: 0.9rem;
+  left: 1px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  display: none;
+}
+
+.dropdown .dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu .dropdown-item {
+  display: block;
+  text-transform: none;
+  font-weight: 500;
+  margin: 5px 5px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  color: #118a84;
+}
+
 /* Button */
 .nav-button {
   display: flex;
