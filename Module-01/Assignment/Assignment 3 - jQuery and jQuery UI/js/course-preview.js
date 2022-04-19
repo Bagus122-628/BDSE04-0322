@@ -34,6 +34,9 @@ function showFrontEnd() {
                 to become Front-End Web Developers according to industry
                 standards.
             	</p>
+				<a href="course/front-end.html">
+                	<button class="btn-learn">Learn More</button>
+              	</a>
             </div>
         	</div>
         	<hr />
@@ -79,6 +82,9 @@ function showBackEnd() {
 					AWS and the Back-End Development industry. Students are prepared
 					to become Back-End Developers according to industry needs.
             	</p>
+				<a href="course/back-end.html">
+                	<button class="btn-learn">Learn More</button>
+              	</a>
             </div>
         	</div>
         	<hr />
