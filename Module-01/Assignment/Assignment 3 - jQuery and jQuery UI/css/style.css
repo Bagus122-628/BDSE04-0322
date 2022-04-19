@@ -406,6 +406,17 @@ footer {
   .btn-join-today {
     font-size: 1rem;
   }
+
+  #dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #dropdown-menu {
+    position: static;
+  }
 }
 
 @media (max-width: 768px) {
