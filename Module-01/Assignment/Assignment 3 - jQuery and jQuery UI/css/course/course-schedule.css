@@ -95,6 +95,10 @@ body {
   cursor: pointer;
 }
 
+.course-header:hover {
+  background-color: #d4d4d4;
+}
+
 .wrapper {
   display: flex;
 }
@@ -210,10 +214,6 @@ body {
 @media (max-width: 768px) {
   .arrow {
     display: none;
-  }
-
-  .course-header:hover {
-    background-color: #d4d4d4;
   }
 }
 
