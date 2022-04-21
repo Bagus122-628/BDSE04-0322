@@ -8,6 +8,27 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <div id="root">
+      <header>
+        <h1>Single Page Application</h1>
+      </header>
+      <nav id="main-nav">
+        <div class="links">
+          <a href="page1" onclick="route()">Page 1</a>
+          <a href="page2" onclick="route()">Page 2</a>
+          <a href="page3" onclick="route()">Page 3</a>
+          <a href="page4" onclick="route()">Page 4</a>
+          <a href="/" onclick="route()">Products</a>
+        </div>
+        <select name="conversion" id="convert">
+          <option value="rupiah">Indonesian Rupiah</option>
+          <option value="sgd">Singapore Dollar</option>
+          <option value="rupee">Indian Rupee</option>
+          <option value="ringgit">Ringgit Malaysia</option>
+        </select>
+      </nav>
+      <div id="main-page"></div>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>
