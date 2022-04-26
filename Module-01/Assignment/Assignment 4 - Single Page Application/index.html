@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A simple AJAX website with jQuery</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <!-- Header -->
+      <header>
+        <h1>A simple AJAX driven jQuery website</h1>
+        <h2 class="secondary">Because simpler is better</h2>
+      </header>
+
+      <!-- Navbar -->
+      <nav>
+        <ul>
+          <li><a href="#product_1">Product 1</a></li>
+          <li><a href="#product_2">Product 2</a></li>
+          <li><a href="#product_3">Product 3</a></li>
+          <li><a href="#product_4">Product 4</a></li>
+          <li><a href="#products">Products</a></li>
+          <li class="loading">
+            <img id="loading" src="img/ajax_load.gif" alt="loading" />
+          </li>
+        </ul>
+
+        <select id="select">
+          <option value="SGD">Singapore Dollar</option>
+          <option value="MYR">Malaysian Ringgit</option>
+          <option value="INR">Indian Rupees</option>
+          <option value="PHP">Philippine Peso</option>
+          <option value="IDR">Indonesian Rupiah</option>
+        </select>
+      </nav>
+
+      <!-- Page Content -->
+      <div id="pageContent">
+        <ul class="products">
+          <li>
+            <img src="img/products/mushroom.jpg" alt="" />
+          </li>
+        </ul>
+        <h1>Mushrooms</h1>
+        <p>
+          "Mushroom" also describes a variety of other gilled fungi, with or
+          without stems, therefore the term is used to describe the fleshy
+          fruiting bodies of some Ascomycota. These gills produce microscopic
+          spores that help the fungus spread across the ground or its occupant
+          surface.
+        </p>
+        <h3>
+          Price :
+          <span class="currency_code">SGD</span>
+          <span class="price p1">1.00</span>
+        </h3>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
