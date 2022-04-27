@@ -97,14 +97,14 @@ const currencyURL = "data/currency.json";
 function loadSingapore() {
   loadBasePrice();
   $.getJSON(currencyURL, function (data) {
-    const conversion = data.currencies[0].conversion;
+    const convert = data.currencies[0];
     $.each(prices, function (index, data) {
       const textContent = parseFloat(data.textContent);
-      const converted = (conversion * textContent).toFixed(2);
+      const converted = (convert.conversion * textContent).toFixed(2);
       data.textContent = converted.toString();
     });
     $.each(currencyCode, function (index, data) {
-      data.textContent = "SGD";
+      data.textContent = `${convert.code}`;
     });
   });
 }
@@ -113,14 +113,14 @@ function loadSingapore() {
 function loadMalaysia() {
   loadBasePrice();
   $.getJSON(currencyURL, function (data) {
-    const conversion = data.currencies[1].conversion;
+    const convert = data.currencies[1];
     $.each(prices, function (index, data) {
       const textContent = parseFloat(data.textContent);
-      const converted = (conversion * textContent).toFixed(2);
+      const converted = (convert.conversion * textContent).toFixed(2);
       data.textContent = converted.toString();
     });
     $.each(currencyCode, function (index, data) {
-      data.textContent = "MYR";
+      data.textContent = `${convert.code}`;
     });
   });
 }
@@ -129,14 +129,14 @@ function loadMalaysia() {
 function loadIndia() {
   loadBasePrice();
   $.getJSON(currencyURL, function (data) {
-    const conversion = data.currencies[2].conversion;
+    const convert = data.currencies[2];
     $.each(prices, function (index, data) {
       const textContent = parseFloat(data.textContent);
-      const converted = (conversion * textContent).toFixed(2);
+      const converted = (convert.conversion * textContent).toFixed(2);
       data.textContent = converted.toString();
     });
     $.each(currencyCode, function (index, data) {
-      data.textContent = "INR";
+      data.textContent = `${convert.code}`;
     });
   });
 }
@@ -145,14 +145,14 @@ function loadIndia() {
 function loadPhilippine() {
   loadBasePrice();
   $.getJSON(currencyURL, function (data) {
-    const conversion = data.currencies[3].conversion;
+    const convert = data.currencies[3];
     $.each(prices, function (index, data) {
       const textContent = parseFloat(data.textContent);
-      const converted = (conversion * textContent).toFixed(2);
+      const converted = (convert.conversion * textContent).toFixed(2);
       data.textContent = converted.toString();
     });
     $.each(currencyCode, function (index, data) {
-      data.textContent = "PHP";
+      data.textContent = `${convert.code}`;
     });
   });
 }
@@ -161,14 +161,14 @@ function loadPhilippine() {
 function loadIndonesia() {
   loadBasePrice();
   $.getJSON(currencyURL, function (data) {
-    const conversion = data.currencies[4].conversion;
+    const convert = data.currencies[4];
     $.each(prices, function (index, data) {
       const textContent = parseFloat(data.textContent);
-      const converted = (conversion * textContent).toFixed(2);
+      const converted = (convert.conversion * textContent).toFixed(2);
       data.textContent = converted.toString();
     });
     $.each(currencyCode, function (index, data) {
-      data.textContent = "IDR";
+      data.textContent = `${convert.code}`;
     });
   });
 }
