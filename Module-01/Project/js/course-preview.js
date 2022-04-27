@@ -22,7 +22,7 @@ backEnd992px.innerHTML = showBackEnd();
 // Front-End Course
 function showFrontEnd() {
   return `<div class="header">
-            <div class="wrapper">
+            <div class="just-wrapper">
               <h3>Front-End Web Developer</h3>
               <p><i class="fa-solid fa-book-bookmark"></i> 3 Classes</p>
             	<p><i class="fa-solid fa-graduation-cap"></i> 12k Students</p>
@@ -71,7 +71,7 @@ function showFrontEnd() {
 // Back-End Course
 function showBackEnd() {
   return `<div class="header">
-            <div class="wrapper">
+            <div class="just-wrapper">
               <h3>Back-End Developer</h3>
               <p><i class="fa-solid fa-book-bookmark"></i> 3 Classes</p>
             	<p><i class="fa-solid fa-graduation-cap"></i> 8k Students</p>

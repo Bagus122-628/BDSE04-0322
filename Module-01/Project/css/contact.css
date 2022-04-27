@@ -125,12 +125,12 @@
   width: 50%;
 }
 
-form {
+.form-contact {
   width: 40vh;
 }
 
-form input,
-form textarea {
+.form-contact input,
+.form-contact textarea {
   width: 100%;
   padding: 15px;
   border-radius: 10px;
@@ -177,12 +177,11 @@ form textarea {
     padding-right: 20px;
   }
 
-  /* Form */
   .form-container i {
     width: 40%;
   }
 
-  form {
+  .form-contact {
     width: 50vh;
   }
 }
@@ -222,7 +221,7 @@ form textarea {
   }
 
   /* Form */
-  form {
+  .form-contact {
     width: 80vh;
     padding: 0 30px;
   }

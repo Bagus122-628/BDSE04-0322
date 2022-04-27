@@ -82,19 +82,8 @@
 }
 
 @media (max-width: 1600px) {
-  .hero-container,
   .sitemap-container {
     width: 80%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .hero-text {
-    padding-bottom: 40px;
-  }
-
-  .hero-container img {
-    padding: 30px;
   }
 }
 
@@ -119,29 +108,6 @@
     width: 100%;
     flex-wrap: wrap;
   }
-
-  .hero-text {
-    padding-bottom: 0;
-  }
-
-  .hero-text h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-text p {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-container {
-    padding: 0 40px;
-    justify-content: flex-start;
-  }
-
-  .hero-container img {
-    display: none;
-  }
 }
 
 @media (max-width: 500px) {
@@ -151,9 +117,5 @@
   .sitemap-banner-text p {
     font-size: 1rem;
     margin-bottom: 30px;
-  }
-
-  .hero-container {
-    padding: 0 30px;
   }
 }

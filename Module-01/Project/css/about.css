@@ -22,22 +22,22 @@
   right: 0;
 }
 
-.hero-container {
+.hero-container-about {
   width: 60%;
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
-.hero-container h1 {
+.hero-container-about h1 {
   font-size: 3rem;
   color: #fff;
 }
 
-.hero-container span {
+.hero-container-about span {
   color: #0aafa7;
 }
 
-.hero-container p {
+.hero-container-about p {
   font-size: 1.5rem;
   color: #f5f5f5;
 }
@@ -149,15 +149,15 @@
   width: 70%;
 }
 
-.card {
+.card-about {
   padding: 30px 20px;
 }
 
-.card-image {
+.card-about-image {
   width: 250px;
 }
 
-.card-image img {
+.card-about-image img {
   width: 100%;
   height: auto;
   border-radius: 20px;
@@ -165,22 +165,22 @@
   cursor: pointer;
 }
 
-.card-image img:hover {
+.card-about-image img:hover {
   box-shadow: 1px 2px 15px 3px rgba(0, 0, 0, 0.3);
   transform: translateY(-5px);
 }
 
-.card-text {
+.card-about-text {
   margin-top: 10px;
 }
 
-.card-text span {
+.card-about-text span {
   font-weight: bold;
   font-size: 1.2rem;
   color: #118a84;
 }
 
-.card-text p {
+.card-about-text p {
   color: #4d4e53;
 }
 
@@ -189,13 +189,13 @@
     width: 80%;
   }
 
-  .hero-container {
+  .hero-container-about {
     width: 70%;
   }
 }
 
 @media (max-width: 1200px) {
-  .hero-container,
+  .hero-container-about,
   .history-container {
     width: 80%;
   }
@@ -210,7 +210,7 @@
     margin-top: 60px;
   }
 
-  .hero-container,
+  .hero-container-about,
   .history-container {
     width: 90%;
   }
@@ -219,7 +219,7 @@
     padding: 50px 0;
   }
 
-  .hero-container p {
+  .hero-container-about p {
     font-size: 1.3rem;
   }
 
@@ -232,15 +232,15 @@
   #our-team {
     scroll-margin-top: 50px;
   }
-  .hero-container {
+  .hero-container-about {
     text-align: center;
   }
 
-  .hero-container h1 {
+  .hero-container-about h1 {
     font-size: 2.5rem;
   }
 
-  .hero-container p {
+  .hero-container-about p {
     font-size: 1.1rem;
   }
 
@@ -264,21 +264,21 @@
     width: 100%;
   }
 
-  .card {
+  .card-about {
     padding: 20px 10px;
   }
 
-  .card-image {
+  .card-about-image {
     width: 350px;
   }
 }
 
 @media (max-width: 500px) {
-  .hero-container h1 {
+  .hero-container-about h1 {
     font-size: 2.2rem;
   }
 
-  .hero-container p {
+  .hero-container-about p {
     font-size: 1rem;
   }
 }
