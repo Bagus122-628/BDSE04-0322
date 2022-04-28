@@ -24,3 +24,10 @@ $(document).on("click", function (event) {
     $("#dropdown-menu").removeClass("show");
   }
 });
+
+// Scroll Up
+$(document).ready(function () {
+  $(".go-top").on("click", () => {
+    $("html, body").animate({ scrollTop: 0 }, 800);
+  });
+});
