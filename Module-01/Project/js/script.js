@@ -26,8 +26,6 @@ $(document).on("click", function (event) {
 });
 
 // Scroll Up
-$(document).ready(function () {
-  $(".go-top").on("click", () => {
-    $("html, body").animate({ scrollTop: 0 }, 800);
-  });
-});
+function goTop() {
+  return $("html, body").animate({ scrollTop: 0 });
+}
