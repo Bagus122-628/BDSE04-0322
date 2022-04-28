@@ -158,7 +158,7 @@
 }
 
 .error-border {
-  border: 1px solid #b02a37;
+  border: 1px solid #b02a37 !important;
 }
 
 @media (min-width: 1400px) {
