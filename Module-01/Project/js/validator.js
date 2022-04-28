@@ -1,17 +1,9 @@
-const form = document.getElementById("form");
-const firstName = document.getElementById("fname");
-const lastName = document.getElementById("lname");
-const email = document.getElementById("email");
-const textArea = document.getElementById("textArea");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  checkValidation();
-  clearValues();
-});
-
 function checkValidation() {
+  const firstName = document.getElementById("fname");
+  const lastName = document.getElementById("lname");
+  const email = document.getElementById("email");
+  const textArea = document.getElementById("textArea");
+
   const inputFName = firstName.value.trim();
   const inputLName = lastName.value.trim();
   const inputEmail = email.value.trim();
@@ -61,6 +53,7 @@ function checkValidation() {
 }
 
 function clearValues() {
+  const form = document.getElementById("form");
   const valid = checkValidation();
 
   if (valid) {

@@ -39,7 +39,11 @@
   <h1 class="contact-form-header">Have some questions?</h1>
   <div class="form-container">
     <i class="fa-solid fa-envelopes-bulk"></i>
-    <form id="form" class="form-contact">
+    <form
+      id="form"
+      class="form-contact"
+      onsubmit="event.preventDefault();checkValidation();clearValues();"
+    >
       <input type="text" name="fname" id="fname" placeholder="First Name" />
       <p class="error errorFname">You must enter your First Name</p>
 
@@ -65,5 +69,3 @@
     </form>
   </div>
 </section>
-
-<script src="js/validator.js"></script>
