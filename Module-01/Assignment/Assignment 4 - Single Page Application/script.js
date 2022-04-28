@@ -76,15 +76,15 @@ function loadProducts() {
 $(document).ready(function () {
   $("#select").on("change", function () {
     if (this.value === "SGD") {
-      loadSingapore();
+      loadSelectedCurrency(0);
     } else if (this.value === "MYR") {
-      loadMalaysia();
+      loadSelectedCurrency(1);
     } else if (this.value === "INR") {
-      loadIndia();
+      loadSelectedCurrency(2);
     } else if (this.value === "PHP") {
-      loadPhilippine();
+      loadSelectedCurrency(3);
     } else {
-      loadIndonesia();
+      loadSelectedCurrency(4);
     }
   });
 });
@@ -93,91 +93,26 @@ const prices = document.getElementsByClassName("price");
 const currencyCode = document.getElementsByClassName("currency_code");
 const currencyURL = "data/currency.json";
 
-// Singapore
-function loadSingapore() {
+function loadSelectedCurrency(i) {
   loadBasePrice();
   $.getJSON(currencyURL, function (data) {
-    const convert = data.currencies[0];
+    const currencyJSON = data.currencies[i];
     $.each(prices, function (index, data) {
-      const textContent = parseFloat(data.textContent);
-      const converted = (convert.conversion * textContent).toFixed(2);
+      const textContentPrice = parseFloat(data.textContent);
+      const converted = (currencyJSON.conversion * textContentPrice).toFixed(2);
       data.textContent = converted.toString();
     });
     $.each(currencyCode, function (index, data) {
-      data.textContent = `${convert.code}`;
-    });
-  });
-}
-
-// Malaysia
-function loadMalaysia() {
-  loadBasePrice();
-  $.getJSON(currencyURL, function (data) {
-    const convert = data.currencies[1];
-    $.each(prices, function (index, data) {
-      const textContent = parseFloat(data.textContent);
-      const converted = (convert.conversion * textContent).toFixed(2);
-      data.textContent = converted.toString();
-    });
-    $.each(currencyCode, function (index, data) {
-      data.textContent = `${convert.code}`;
-    });
-  });
-}
-
-// India
-function loadIndia() {
-  loadBasePrice();
-  $.getJSON(currencyURL, function (data) {
-    const convert = data.currencies[2];
-    $.each(prices, function (index, data) {
-      const textContent = parseFloat(data.textContent);
-      const converted = (convert.conversion * textContent).toFixed(2);
-      data.textContent = converted.toString();
-    });
-    $.each(currencyCode, function (index, data) {
-      data.textContent = `${convert.code}`;
-    });
-  });
-}
-
-// Philippine
-function loadPhilippine() {
-  loadBasePrice();
-  $.getJSON(currencyURL, function (data) {
-    const convert = data.currencies[3];
-    $.each(prices, function (index, data) {
-      const textContent = parseFloat(data.textContent);
-      const converted = (convert.conversion * textContent).toFixed(2);
-      data.textContent = converted.toString();
-    });
-    $.each(currencyCode, function (index, data) {
-      data.textContent = `${convert.code}`;
-    });
-  });
-}
-
-// Indonesia
-function loadIndonesia() {
-  loadBasePrice();
-  $.getJSON(currencyURL, function (data) {
-    const convert = data.currencies[4];
-    $.each(prices, function (index, data) {
-      const textContent = parseFloat(data.textContent);
-      const converted = (convert.conversion * textContent).toFixed(2);
-      data.textContent = converted.toString();
-    });
-    $.each(currencyCode, function (index, data) {
-      data.textContent = `${convert.code}`;
+      data.textContent = `${currencyJSON.code}`;
     });
   });
 }
 
 function loadBasePrice() {
   $(document).ready(function () {
-    $(".p1").text("1.00");
-    $(".p2").text("2.00");
-    $(".p3").text("3.00");
+    $(".p1").text("1.20");
+    $(".p2").text("2.40");
+    $(".p3").text("3.15");
     $(".p4").text("1.50");
   });
 }
