@@ -17,7 +17,13 @@
     <link rel="stylesheet" href="css/sitemap.css" />
     <link rel="stylesheet" href="css/course/course-details.css" />
     <link rel="stylesheet" href="css/course/course-schedule.css" />
+    <link rel="stylesheet" href="css/course/course-list.css" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -38,6 +44,14 @@
               >Course <i class="fa-solid fa-caret-down"></i
             ></a>
             <ul class="dropdown-menu" id="dropdown-menu">
+              <li>
+                <a
+                  class="dropdown-item"
+                  onclick="goTop()"
+                  href="#course/course-list"
+                  >Course List</a
+                >
+              </li>
               <li>
                 <a
                   class="dropdown-item"

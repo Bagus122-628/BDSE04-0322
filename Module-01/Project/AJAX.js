@@ -3,7 +3,9 @@ var default_content = "";
 $(document).ready(function () {
   checkURL();
   $("a").click(function () {
-    checkURL(this.hash);
+    if (!this.hasClass("tabs")) {
+      checkURL(this.hash);
+    }
   });
   default_content = $("#pageContent").html();
   setInterval("checkURL()", 250);
