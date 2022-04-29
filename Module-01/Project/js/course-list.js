@@ -8,12 +8,12 @@ $(function () {
 function frontEndList() {
   document.querySelector(".header-CL h2").textContent =
     "Front-End Web Developer";
-  document.querySelector(".tab-frontend").style.display = "block";
-  document.querySelector(".tab-backend").style.display = "none";
+  document.querySelector(".tab-frontend").classList.add("show");
+  document.querySelector(".tab-backend").classList.remove("show");
 }
 
 function backEndList() {
   document.querySelector(".header-CL h2").textContent = "Back-End Developer";
-  document.querySelector(".tab-frontend").style.display = "none";
-  document.querySelector(".tab-backend").style.display = "block";
+  document.querySelector(".tab-frontend").classList.remove("show");
+  document.querySelector(".tab-backend").classList.add("show");
 }
