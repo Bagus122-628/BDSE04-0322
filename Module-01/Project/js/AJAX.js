@@ -34,8 +34,14 @@ function loadPage(url) {
     dataType: "html",
     success: function (msg) {
       if (parseInt(msg) != 0) {
+        goTop();
         $("#pageContent").html(msg);
       }
     },
   });
+}
+
+// Scroll Up
+function goTop() {
+  return $("html, body").animate({ scrollTop: 0 });
 }

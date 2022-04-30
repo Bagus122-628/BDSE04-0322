@@ -24,8 +24,3 @@ $(document).on("click", function (event) {
     $("#dropdown-menu").removeClass("show");
   }
 });
-
-// Scroll Up
-function goTop() {
-  return $("html, body").animate({ scrollTop: 0 });
-}
