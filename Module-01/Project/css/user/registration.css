@@ -1,7 +1,7 @@
-#registration {
+#registration,
+#thank-you-page {
   margin-top: 64px;
   background-color: #f5f7fa;
-
   display: flex;
   justify-content: center;
 }
@@ -95,9 +95,61 @@ input[type="number"] {
   background-color: rgb(235, 235, 235);
 }
 
+/* Thank You Page */
+.container-thank-you {
+  width: 800px;
+  margin: 50px 0;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.thank-you h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.thank-you i {
+  font-size: 10rem;
+  color: #13b9b1;
+  margin-bottom: 20px;
+}
+
+.thank-you p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.thank-you .btn-home {
+  padding: 10px 20px;
+  color: white;
+  font-weight: 500;
+  background-color: #13b9b1;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1.05rem;
+  transition: 0.3s;
+}
+
+.thank-you .btn-home:hover {
+  opacity: 0.7;
+}
+
 @media (max-width: 992px) {
   #registration {
     margin-top: 30px;
+  }
+  #thank-you-page {
+    margin-top: 60px;
+  }
+
+  .container-thank-you {
+    margin: 30px 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 0;
   }
 }
 
