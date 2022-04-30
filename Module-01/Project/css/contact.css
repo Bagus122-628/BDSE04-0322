@@ -161,6 +161,15 @@
   border: 1px solid #b02a37 !important;
 }
 
+.error-message::placeholder {
+  color: #b02a37;
+}
+
+.validator-password {
+  display: none;
+  color: #b02a37;
+}
+
 @media (min-width: 1400px) {
   #contact {
     min-height: 60vh;
