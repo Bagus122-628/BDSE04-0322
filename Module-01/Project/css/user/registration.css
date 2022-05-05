@@ -32,7 +32,8 @@
   font-weight: 500;
 }
 
-#regis-form input {
+#regis-form input,
+#regis-form select {
   margin-top: 5px;
   margin-bottom: 10px;
   padding: 6px;
@@ -41,7 +42,13 @@
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
-input:focus {
+#regis-form select {
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+input:focus,
+select:focus {
   outline: none;
 }
 
@@ -84,27 +91,6 @@ input[type="number"] {
 
 .EULA a:hover {
   text-decoration: none;
-}
-
-.sign-up-wrapper {
-  display: flex;
-  margin-top: 10px;
-}
-
-.sign-up-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: white;
-  border: 1px solid black;
-  margin-right: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.sign-up-box:hover {
-  background-color: rgb(235, 235, 235);
 }
 
 /* Thank You Page */

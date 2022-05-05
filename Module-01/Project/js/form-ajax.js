@@ -14,34 +14,36 @@ $(document).ready(function () {
 });
 
 function validateRegisForm() {
-  const fullName = $("#full-name-regis");
-  const userName = $("#username-regis");
+  const firstName = $("#first-name-regis");
+  const lastName = $("#last-name-regis");
   const email = $("#email-regis");
+  const address = $("#address-regis");
   const phone = $("#phone-regis");
-  const password = $("#password-regis");
+  const selectCourse = $("#select-regis");
 
-  const inputFullName = $("#full-name-regis").val().trim();
-  const inputUserName = $("#username-regis").val().trim();
-  const inputEmail = $("#email-regis").val().trim();
-  const inputPhone = $("#phone-regis").val().trim();
-  const inputPassword = $("#password-regis").val().trim();
+  const inputFirstName = firstName.val().trim();
+  const inputLastName = lastName.val().trim();
+  const inputEmail = email.val().trim();
+  const inputAddress = address.val().trim();
+  const inputPhone = phone.val().trim();
+  const inputSelectCourse = $("#select-regis").val();
 
-  // Full Name
-  if (inputFullName === null || inputFullName === "") {
-    fullName.addClass("error-border").addClass("error-message");
-    fullName.attr("placeholder", "Please fill your full name");
+  // First Name
+  if (inputFirstName === null || inputFirstName === "") {
+    firstName.addClass("error-border").addClass("error-message");
+    firstName.attr("placeholder", "Please fill your first name");
     return false;
   } else {
-    fullName.removeClass("error-border");
+    firstName.removeClass("error-border");
   }
 
-  // Username
-  if (inputUserName === null || inputUserName === "") {
-    userName.addClass("error-border").addClass("error-message");
-    userName.attr("placeholder", "Please fill your username");
+  // Last Name
+  if (inputLastName === null || inputLastName === "") {
+    lastName.addClass("error-border").addClass("error-message");
+    lastName.attr("placeholder", "Please fill your last name");
     return false;
   } else {
-    userName.removeClass("error-border");
+    lastName.removeClass("error-border");
   }
 
   // Email
@@ -53,6 +55,15 @@ function validateRegisForm() {
     email.removeClass("error-border");
   }
 
+  // Address
+  if (inputAddress === null || inputAddress === "") {
+    address.addClass("error-border").addClass("error-message");
+    address.attr("placeholder", "Please fill your address");
+    return false;
+  } else {
+    address.removeClass("error-border");
+  }
+
   // Phone Number
   if (inputPhone === "") {
     phone.addClass("error-border").addClass("error-message");
@@ -62,20 +73,11 @@ function validateRegisForm() {
     phone.removeClass("error-border");
   }
 
-  // Password
-  if (inputPassword === "") {
-    password.addClass("error-border").addClass("error-message");
-    password.attr("placeholder", "Please input your password");
+  // Select Course
+  if (inputSelectCourse === "select-valid") {
+    selectCourse.addClass("error-border");
+    $(".select-validator").css("display", "block").html("Select any course");
     return false;
-  } else if (inputPassword.length <= 6) {
-    password.addClass("error-border");
-    $(".validator-password")
-      .html("Password should be more than 6 characters")
-      .css("display", "block");
-    return false;
-  } else {
-    password.removeClass("error-border");
-    $(".validator-password").css("display", "none");
   }
 
   return true;
