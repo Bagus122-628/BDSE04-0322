@@ -1,9 +1,8 @@
 const sideMenu = document.getElementById("side-menu");
 const menuBar = document.getElementById("bar-menu");
-const contentTable = document.querySelector(".content-table");
+
 menuBar.addEventListener("click", () => {
   sideMenu.classList.toggle("collapse");
-  contentTable.classList.toggle("align-item-center");
 });
 
 if (localStorage.getItem("formData") != null) {
