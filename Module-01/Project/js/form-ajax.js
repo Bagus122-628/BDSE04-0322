@@ -5,20 +5,18 @@ $(document).ready(function () {
 
     if (valid === true) {
       if (confirm("Submit Form?")) {
-        $.post("load_page.jsp", function () {
-          loadPage("#user/thank-you");
-          localStorage.setItem(
-            `formData${Math.random() * 100}`,
-            JSON.stringify({
-              firstName: $("#first-name-regis").val(),
-              lastName: $("#last-name-regis").val(),
-              email: $("#email-regis").val(),
-              address: $("#address-regis").val(),
-              phone: $("#phone-regis").val(),
-              selectCourse: $("#select-regis").val(),
-            })
-          );
-        });
+        loadPage("#user/thank-you");
+        localStorage.setItem(
+          `formData${Math.random() * 100}`,
+          JSON.stringify({
+            firstName: $("#first-name-regis").val(),
+            lastName: $("#last-name-regis").val(),
+            email: $("#email-regis").val(),
+            address: $("#address-regis").val(),
+            phone: $("#phone-regis").val(),
+            selectCourse: $("#select-regis").val(),
+          })
+        );
       }
     }
   });

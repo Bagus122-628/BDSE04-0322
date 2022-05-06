@@ -7,23 +7,50 @@
     <title>ABC Learning Center</title>
     <link rel="stylesheet" href="css/user/admin.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/848830b72b.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <aside id="side-menu"></aside>
-    <div class="admin-content">
-      <div class="content-header"></div>
-      <div class="content-table">
-        <table id="data-table">
-          <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Course</th>
-            <th>Action</th>
-          </tr>
-        </table>
+    <div class="container">
+      <aside id="side-menu" class="bar-menu">
+        <div class="header">ABC Learning Center</div>
+        <ul>
+          <a href="admin.html">
+            <li><i class="fa-solid fa-house"></i> Dashboard</li>
+          </a>
+        </ul>
+      </aside>
+      <div class="admin-content">
+        <div class="content-header">
+          <i class="fas fa-bars" id="bar-menu"></i>
+          <div class="admin-text-header">
+            <h2>Administration System</h2>
+          </div>
+        </div>
+        <div class="content-table">
+          <div class="search">
+            <input type="text" placeholder="Search.." class="search-bar" />
+            <button class="btn btn-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button class="btn btn-add">Add Data</button>
+          </div>
+          <div class="table">
+            <table id="data-table">
+              <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Course</th>
+                <th>Action</th>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
 
