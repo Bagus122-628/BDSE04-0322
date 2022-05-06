@@ -13,6 +13,37 @@
     ></script>
   </head>
   <body>
+    <div class="overlay-add-data">
+      <form class="add-data">
+        <label for="first-name">First Name</label>
+        <input type="text" name="first-name" id="first-name" />
+
+        <label for="last">Last Name</label>
+        <input type="text" name="last" id="last-name" />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" />
+
+        <label for="phone">Phone Number</label>
+        <input type="number" name="phone" id="phone" />
+
+        <label for="select">Select Course</label>
+        <select name="select" id="select">
+          <option value="select-valid">Select your course</option>
+          <option value="Front-End Web Developer">
+            Front-End Web Developer
+          </option>
+          <option value="Back-End Developer">Back-End Developer</option>
+        </select>
+        <div class="button-add">
+          <button class="btn btn-cancel">Cancel</button>
+          <button type="submit" class="btn btn-submit">Add Data</button>
+        </div>
+      </form>
+    </div>
     <div class="container">
       <aside id="side-menu" class="bar-menu">
         <div class="header">ABC Learning Center</div>

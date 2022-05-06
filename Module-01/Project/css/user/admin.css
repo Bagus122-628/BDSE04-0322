@@ -5,6 +5,7 @@
 body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
 .container {
@@ -169,4 +170,50 @@ table {
 
 .btn-action {
   text-align: center;
+}
+
+/* Add Data */
+.overlay-add-data {
+  display: none;
+  position: fixed;
+  top: 20vh;
+  left: 40%;
+  width: 400px;
+  z-index: 100;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(50, 61, 95);
+}
+
+.show {
+  display: block;
+}
+
+.add-data {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-data input:focus {
+  outline: none;
+}
+
+.button-add {
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
+}
+
+.btn-cancel {
+  padding: 8px 20px;
+  border-radius: 3px;
+  background-color: #dc3545;
+  margin-right: 10px;
+}
+
+.btn-submit {
+  padding: 8px 20px;
+  border-radius: 3px;
+  background-color: #15bb6e;
 }
