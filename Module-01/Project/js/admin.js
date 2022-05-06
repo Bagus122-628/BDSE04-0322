@@ -6,20 +6,10 @@ menuBar.addEventListener("click", () => {
   contentTable.classList.toggle("align-item-center");
 });
 
-let json = [];
-
-getLocalStorageData();
-
-function getLocalStorageData() {
-  for (let i = 0; i < localStorage.length; i++) {
-    const formData = localStorage.getItem(localStorage.key(i));
-
-    json.push(JSON.parse(formData));
-  }
-}
+let jsonFormData = JSON.parse(localStorage.getItem("formData"));
 
 let table = `<tr>`;
-json.map((value, index) => {
+jsonFormData.map((value, index) => {
   table += `<td style="text-align: center;">${index + 1}</td>
             <td>${value.firstName} ${value.lastName}</td>
             <td>${value.email}</td>

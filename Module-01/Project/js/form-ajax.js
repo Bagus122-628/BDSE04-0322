@@ -6,21 +6,42 @@ $(document).ready(function () {
     if (valid === true) {
       if (confirm("Submit Form?")) {
         loadPage("#user/thank-you");
-        localStorage.setItem(
-          `formData${Math.random() * 100}`,
-          JSON.stringify({
-            firstName: $("#first-name-regis").val(),
-            lastName: $("#last-name-regis").val(),
-            email: $("#email-regis").val(),
-            address: $("#address-regis").val(),
-            phone: $("#phone-regis").val(),
-            selectCourse: $("#select-regis").val(),
-          })
-        );
+        handleLocalStorageData();
       }
     }
   });
 });
+
+function handleLocalStorageData() {
+  if (localStorage.getItem("formData") === null) {
+    let formData = [];
+
+    formData.push({
+      firstName: $("#first-name-regis").val(),
+      lastName: $("#last-name-regis").val(),
+      email: $("#email-regis").val(),
+      address: $("#address-regis").val(),
+      phone: $("#phone-regis").val(),
+      selectCourse: $("#select-regis").val(),
+    });
+
+    localStorage.setItem("formData", JSON.stringify(formData));
+  } else {
+    let storedData = JSON.parse(localStorage.getItem("formData"));
+
+    const formData = {
+      firstName: $("#first-name-regis").val(),
+      lastName: $("#last-name-regis").val(),
+      email: $("#email-regis").val(),
+      address: $("#address-regis").val(),
+      phone: $("#phone-regis").val(),
+      selectCourse: $("#select-regis").val(),
+    };
+
+    storedData.push(formData);
+    localStorage.setItem("formData", JSON.stringify(storedData));
+  }
+}
 
 function validateRegisForm() {
   const firstName = $("#first-name-regis");
