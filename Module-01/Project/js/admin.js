@@ -46,6 +46,7 @@ formAddData.addEventListener("submit", (event) => {
   event.preventDefault();
   handleLocalStorageData();
   overlayAddData.classList.remove("show");
+  formAddData.reset();
   location.reload();
 });
 
