@@ -17,8 +17,8 @@ if (localStorage.getItem("formData") != null) {
               <td>${value.phone}</td>
               <td>${value.selectCourse}</td>
               <td>
-                <button class="btn btn-edit">Edit</button>
-                <button class="btn btn-delete">Delete</button>
+                <button id="${index}" class="btn btn-edit">Edit</button>
+                <button id="${index}" class="btn btn-delete">Delete</button>
               </td>
               </tr>`;
   });
@@ -34,20 +34,20 @@ const btnCancel = document.querySelector(".btn-cancel");
 
 btnAdd.addEventListener("click", () => {
   overlayAddData.classList.add("show");
+
+  formAddData.addEventListener("submit", (event) => {
+    event.preventDefault();
+    handleLocalStorageData();
+    overlayAddData.classList.remove("show");
+    formAddData.reset();
+    location.reload();
+  });
 });
 
 btnCancel.addEventListener("click", (event) => {
   event.preventDefault();
   overlayAddData.classList.remove("show");
   formAddData.reset();
-});
-
-formAddData.addEventListener("submit", (event) => {
-  event.preventDefault();
-  handleLocalStorageData();
-  overlayAddData.classList.remove("show");
-  formAddData.reset();
-  location.reload();
 });
 
 function handleLocalStorageData() {
@@ -79,4 +79,69 @@ function handleLocalStorageData() {
     storedData.push(formData);
     localStorage.setItem("formData", JSON.stringify(storedData));
   }
+}
+
+// Delete Data
+if (localStorage.getItem("formData") != null) {
+  const btnDelete = document.getElementsByClassName("btn-delete");
+
+  for (let btn of btnDelete) {
+    btn.addEventListener("click", (event) => {
+      const dataID = event.target.id;
+      deleteData(dataID);
+    });
+  }
+}
+
+function deleteData(ID) {
+  let storedData = JSON.parse(localStorage.getItem("formData"));
+  storedData.splice(ID, 1);
+  localStorage.setItem("formData", JSON.stringify(storedData));
+  location.reload();
+}
+
+// Edit Data
+if (localStorage.getItem("formData") != null) {
+  const btnEdit = document.getElementsByClassName("btn-edit");
+
+  for (let btn of btnEdit) {
+    btn.addEventListener("click", (event) => {
+      overlayAddData.classList.add("show");
+      const dataID = event.target.id;
+
+      editData(dataID);
+    });
+  }
+}
+
+function editData(ID) {
+  let storedData = JSON.parse(localStorage.getItem("formData"));
+
+  const { firstName, lastName, email, address, phone, selectCourse } =
+    storedData[ID];
+
+  $("#first-name").val(firstName);
+  $("#last-name").val(lastName);
+  $("#email").val(email);
+  $("#address").val(address);
+  $("#phone").val(phone);
+  $("#select").val(selectCourse);
+
+  formAddData.addEventListener("submit", (event) => {
+    event.preventDefault();
+    overlayAddData.classList.remove("show");
+
+    storedData[ID] = {
+      firstName: $("#first-name").val(),
+      lastName: $("#last-name").val(),
+      email: $("#email").val(),
+      address: $("#address").val(),
+      phone: $("#phone").val(),
+      selectCourse: $("#select").val(),
+    };
+
+    localStorage.setItem("formData", JSON.stringify(storedData));
+    formAddData.reset();
+    location.reload();
+  });
 }
