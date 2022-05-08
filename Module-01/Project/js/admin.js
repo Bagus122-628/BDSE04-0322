@@ -26,6 +26,16 @@ if (localStorage.getItem("formData") != null) {
   document.getElementById("data-table").insertAdjacentHTML("beforeend", table);
 }
 
+if (
+  localStorage.getItem("formData") == "[]" ||
+  localStorage.getItem("formData") == null
+) {
+  const noContent = `<tr><td colspan="7" align="center">No Data</td></tr>`;
+  document
+    .getElementById("data-table")
+    .insertAdjacentHTML("beforeend", noContent);
+}
+
 // Add Data
 const overlayAddData = document.querySelector(".overlay-add-data");
 const formAddData = document.querySelector(".add-data");
@@ -51,20 +61,7 @@ btnCancel.addEventListener("click", (event) => {
 });
 
 function handleLocalStorageData() {
-  if (localStorage.getItem("formData") === null) {
-    let formData = [];
-
-    formData.push({
-      firstName: $("#first-name").val(),
-      lastName: $("#last-name").val(),
-      email: $("#email").val(),
-      address: $("#address").val(),
-      phone: $("#phone").val(),
-      selectCourse: $("#select").val(),
-    });
-
-    localStorage.setItem("formData", JSON.stringify(formData));
-  } else {
+  if (localStorage.getItem("formData") != null) {
     let storedData = JSON.parse(localStorage.getItem("formData"));
 
     const formData = {
@@ -78,6 +75,19 @@ function handleLocalStorageData() {
 
     storedData.push(formData);
     localStorage.setItem("formData", JSON.stringify(storedData));
+  } else {
+    let formData = [];
+
+    formData.push({
+      firstName: $("#first-name").val(),
+      lastName: $("#last-name").val(),
+      email: $("#email").val(),
+      address: $("#address").val(),
+      phone: $("#phone").val(),
+      selectCourse: $("#select").val(),
+    });
+
+    localStorage.setItem("formData", JSON.stringify(formData));
   }
 }
 
@@ -88,7 +98,9 @@ if (localStorage.getItem("formData") != null) {
   for (let btn of btnDelete) {
     btn.addEventListener("click", (event) => {
       const dataID = event.target.id;
-      deleteData(dataID);
+      if (confirm("Delete Data?")) {
+        deleteData(dataID);
+      }
     });
   }
 }
@@ -144,4 +156,28 @@ function editData(ID) {
     formAddData.reset();
     location.reload();
   });
+}
+
+// Search / Filter Table
+const searchBar = document.querySelector(".search-bar");
+searchBar.addEventListener("keyup", () => {
+  searchByName();
+});
+
+function searchByName() {
+  const filter = searchBar.value.toLowerCase();
+  const table = document.getElementById("data-table");
+  const tr = table.getElementsByTagName("tr");
+
+  for (let i = 0; i < tr.length; i++) {
+    const td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      const txtValue = td.textContent || td.innerText;
+      if (txtValue.toLowerCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
 }
