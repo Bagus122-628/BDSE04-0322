@@ -47,10 +47,14 @@ btnAdd.addEventListener("click", () => {
 
   formAddData.addEventListener("submit", (event) => {
     event.preventDefault();
-    handleLocalStorageData();
-    overlayAddData.classList.remove("show");
-    formAddData.reset();
-    location.reload();
+    const valid = adminFormValidation();
+
+    if (valid == true) {
+      handleLocalStorageData();
+      overlayAddData.classList.remove("show");
+      formAddData.reset();
+      location.reload();
+    }
   });
 });
 
@@ -141,20 +145,24 @@ function editData(ID) {
 
   formAddData.addEventListener("submit", (event) => {
     event.preventDefault();
-    overlayAddData.classList.remove("show");
 
-    storedData[ID] = {
-      firstName: $("#first-name").val(),
-      lastName: $("#last-name").val(),
-      email: $("#email").val(),
-      address: $("#address").val(),
-      phone: $("#phone").val(),
-      selectCourse: $("#select").val(),
-    };
+    const valid = adminFormValidation();
 
-    localStorage.setItem("formData", JSON.stringify(storedData));
-    formAddData.reset();
-    location.reload();
+    if (valid == true) {
+      storedData[ID] = {
+        firstName: $("#first-name").val(),
+        lastName: $("#last-name").val(),
+        email: $("#email").val(),
+        address: $("#address").val(),
+        phone: $("#phone").val(),
+        selectCourse: $("#select").val(),
+      };
+
+      localStorage.setItem("formData", JSON.stringify(storedData));
+      overlayAddData.classList.remove("show");
+      formAddData.reset();
+      location.reload();
+    }
   });
 }
 
@@ -180,4 +188,66 @@ function searchByName() {
       }
     }
   }
+}
+
+// Validation
+function adminFormValidation() {
+  const firstName = $("#first-name");
+  const lastName = $("#last-name");
+  const email = $("#email");
+  const address = $("#address");
+  const phone = $("#phone");
+
+  const inputFirstName = firstName.val().trim();
+  const inputLastName = lastName.val().trim();
+  const inputEmail = email.val().trim();
+  const inputAddress = address.val().trim();
+  const inputPhone = phone.val().trim();
+
+  // First Name
+  if (inputFirstName === null || inputFirstName === "") {
+    firstName.addClass("error-border").addClass("error-message");
+    firstName.attr("placeholder", "Please fill your first name");
+    return false;
+  } else {
+    firstName.removeClass("error-border");
+  }
+
+  // Last Name
+  if (inputLastName === null || inputLastName === "") {
+    lastName.addClass("error-border").addClass("error-message");
+    lastName.attr("placeholder", "Please fill your last name");
+    return false;
+  } else {
+    lastName.removeClass("error-border");
+  }
+
+  // Email
+  if (inputEmail === null || inputEmail === "") {
+    email.addClass("error-border").addClass("error-message");
+    email.attr("placeholder", "Please fill your email");
+    return false;
+  } else {
+    email.removeClass("error-border");
+  }
+
+  // Address
+  if (inputAddress === null || inputAddress === "") {
+    address.addClass("error-border").addClass("error-message");
+    address.attr("placeholder", "Please fill your address");
+    return false;
+  } else {
+    address.removeClass("error-border");
+  }
+
+  // Phone Number
+  if (inputPhone === "") {
+    phone.addClass("error-border").addClass("error-message");
+    phone.attr("placeholder", "Please fill your phone number");
+    return false;
+  } else {
+    phone.removeClass("error-border");
+  }
+
+  return true;
 }
