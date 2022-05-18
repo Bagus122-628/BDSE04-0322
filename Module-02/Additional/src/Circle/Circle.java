@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Circle {
   public static void main(String[] args) {
+    @SuppressWarnings("resource")
     Scanner input = new Scanner(System.in);
     System.out.print("Enter Radius of Circle:");
     double userInput = input.nextDouble();

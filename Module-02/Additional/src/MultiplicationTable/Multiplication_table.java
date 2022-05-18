@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Multiplication_table {
   public static void main(String[] args) {
+    @SuppressWarnings("resource")
     Scanner input = new Scanner(System.in);
 
     System.out.print("Input number: ");
