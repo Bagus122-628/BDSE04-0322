@@ -1,3 +1,5 @@
+package DecimalToBinary;
+
 import java.util.Scanner;
 
 public class Decimal_to_binary {

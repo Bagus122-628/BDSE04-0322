@@ -1,3 +1,5 @@
+package SwapTwoNumbers;
+
 import java.util.Scanner;
 
 public class Swap_2_numbers {

@@ -1,3 +1,5 @@
+package Person;
+
 public class Person {
   String name;
   float age;
