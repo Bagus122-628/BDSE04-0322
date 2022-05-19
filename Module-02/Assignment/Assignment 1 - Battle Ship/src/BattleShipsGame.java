@@ -27,6 +27,8 @@ public class BattleShipsGame {
       battleShips();
     } while (playerShips != 0 && computerShips != 0);
 
+    // Step 5 - Game Over
+    gameOver();
   }
 
   // Ocean Map
@@ -150,20 +152,22 @@ public class BattleShipsGame {
       if (validGuess) {
         if (storedShips[x][y] == 2) {
           System.out.println("Boom! You sunk the ship!");
-          storedShips[x][y] = 0;
+          storedShips[x][y] = 3;
           grid[x][y] = "!";
           --computerShips;
         } else if (storedShips[x][y] == 1) {
           System.out.println("Oh no, you sunk your own ship :(");
-          storedShips[x][y] = 0;
+          storedShips[x][y] = 3;
           grid[x][y] = "x";
           --playerShips;
         } else if (storedShips[x][y] != 2 || storedShips[x][y] != 1) {
           System.out.println("Sorry, you missed");
           grid[x][y] = "-";
         }
-      } else if (invalidGuess)
+
+      } else if (invalidGuess) {
         System.out.println("You can't place ships outside the " + rows + " by " + cols + " grid");
+      }
     } while (invalidGuess);
   }
 
@@ -197,5 +201,16 @@ public class BattleShipsGame {
         }
       }
     } while (invalidGuess);
+  }
+
+  public static void gameOver() {
+    printOceanMap();
+    System.out.println("Your ships: " + playerShips + " | " + "Computer ships: " + computerShips);
+
+    if (playerShips > 0 && computerShips <= 0) {
+      System.out.println("Hooray You win the battle :)");
+    } else {
+      System.out.println("Computer win the battle, You Lose :(");
+    }
   }
 }
