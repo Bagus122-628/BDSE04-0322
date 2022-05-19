@@ -7,8 +7,7 @@ public class BattleShipsGame {
   public static int computerShips;
   public static boolean oceanMapIsExist;
   public static String[][] grid = new String[rows][cols];
-  public static int[][] storedPlayerShips = new int[rows][cols];
-  public static int[][] storedComputerShips = new int[rows][cols];
+  public static int[][] storedShips = new int[rows][cols];
 
   public static void main(String[] args) {
     System.out.println("**** Welcome to Battle Ships game ****");
@@ -89,7 +88,7 @@ public class BattleShipsGame {
 
       if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y] == " ")) {
         grid[x][y] = "@";
-        storedPlayerShips[x][y] = 1;
+        storedShips[x][y] = 1;
         i++;
       } else if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y] == "@")) {
         System.out.println("you can NOT place two or more ships on the same location");
@@ -111,8 +110,7 @@ public class BattleShipsGame {
       int y = (int) (Math.random() * 10);
 
       if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y] == " ")) {
-        grid[x][y] = "c";
-        storedComputerShips[x][y] = 2;
+        storedShips[x][y] = 2;
         System.out.println((i + 1) + ". ship DEPLOYED");
         i++;
       }
@@ -123,7 +121,7 @@ public class BattleShipsGame {
   // Battle Ships
   public static void battleShips() {
     playerTurn();
-
+    computerTurn();
     printOceanMap();
 
     System.out.println();
@@ -131,6 +129,7 @@ public class BattleShipsGame {
     System.out.println();
   }
 
+  // Player Turn
   public static void playerTurn() {
     System.out.println("\nYOUR TURN");
     boolean invalidGuess = false;
@@ -145,26 +144,58 @@ public class BattleShipsGame {
       System.out.print("Enter Y coordinate: ");
       y = input.nextInt();
 
-      invalidGuess = (x < 0 || x >= rows) || (y < 0 || y >= cols);
       validGuess = (x >= 0 && x < rows) && (y >= 0 && y < cols);
+      invalidGuess = (x < 0 || x >= rows) || (y < 0 || y >= cols);
 
       if (validGuess) {
-        if (storedComputerShips[x][y] == 2) {
+        if (storedShips[x][y] == 2) {
           System.out.println("Boom! You sunk the ship!");
-          storedComputerShips[x][y] = 0;
+          storedShips[x][y] = 0;
           grid[x][y] = "!";
           --computerShips;
-        } else if (storedPlayerShips[x][y] == 1) {
+        } else if (storedShips[x][y] == 1) {
           System.out.println("Oh no, you sunk your own ship :(");
-          storedPlayerShips[x][y] = 0;
+          storedShips[x][y] = 0;
           grid[x][y] = "x";
           --playerShips;
-        } else if (storedComputerShips[x][y] != 2 || storedPlayerShips[x][y] != 1) {
+        } else if (storedShips[x][y] != 2 || storedShips[x][y] != 1) {
           System.out.println("Sorry, you missed");
           grid[x][y] = "-";
         }
       } else if (invalidGuess)
         System.out.println("You can't place ships outside the " + rows + " by " + cols + " grid");
+    } while (invalidGuess);
+  }
+
+  // Computer Turn
+  public static void computerTurn() {
+    System.out.println("\nCOMPUTER'S TURN");
+    boolean invalidGuess = false;
+    boolean validGuess = false;
+    int x = 0;
+    int y = 0;
+
+    do {
+      x = (int) (Math.random() * 10);
+      y = (int) (Math.random() * 10);
+
+      validGuess = (x >= 0 && x < rows) && (y >= 0 && y < cols) && storedShips[x][y] != 3;
+      invalidGuess = storedShips[x][y] == 3;
+
+      if (validGuess) {
+        if (storedShips[x][y] == 1) {
+          System.out.println("The Computer sunk one of your ships!");
+          grid[x][y] = "x";
+          --playerShips;
+        } else if (storedShips[x][y] == 2) {
+          System.out.println("The Computer sunk one of its own ships");
+          grid[x][y] = "!";
+          --computerShips;
+        } else if (storedShips[x][y] != 1 || storedShips[x][y] != 2) {
+          System.out.println("Computer missed");
+          storedShips[x][y] = 3;
+        }
+      }
     } while (invalidGuess);
   }
 }
