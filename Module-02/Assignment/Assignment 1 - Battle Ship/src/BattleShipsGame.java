@@ -25,7 +25,7 @@ public class BattleShipsGame {
     // Step 4 – Battle
     do {
       battleShips();
-    } while ((playerShips > 0 && computerShips > 0) || (playerShips != 0 && computerShips != 0));
+    } while (playerShips > 0 && computerShips > 0);
 
     // Step 5 - Game Over
     gameOver();
@@ -135,7 +135,6 @@ public class BattleShipsGame {
   public static void playerTurn() {
     System.out.println("\nYOUR TURN");
     boolean invalidGuess;
-    boolean validGuess;
     int x;
     int y;
 
@@ -147,7 +146,6 @@ public class BattleShipsGame {
       System.out.print("Enter Y coordinate: ");
       x = input.nextInt();
 
-      validGuess = (x >= 0 && x < rows) && (y >= 0 && y < cols);
       invalidGuess = (x < 0 || x >= rows) || (y < 0 || y >= cols);
 
       if (invalidGuess) {
@@ -157,17 +155,17 @@ public class BattleShipsGame {
       }
     } while (invalidGuess || storedShips[x][y] == 3);
 
-    if (validGuess && storedShips[x][y] == 2) {
+    if (storedShips[x][y] == 2) {
       System.out.println("Boom! You sunk the ship!");
       storedShips[x][y] = 3;
       grid[x][y] = "!";
       --computerShips;
-    } else if (validGuess && storedShips[x][y] == 1) {
+    } else if (storedShips[x][y] == 1) {
       System.out.println("Oh no, you sunk your own ship :(");
       storedShips[x][y] = 3;
       grid[x][y] = "x";
       --playerShips;
-    } else if (validGuess && (storedShips[x][y] != 2 || storedShips[x][y] != 1)) {
+    } else if (storedShips[x][y] != 2 || storedShips[x][y] != 1) {
       System.out.println("Sorry, you missed");
       storedShips[x][y] = 3;
       grid[x][y] = "-";
