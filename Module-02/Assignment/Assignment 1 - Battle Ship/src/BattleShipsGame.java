@@ -8,6 +8,7 @@ public class BattleShipsGame {
   public static boolean oceanMapIsExist;
   public static String[][] grid = new String[rows][cols];
   public static int[][] storedShips = new int[rows][cols];
+  public static Scanner input = new Scanner(System.in);
 
   public static void main(String[] args) {
     System.out.println("**** Welcome to Battle Ships game ****");
@@ -77,16 +78,13 @@ public class BattleShipsGame {
   public static void deployPlayerShips() {
     playerShips = 5;
 
-    @SuppressWarnings("resource")
-    Scanner userInput = new Scanner(System.in);
-
     System.out.println("Deploy your ships:");
 
     for (int i = 1; i <= playerShips;) {
       System.out.print("Enter X coordinate for your " + i + ". ship: ");
-      int y = userInput.nextInt();
+      int y = input.nextInt();
       System.out.print("Enter Y coordinate for your " + i + ". ship: ");
-      int x = userInput.nextInt();
+      int x = input.nextInt();
 
       if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y].equals(" "))) {
         grid[x][y] = "@";
@@ -139,8 +137,6 @@ public class BattleShipsGame {
     int y;
 
     do {
-      @SuppressWarnings("resource")
-      Scanner input = new Scanner(System.in);
       System.out.print("Enter X coordinate: ");
       y = input.nextInt();
       System.out.print("Enter Y coordinate: ");
