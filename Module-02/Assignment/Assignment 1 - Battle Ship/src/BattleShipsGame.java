@@ -25,7 +25,7 @@ public class BattleShipsGame {
     // Step 4 – Battle
     do {
       battleShips();
-    } while (playerShips != 0 && computerShips != 0);
+    } while ((playerShips > 0 && computerShips > 0) || (playerShips != 0 && computerShips != 0));
 
     // Step 5 - Game Over
     gameOver();
@@ -39,7 +39,7 @@ public class BattleShipsGame {
     }
     System.out.println();
 
-    if (oceanMapIsExist == true) {
+    if (oceanMapIsExist) {
       // Print Ocean Map if Ocean Map is exist
       for (int x = 0; x < grid.length; x++) {
         System.out.print(x + "|");
@@ -88,11 +88,11 @@ public class BattleShipsGame {
       System.out.print("Enter Y coordinate for your " + i + ". ship: ");
       int x = userInput.nextInt();
 
-      if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y] == " ")) {
+      if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y].equals(" "))) {
         grid[x][y] = "@";
         storedShips[x][y] = 1;
         i++;
-      } else if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y] == "@")) {
+      } else if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y].equals("@"))) {
         System.out.println("you can NOT place two or more ships on the same location");
       } else if ((x < 0 || x >= rows) || (y < 0 || y >= cols)) {
         System.out.println("you can't place ships outside the 10 by 10 grid");
@@ -111,7 +111,7 @@ public class BattleShipsGame {
       int x = (int) (Math.random() * 10);
       int y = (int) (Math.random() * 10);
 
-      if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y] == " ")) {
+      if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y].equals(" "))) {
         storedShips[x][y] = 2;
         System.out.println((i + 1) + ". ship DEPLOYED");
         i++;
@@ -134,10 +134,11 @@ public class BattleShipsGame {
   // Player Turn
   public static void playerTurn() {
     System.out.println("\nYOUR TURN");
-    boolean invalidGuess = false;
-    boolean validGuess = false;
-    int x = 0;
-    int y = 0;
+    boolean invalidGuess;
+    boolean validGuess;
+    int x;
+    int y;
+
     do {
       @SuppressWarnings("resource")
       Scanner input = new Scanner(System.in);
@@ -149,35 +150,37 @@ public class BattleShipsGame {
       validGuess = (x >= 0 && x < rows) && (y >= 0 && y < cols);
       invalidGuess = (x < 0 || x >= rows) || (y < 0 || y >= cols);
 
-      if (validGuess) {
-        if (storedShips[x][y] == 2) {
-          System.out.println("Boom! You sunk the ship!");
-          storedShips[x][y] = 3;
-          grid[x][y] = "!";
-          --computerShips;
-        } else if (storedShips[x][y] == 1) {
-          System.out.println("Oh no, you sunk your own ship :(");
-          storedShips[x][y] = 3;
-          grid[x][y] = "x";
-          --playerShips;
-        } else if (storedShips[x][y] != 2 || storedShips[x][y] != 1) {
-          System.out.println("Sorry, you missed");
-          grid[x][y] = "-";
-        }
-
-      } else if (invalidGuess) {
+      if (invalidGuess) {
         System.out.println("You can't place ships outside the " + rows + " by " + cols + " grid");
+      } else if (storedShips[x][y] == 3) {
+        System.out.println("You or the computer have already guessed there");
       }
-    } while (invalidGuess);
+    } while (invalidGuess || storedShips[x][y] == 3);
+
+    if (validGuess && storedShips[x][y] == 2) {
+      System.out.println("Boom! You sunk the ship!");
+      storedShips[x][y] = 3;
+      grid[x][y] = "!";
+      --computerShips;
+    } else if (validGuess && storedShips[x][y] == 1) {
+      System.out.println("Oh no, you sunk your own ship :(");
+      storedShips[x][y] = 3;
+      grid[x][y] = "x";
+      --playerShips;
+    } else if (validGuess && (storedShips[x][y] != 2 || storedShips[x][y] != 1)) {
+      System.out.println("Sorry, you missed");
+      storedShips[x][y] = 3;
+      grid[x][y] = "-";
+    }
   }
 
   // Computer Turn
   public static void computerTurn() {
     System.out.println("\nCOMPUTER'S TURN");
-    boolean invalidGuess = false;
-    boolean validGuess = false;
-    int x = 0;
-    int y = 0;
+    boolean invalidGuess;
+    boolean validGuess;
+    int x;
+    int y;
 
     do {
       x = (int) (Math.random() * 10);
