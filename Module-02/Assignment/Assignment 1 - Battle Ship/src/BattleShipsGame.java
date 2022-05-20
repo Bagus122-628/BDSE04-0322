@@ -31,7 +31,7 @@ public class BattleShipsGame {
     gameOver();
   }
 
-  // Ocean Map
+  // Step 1 – Create the ocean map
   public static void printOceanMap() {
     System.out.print("\n  ");
     for (int i = 0; i < cols; i++) {
@@ -73,7 +73,7 @@ public class BattleShipsGame {
     System.out.println("\n");
   }
 
-  // Deploy Player Ships
+  // Step 2 – Deploy player’s ships
   public static void deployPlayerShips() {
     playerShips = 5;
 
@@ -84,9 +84,9 @@ public class BattleShipsGame {
 
     for (int i = 1; i <= playerShips;) {
       System.out.print("Enter X coordinate for your " + i + ". ship: ");
-      int x = userInput.nextInt();
-      System.out.print("Enter Y coordinate for your " + i + ". ship: ");
       int y = userInput.nextInt();
+      System.out.print("Enter Y coordinate for your " + i + ". ship: ");
+      int x = userInput.nextInt();
 
       if ((x >= 0 && x < rows) && (y >= 0 && y < cols) && (grid[x][y] == " ")) {
         grid[x][y] = "@";
@@ -101,7 +101,7 @@ public class BattleShipsGame {
     printOceanMap();
   }
 
-  // Deploy Computer Ships
+  // Step 3 - Deploy computer's ships
   public static void deployComputerShips() {
     computerShips = 5;
 
@@ -120,7 +120,7 @@ public class BattleShipsGame {
     printOceanMap();
   }
 
-  // Battle Ships
+  // Step 4 – Battle
   public static void battleShips() {
     playerTurn();
     computerTurn();
@@ -142,9 +142,9 @@ public class BattleShipsGame {
       @SuppressWarnings("resource")
       Scanner input = new Scanner(System.in);
       System.out.print("Enter X coordinate: ");
-      x = input.nextInt();
-      System.out.print("Enter Y coordinate: ");
       y = input.nextInt();
+      System.out.print("Enter Y coordinate: ");
+      x = input.nextInt();
 
       validGuess = (x >= 0 && x < rows) && (y >= 0 && y < cols);
       invalidGuess = (x < 0 || x >= rows) || (y < 0 || y >= cols);
@@ -203,6 +203,7 @@ public class BattleShipsGame {
     } while (invalidGuess);
   }
 
+  // Step 5 - Game Over
   public static void gameOver() {
     printOceanMap();
     System.out.println("Your ships: " + playerShips + " | " + "Computer ships: " + computerShips);
