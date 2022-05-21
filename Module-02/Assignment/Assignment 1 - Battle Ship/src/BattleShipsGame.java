@@ -10,28 +10,6 @@ public class BattleShipsGame {
   public static int[][] storedShips = new int[rows][cols];
   public static Scanner input = new Scanner(System.in);
 
-  public static void main(String[] args) {
-    System.out.println("**** Welcome to Battle Ships game ****");
-    System.out.println("Right now, sea is empty");
-
-    // Step 1 – Create the ocean map
-    printOceanMap();
-
-    // Step 2 – Deploy player’s ships
-    deployPlayerShips();
-
-    // Step 3 - Deploy computer's ships
-    deployComputerShips();
-
-    // Step 4 – Battle
-    do {
-      battleShips();
-    } while (playerShips > 0 && computerShips > 0);
-
-    // Step 5 - Game Over
-    gameOver();
-  }
-
   // Step 1 – Create the ocean map
   public static void printOceanMap() {
     System.out.print("\n  ");
