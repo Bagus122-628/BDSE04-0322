@@ -4,6 +4,7 @@ public abstract class Employee {
   private int employeeID;
   private static int ID;
   private Employee manager;
+  public double bonusBudget;
 
   public Employee(String name, double baseSalary) {
     this.name = name;
@@ -41,4 +42,8 @@ public abstract class Employee {
   }
 
   public abstract String employeeStatus();
+
+  public void getBonus() {
+
+  }
 }
