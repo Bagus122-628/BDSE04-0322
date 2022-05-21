@@ -1,10 +1,9 @@
-public class Employee {
+public abstract class Employee {
   private String name;
   private double baseSalary;
   private int employeeID;
   private static int ID;
   private Employee manager;
-  private String status;
 
   public Employee(String name, double baseSalary) {
     this.name = name;
@@ -41,11 +40,5 @@ public class Employee {
     return getEmployeeID() + " " + getName();
   }
 
-  public String employeeStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
+  public abstract String employeeStatus();
 }
