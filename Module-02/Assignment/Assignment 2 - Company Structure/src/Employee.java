@@ -1,10 +1,13 @@
 public abstract class Employee {
   private String name;
-  private double baseSalary;
-  private int employeeID;
   private static int ID;
-  private Employee manager;
+  private int employeeID;
+  public int headCount = 0;
   public double bonusBudget;
+  public double baseSalary;
+  public double bonus;
+  public Employee manager;
+  public Accountant accountantSupport;
 
   public Employee(String name, double baseSalary) {
     this.name = name;
@@ -45,5 +48,9 @@ public abstract class Employee {
 
   public void getBonus() {
 
+  }
+
+  public Accountant getAccountantSupport() {
+    return accountantSupport;
   }
 }

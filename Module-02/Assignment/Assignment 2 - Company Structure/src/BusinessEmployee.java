@@ -1,7 +1,7 @@
 public class BusinessEmployee extends Employee {
 
-  public BusinessEmployee(String name, double baseSalary) {
-    super(name, 50000);
+  public BusinessEmployee(String name) {
+    super(name, 50000.00);
   }
 
   public double getBonusBudget() {
@@ -14,7 +14,8 @@ public class BusinessEmployee extends Employee {
 
   @Override
   public String employeeStatus() {
-    return super.toString() + " with a budget of " + bonusBudget;
+    String formatted = String.format("%.2f", bonusBudget);
+    return super.toString() + " with a budget of " + formatted;
   }
 
 }

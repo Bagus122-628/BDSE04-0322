@@ -1,8 +1,8 @@
 public class TechnicalEmployee extends Employee {
-  private int checkIns;
+  public int checkIns;
 
-  public TechnicalEmployee(String name, double baseSalary) {
-    super(name, 75000);
+  public TechnicalEmployee(String name) {
+    super(name, 75000.00);
     checkIns = 0;
   }
 
