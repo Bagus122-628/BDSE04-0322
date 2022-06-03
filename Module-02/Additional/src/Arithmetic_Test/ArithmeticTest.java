@@ -28,4 +28,10 @@ public class ArithmeticTest {
     var result = Arithmetic.division(20, 10);
     assertEquals(2, result);
   }
+
+  @Test
+  void testModulus() {
+    var result = Arithmetic.modulus(20, 10);
+    assertEquals(0, result);
+  }
 }

@@ -16,4 +16,8 @@ public class Arithmetic {
   static int division(int a, int b) {
     return a / b;
   }
+
+  static int modulus(int a, int b) {
+    return a % b;
+  }
 }
