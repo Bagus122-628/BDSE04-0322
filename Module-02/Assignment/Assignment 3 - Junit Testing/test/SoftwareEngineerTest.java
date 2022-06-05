@@ -11,7 +11,6 @@ public class SoftwareEngineerTest {
   void testSetCodeAccessFalse() {
     SE.setCodeAccess(false);
     boolean assumptions = SE.getCodeAccess();
-    System.out.println();
     assertFalse(assumptions);
   }
 
