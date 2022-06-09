@@ -6,20 +6,38 @@ import org.junit.jupiter.api.Test;
 public class SoftwareEngineerTest {
 
   SoftwareEngineer SE = new SoftwareEngineer("Yoghantara");
+  TechnicalLead TL = new TechnicalLead("Jhon");
+  Accountant ACT = new Accountant("Silva");
+  BusinessLead BL = new BusinessLead("Ryan");
 
   @Test
   void testSetCodeAccessFalse() {
     SE.setCodeAccess(false);
-    boolean assumptions = SE.getCodeAccess();
-    System.out.println();
-    assertFalse(assumptions);
+    TL.addReport(SE);
+    assertFalse(TL.approveCheckIn(SE));
   }
 
   @Test
   void testSetCodeAccessTrue() {
     SE.setCodeAccess(true);
-    boolean assumptions = SE.getCodeAccess();
-    assertTrue(assumptions);
+    TL.addReport(SE);
+    assertTrue(TL.approveCheckIn(SE));
+  }
+
+  @Test
+  void testCanGetBonusFalse() {
+    TL.addReport(SE);
+    ACT.supportTeam(TL);
+    BL.addReport(ACT, ACT.getTeamSupported());
+    assertFalse(TL.requestBonus(SE, 20000000));
+  }
+
+  @Test
+  void testCanGetBonusTrue() {
+    TL.addReport(SE);
+    ACT.supportTeam(TL);
+    BL.addReport(ACT, ACT.getTeamSupported());
+    assertTrue(TL.requestBonus(SE, 1000));
   }
 
 }
