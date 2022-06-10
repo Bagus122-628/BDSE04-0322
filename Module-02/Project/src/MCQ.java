@@ -1,16 +1,16 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class MCQ {
 
-  public void Questions(String CSV) throws FileNotFoundException {
-    Scanner sc = new Scanner(new File("src/MCQ/" + CSV + ".csv"));
-    sc.useDelimiter(",");
-    while (sc.hasNext()) {
-      System.out.print(sc.next());
+  public void Questions(String CSV) throws Exception {
+    String line = "";
+    FileReader fr = new FileReader("src/MCQ/" + CSV + ".csv");
+    BufferedReader br = new BufferedReader(fr);
+    while ((line = br.readLine()) != null) {
+      String[] mcqStr = line.split(","); // use comma as separator
+      System.out.println(mcqStr[1]);
     }
-    sc.close();
   }
 
 }

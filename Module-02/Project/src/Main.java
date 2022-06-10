@@ -1,9 +1,8 @@
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-  public static void main(String[] args) throws FileNotFoundException {
+  public static void main(String[] args) throws Exception {
     MCQ mcq = new MCQ();
 
     Scanner input = new Scanner(System.in);
@@ -17,30 +16,29 @@ public class Main {
     generateFilesName(folder, listOfFiles);
 
     // Take user input to MCQ set question
-    boolean mcqSetsNotExist = false;
-    do {
-      System.out.print("Type your choice(without spacing) : ");
-      String inputUserChoice = input.nextLine();
+    System.out.print("Type your choice(without spacing) : ");
+    String inputUserChoice = input.nextLine();
+    boolean mcqSetsNotExist = true;
 
-      for (int i = 0; i < listOfFiles.length;) {
+    while (mcqSetsNotExist) {
+      for (int i = 0; i < listOfFiles.length; i++) {
         String fileName = listOfFiles[i].getName();
         int extension = fileName.lastIndexOf(".");
         if (extension > 0) {
           fileName = fileName.substring(0, extension).toLowerCase();
           if (fileName.equals(inputUserChoice.toLowerCase())) {
-            mcqSetsNotExist = true;
-          } else {
-            System.out.println("Theres no such MCQ or Task");
-            System.out.print("Type your choice(without spacing) : ");
-            inputUserChoice = input.nextLine();
-            i++;
+            mcq.Questions(inputUserChoice);
+            mcqSetsNotExist = false;
           }
         }
       }
-      mcq.Questions(inputUserChoice);
-    } while (mcqSetsNotExist);
+      if (mcqSetsNotExist) {
+        System.out.println("Theres no such MCQ or Task");
+        System.out.print("Type your choice(without spacing) : ");
+        inputUserChoice = input.nextLine();
+      }
+    }
 
-    input.close();
   }
 
   static void generateFilesName(File folder, File[] listOfFiles) {

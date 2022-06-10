@@ -2,9 +2,9 @@ Number of primitive data types in Java are?,c,6,7,8,9
 What is the size of float and double in java?,a,32 and 64,32 and 32,64 and 64,64 and 32
 Automatic type conversion is possible in which of the possible cases?,b, Byte to int,Int to long,Long to int,Short to int
 Select the valid statement,b,char[] ch = new char(5),char[] ch = new char[5],char[] ch = new char(),char[] ch = new char[]
-When an array is passed to a method, what does the method receive?,a,The reference of the array,A copy of the array,Length of the array,Copy of first element
+When an array is passed to a method what does the method receive?,a,The reference of the array,A copy of the array,Length of the array,Copy of first element
 Arrays in java are...,b,Object references,Objects,Primitive data type,None
 When is the object created with new keyword?,d,None,At compile time,Depends on the code,At run time
 Identify the corrected definition of a package,c,A package is a collection of editing tools,A package is a collection of classes,A package is a collection of classes and interfaces,A package is a collection of interfaces
-Identify the keyword among the following that makes a variable belong to a class,rather than being defined for each instance of the class,b,final,static,volatile,abstract
+Identify the keyword among the following that makes a variable belong to a class rather than being defined for each instance of the class,b,final,static,volatile,abstract
 In which of the following is toString() method defined?,a,java.lang.Object,java.lang.String,java.lang.util,None
