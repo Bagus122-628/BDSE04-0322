@@ -1,0 +1,10 @@
+How many choices are possible when using a single if-else statement?,c,1,3,2,4
+How many "else" statements can you pair with a single "if" statement,a,1,<20,<10,As many as is needed
+How many "else if" links can you have in an "if else if" ladder?,d,<10,<30,<20,As many as is needed
+Which of these is used to add a third, fourth, etc outcome to a scenario?,c,otherwise,if,else if,elsa
+Which of the following loops will execute the body of loop even when condition controlling the loop is initially false?,a,do-while,for,while,none of the mentioned
+What is the data type that can be used with case statement in switch control structure?,b,The double data type,The char data type,The float data type,The String data type
+Which of the following for loops will be an infinite loop?,d,for(;;),for(i = 0; ;i++),for(i = 0;i < 1;i--),All of the above
+The while loop repeats a set of code while the condition is not met,b,True,False
+What is true about a break?,b,Break stops the execution of entire program,Break halts the execution and forces the control out of the loop,Break forces the control out of the loop and starts the execution of next iteration,Break halts the execution of the loop for certain time frame
+What is true about do statement?,a,do statement executes the code of a loop at least once,do statement does not get execute if condition is not matched in the first iteration,do statement checks the condition at the beginning of the loop,do statement executes the code more than once always
