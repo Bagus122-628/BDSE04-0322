@@ -13,7 +13,7 @@ public class Main {
     // Generate Files Name
     File folder = new File("src/MCQ");
     File[] listOfFiles = folder.listFiles();
-    generateFilesName(folder, listOfFiles);
+    generateFilesName(listOfFiles);
 
     // Take user input to MCQ set question
     System.out.print("Type your choice(without spacing) : ");
@@ -21,8 +21,8 @@ public class Main {
     boolean mcqSetsNotExist = true;
 
     while (mcqSetsNotExist) {
-      for (int i = 0; i < listOfFiles.length; i++) {
-        String fileName = listOfFiles[i].getName();
+      for (File listOfFile : listOfFiles) {
+        String fileName = listOfFile.getName();
         int extension = fileName.lastIndexOf(".");
         if (extension > 0) {
           fileName = fileName.substring(0, extension).toLowerCase();
@@ -41,13 +41,13 @@ public class Main {
 
   }
 
-  static void generateFilesName(File folder, File[] listOfFiles) {
-    for (int i = 0; i < listOfFiles.length; i++) {
-      String fileName = listOfFiles[i].getName();
+  static void generateFilesName(File[] listOfFiles) {
+    for (File listOfFile : listOfFiles) {
+      String fileName = listOfFile.getName();
       int extension = fileName.lastIndexOf(".");
       if (extension > 0) {
         fileName = fileName.substring(0, extension);
-        if (listOfFiles[i].isFile()) {
+        if (listOfFile.isFile()) {
           System.out.println(fileName);
         }
       }
