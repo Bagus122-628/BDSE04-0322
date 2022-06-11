@@ -13,7 +13,9 @@ public class Main {
     // Generate Files Name
     File folder = new File("src/MCQ");
     File[] listOfFiles = folder.listFiles();
-    generateFilesName(listOfFiles);
+    if (listOfFiles != null) {
+      generateFilesName(listOfFiles);
+    }
 
     // Take user input to MCQ set question
     System.out.print("Type your choice(without spacing) : ");
@@ -21,19 +23,21 @@ public class Main {
     boolean mcqSetsNotExist = true;
 
     while (mcqSetsNotExist) {
-      for (File listOfFile : listOfFiles) {
-        String fileName = listOfFile.getName();
-        int extension = fileName.lastIndexOf(".");
-        if (extension > 0) {
-          fileName = fileName.substring(0, extension).toLowerCase();
-          if (fileName.equals(inputUserChoice.toLowerCase())) {
-            mcq.Questions(inputUserChoice, inputUserName);
-            mcqSetsNotExist = false;
+      if (listOfFiles != null) {
+        for (File listOfFile : listOfFiles) {
+          String fileName = listOfFile.getName();
+          int extension = fileName.lastIndexOf(".");
+          if (extension > 0) {
+            fileName = fileName.substring(0, extension).toLowerCase();
+            if (fileName.equals(inputUserChoice.toLowerCase())) {
+              mcq.Questions(inputUserChoice, inputUserName);
+              mcqSetsNotExist = false;
+            }
           }
         }
       }
       if (mcqSetsNotExist) {
-        System.out.println("Theres no such MCQ or Task");
+        System.out.println("Please type valid MCQ or Task");
         System.out.print("Type your choice(without spacing) : ");
         inputUserChoice = input.nextLine();
       }
@@ -48,7 +52,7 @@ public class Main {
       if (extension > 0) {
         fileName = fileName.substring(0, extension);
         if (listOfFile.isFile()) {
-          System.out.println(fileName);
+          System.out.println(fileName.toLowerCase());
         }
       }
     }

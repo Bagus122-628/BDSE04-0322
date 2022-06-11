@@ -26,12 +26,11 @@ public class MCQ {
       }
 
       // User Answer
-      boolean validAnswer = false;
       System.out.print("Your Answer : ");
       String userAnswer = sc.nextLine().toUpperCase();
-      String correctAnswer = listMcqStr.get(5);
 
       // If user type an invalid answer
+      boolean validAnswer = false;
       while (!validAnswer) {
         if (userAnswer.equals("A") || userAnswer.equals("B") || userAnswer.equals("C") || userAnswer.equals("D")) {
           validAnswer = true;
@@ -42,9 +41,10 @@ public class MCQ {
         }
       }
 
-      System.out.println("\nYour Answer is : " + userAnswer);
-
       // Check if user answer is correct or wrong
+      System.out.println("\nYour Answer is : " + userAnswer);
+      String correctAnswer = listMcqStr.get(5);
+
       if (userAnswer.equals(correctAnswer.substring(0, 1))) {
         System.out.println("Your answer is correct!");
         score++;
