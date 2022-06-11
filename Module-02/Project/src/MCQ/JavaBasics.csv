@@ -1,10 +1,10 @@
-Number of primitive data types in Java are?,c,6,7,8,9
-What is the size of float and double in java?,a,32 and 64,32 and 32,64 and 64,64 and 32
-Automatic type conversion is possible in which of the possible cases?,b, Byte to int,Int to long,Long to int,Short to int
-Select the valid statement,b,char[] ch = new char(5),char[] ch = new char[5],char[] ch = new char(),char[] ch = new char[]
-When an array is passed to a method what does the method receive?,a,The reference of the array,A copy of the array,Length of the array,Copy of first element
-Arrays in java are...,b,Object references,Objects,Primitive data type,None
-When is the object created with new keyword?,d,None,At compile time,Depends on the code,At run time
-Identify the corrected definition of a package,c,A package is a collection of editing tools,A package is a collection of classes,A package is a collection of classes and interfaces,A package is a collection of interfaces
-Identify the keyword among the following that makes a variable belong to a class rather than being defined for each instance of the class,b,final,static,volatile,abstract
-In which of the following is toString() method defined?,a,java.lang.Object,java.lang.String,java.lang.util,None
+1.Number of primitive data types in Java are?,c,A.6,B.7,C.8,D.9
+2.What is the size of float and double in java?,a,A.32 and 64,B.32 and 32,C.64 and 64,D.64 and 32
+3.Automatic type conversion is possible in which of the possible cases?,b,A.Byte to int,B.Int to long,C.Long to int,D.Short to int
+4.Select the valid statement,b,A.char[] ch = new char(5),B.char[] ch = new char[5],C.char[] ch = new char(),D.char[] ch = new char[]
+5.When an array is passed to a method what does the method receive?,a,A.The reference of the array,B.A copy of the array,C.Length of the array,D.Copy of first element
+6.Arrays in java are...,b,A.Object references,B.Objects,C.Primitive data type,D.None
+7.When is the object created with new keyword?,d,A.None,B.At compile time,C.Depends on the code,D.At run time
+8.Identify the corrected definition of a package,c,A.A package is a collection of editing tools,B.A package is a collection of classes,C.A package is a collection of classes and interfaces,D.A package is a collection of interfaces
+9.Identify the keyword among the following that makes a variable belong to a class rather than being defined for each instance of the class,b,A.final,B.static,C.volatile,D.abstract
+10.In which of the following is toString() method defined?,a,A.java.lang.Object,B.java.lang.String,C.java.lang.util,D.None

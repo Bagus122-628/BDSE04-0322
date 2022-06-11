@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Arrays;
+import java.util.List;
 
 public class MCQ {
 
@@ -9,7 +11,17 @@ public class MCQ {
     BufferedReader br = new BufferedReader(fr);
     while ((line = br.readLine()) != null) {
       String[] mcqStr = line.split(","); // use comma as separator
-      System.out.println(mcqStr[1]);
+      List<String> listMcqStr = Arrays.asList(mcqStr);
+
+      // Print Questions
+      System.out.println(listMcqStr.get(0));
+      // Print Answer
+      for (int i = 2; i < 6; i++) {
+        System.out.println(listMcqStr.get(i));
+      }
+
+      // System.out.println(mcqStr[0]);
+      // System.out.println(mcqStr[1]);
     }
   }
 
