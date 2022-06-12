@@ -30,7 +30,7 @@ public class Main {
           if (extension > 0) {
             fileName = fileName.substring(0, extension).toLowerCase();
             if (fileName.equals(inputUserChoice.toLowerCase())) {
-              mcq.Questions(inputUserChoice, inputUserName);
+              mcq.questions(inputUserChoice, inputUserName);
               mcqSetsNotExist = false;
             }
           }

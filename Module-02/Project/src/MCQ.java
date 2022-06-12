@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class MCQ {
 
-  public void Questions(String CSV, String userName) throws Exception {
+  public void questions(String CSV, String userName) throws Exception {
     int score = 0;
     int wrongCounter = 0;
     Scanner sc = new Scanner(System.in);
