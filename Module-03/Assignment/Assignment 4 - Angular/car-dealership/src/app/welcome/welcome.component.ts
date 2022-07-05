@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SPONSORS } from '../sponsor';
 
 @Component({
   selector: 'app-welcome',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css'],
 })
 export class WelcomeComponent implements OnInit {
+  sponsors = SPONSORS;
+
   constructor() {}
 
   ngOnInit(): void {}
