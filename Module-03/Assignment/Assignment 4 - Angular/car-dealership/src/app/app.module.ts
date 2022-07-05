@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -14,19 +14,7 @@ import { CarsListComponent } from './cars-list/cars-list.component';
     NavbarComponent,
     CarsListComponent,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: WelcomeComponent,
-      },
-      {
-        path: 'list-of-cars',
-        component: CarsListComponent,
-      },
-    ]),
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
