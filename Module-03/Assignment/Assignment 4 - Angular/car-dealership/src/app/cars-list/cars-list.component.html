@@ -1,1 +1,32 @@
 <app-navbar></app-navbar>
+
+<div class="container mt-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb text-uppercase">
+      <li class="breadcrumb-item"><a class="text-decoration-none" routerLink="">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">list of cars</li>
+    </ol>
+  </nav>
+</div>
+
+<!-- Cars List -->
+<div class="container mb-4" id="cars-list">
+  <h4 class="fw-semibold">New & Used Cars For Sale</h4>
+  <div class="d-flex flex-wrap mt-3">
+    <!-- Car item -->
+    <div class="car-item d-flex flex-column mb-4 me-0 me-md-4" *ngFor="let car of cars">
+      <div class="car-image">
+        <img src="{{car.carPhoto}}" alt="Car">
+      </div>
+      <div class="car-detail p-3 d-flex flex-column justify-content-between">
+        <div class="wrapper">
+          <span class="make text-uppercase fw-semibold me-1">{{car.make}}</span>
+          <span class="model fw-semibold me-1">{{car.model}}</span>
+          <span class="year fw-semibold">{{car.year}}</span>
+          <div class="description text-secondary">{{car.description}}</div>
+        </div>
+        <button class="btn btn-primary mt-3">Subscription</button>
+      </div>
+    </div>
+  </div>
+</div>
