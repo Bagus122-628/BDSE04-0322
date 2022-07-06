@@ -13,5 +13,10 @@ export class CarsService {
     return cars;
   }
 
+  getCar(make: string): Observable<Car> {
+    const car = CARS.find((c) => c.make === make)!;
+    return of(car);
+  }
+
   constructor() {}
 }

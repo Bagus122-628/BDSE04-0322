@@ -10,13 +10,13 @@ import { CarsService } from '../cars.service';
 export class CarsListComponent implements OnInit {
   cars: Car[] = [];
 
-  getCars(): void {
-    this.carsService.getCars().subscribe((cars) => (this.cars = cars));
-  }
-
   constructor(private carsService: CarsService) {}
 
   ngOnInit(): void {
     this.getCars();
+  }
+
+  getCars(): void {
+    this.carsService.getCars().subscribe((cars) => (this.cars = cars));
   }
 }
