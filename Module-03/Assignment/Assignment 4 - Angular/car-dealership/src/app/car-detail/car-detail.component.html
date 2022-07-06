@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a class="text-decoration-none" routerLink="">Home</a></li>
+      <li class="breadcrumb-item">
+        <a class="text-decoration-none" routerLink="/list-of-cars">List of cars</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Cars</li>
+    </ol>
+  </nav>
+</div>
+
+<!-- Car Detail -->
+<div id="car-detail" class="container">
+  <div class="row mt-4">
+    <div class="col-lg-6 car-image me-0 me-md-3">
+      <img src="../../assets/image/Cars/Car5.png" alt="Car">
+    </div>
+    <div class="col-md-8 col-lg-4 car-detail mt-3">
+      <div class="wrapper">
+        <span class="make text-uppercase fw-semibold me-1 fs-2">make</span>
+        <span class="model fw-semibold me-1 fs-2">model</span>
+        <span class="year fw-semibold fs-2">2000</span>
+        <div class="description text-secondary fs-5">description</div>
+      </div>
+      <div class="callout d-flex flex-column mt-3">
+        <ul class="list-unstyled">
+          <li><i class="fa-solid fa-check text-info me-2"></i>Collect in store or we'll deliver to you</li>
+          <li><i class="fa-solid fa-check text-info me-2"></i>Part-exchange your car</li>
+          <li><i class="fa-solid fa-check text-info me-2"></i>Apply for Finance online</li>
+        </ul>
+        <button class="btn btn-primary">BUY NOW</button>
+      </div>
+    </div>
+  </div>
+</div>

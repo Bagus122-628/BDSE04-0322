@@ -2,9 +2,9 @@
 
 <div class="container mt-3">
   <nav aria-label="breadcrumb">
-    <ol class="breadcrumb text-uppercase">
+    <ol class="breadcrumb ">
       <li class="breadcrumb-item"><a class="text-decoration-none" routerLink="">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">list of cars</li>
+      <li class="breadcrumb-item active" aria-current="page">List of cars</li>
     </ol>
   </nav>
 </div>
@@ -25,7 +25,7 @@
           <span class="year fw-semibold">{{car.year}}</span>
           <div class="description text-secondary">{{car.description}}</div>
         </div>
-        <button class="btn btn-primary mt-3">Check Details</button>
+        <button class="btn btn-primary mt-3" routerLink="/car-detail">Check Details</button>
       </div>
     </div>
   </div>

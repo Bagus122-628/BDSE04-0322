@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarsListComponent } from './cars-list/cars-list.component';
+import { CarDetailComponent } from './car-detail/car-detail.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { CarsListComponent } from './cars-list/cars-list.component';
     WelcomeComponent,
     NavbarComponent,
     CarsListComponent,
+    CarDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
