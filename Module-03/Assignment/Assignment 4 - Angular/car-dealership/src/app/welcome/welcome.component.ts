@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CARS } from '../cars';
+import { FEATURED } from '../cars';
 import { SPONSORS } from '../sponsor';
 
 @Component({
@@ -9,7 +9,7 @@ import { SPONSORS } from '../sponsor';
 })
 export class WelcomeComponent implements OnInit {
   sponsors = SPONSORS;
-  cars = CARS;
+  featured = FEATURED;
 
   constructor() {}
 

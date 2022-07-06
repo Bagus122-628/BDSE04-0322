@@ -6,13 +6,35 @@
 </div>
 
 <!-- Sponsor -->
-<div class="container d-flex justify-content-between mt-4 mb-4" id="sponsors">
-  <div class="sponsor d-flex justify-content-center align-items-center" *ngFor="let sponsor of sponsors">
-    <img src="{{sponsor.img}}" alt="Car Sponsor">
+<div class="container d-flex mt-4 mb-4" id="sponsors">
+  <div class="row justify-content-center justify-content-lg-between">
+    <div class="col-lg-2 col-md-4 col-6 m-3 sponsor d-flex justify-content-center align-items-center" *ngFor="let sponsor of sponsors">
+      <img src="{{sponsor.img}}" alt="Car Sponsor">
+    </div>
   </div>
 </div>
 
 <!-- Featured Cars -->
-<div class="container">
-  
+<div class="container mb-4" id="featured-cars">
+  <div class="header d-flex justify-content-between">
+    <span class="fw-bold fs-4">Featured Cars</span>
+    <a class="text-decoration-none" routerLink="/list-of-cars">View all cars</a>
+  </div>
+  <div class="d-flex flex-wrap justify-content-center justify-content-md-start mt-2">
+    <!-- car item -->
+    <div class="car-item d-flex flex-column mb-4 me-0 me-md-4" *ngFor="let car of featured">
+      <div class="car-image">
+        <img src="{{car.carPhoto}}" alt="">
+      </div>
+      <div class="car-detail p-3 d-flex flex-column justify-content-between">
+        <div class="wrapper">
+          <span class="make text-uppercase fw-semibold me-1">{{car.make}}</span>
+          <span class="model fw-semibold me-1">{{car.model}}</span>
+          <span class="year fw-semibold">{{car.year}}</span>
+          <div class="description text-secondary">{{car.description}}</div>
+        </div>
+        <button class="btn btn-primary mt-3">Subscription</button>
+      </div>
+    </div>
+  </div>
 </div>

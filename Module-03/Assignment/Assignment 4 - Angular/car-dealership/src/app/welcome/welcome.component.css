@@ -1,4 +1,4 @@
-#hero-banner{
+#hero-banner {
   min-height: 40vh;
   background-image: url(../../assets/image/hero-banner.jpg);
   background-size: cover;
@@ -7,7 +7,7 @@
   z-index: 0;
 }
 
-#hero-banner::after{
+#hero-banner::after {
   content: "";
   background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
   position: absolute;
@@ -20,26 +20,47 @@
 
 #hero-banner h1 {
   position: relative;
-  text-shadow: 1px 2px 3px rgba(0,0,0,.3);
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
   z-index: 2;
 }
 
 /* Sponsor */
-#sponsors .sponsor{
-  box-shadow: 2px 3px 15px 3px rgba(0, 0, 0, 0.1);
+#sponsors .sponsor {
+  box-shadow: 0 4px 5px 1px rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 20px;
-  width: 200px;
+  min-width: 200px;
   height: 140px;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
 
-#sponsors .sponsor:hover{
+#sponsors .sponsor:hover {
   background-color: #ececec;
 }
 
-#sponsors .sponsor img{
+#sponsors .sponsor img {
   width: 100%;
   height: 100%;
+}
+
+#featured-cars .car-item {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.125);
+  max-width: 300px;
+}
+
+.car-item .car-image img {
+  width: 100%;
+}
+
+.car-item .car-detail {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  #featured-cars .car-item {
+    max-width: 350px;
+  }
 }
