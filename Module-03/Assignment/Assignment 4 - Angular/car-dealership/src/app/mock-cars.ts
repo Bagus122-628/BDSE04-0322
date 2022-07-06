@@ -37,7 +37,7 @@ export const CARS: Car[] = [
     carPhoto: '../assets/image/Cars/Car5.png',
   },
   {
-    make: 'BMW',
+    make: 'BMW.',
     model: '1 Series',
     year: '2017',
     description: 'PETROL 118i [1.5] SE 5dr [Nav]',
