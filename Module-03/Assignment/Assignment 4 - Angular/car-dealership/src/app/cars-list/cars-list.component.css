@@ -16,6 +16,6 @@
 
 @media (max-width: 768px) {
   #cars-list .car-item {
-    max-width: 350px;
+    min-width: 100%;
   }
 }
