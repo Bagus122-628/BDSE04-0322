@@ -1,12 +1,6 @@
-interface Cars {
-  make: string;
-  model: string;
-  year: string;
-  description: string;
-  carPhoto: string;
-}
+import { Car } from './car';
 
-export const CARS: Cars[] = [
+export const CARS: Car[] = [
   {
     make: 'Land Rover',
     model: 'Range Rover Evoque',
@@ -65,7 +59,7 @@ export const CARS: Cars[] = [
   },
 ];
 
-export const FEATURED: Cars[] = [
+export const FEATURED: Car[] = [
   {
     make: 'BMW',
     model: '1 Series',

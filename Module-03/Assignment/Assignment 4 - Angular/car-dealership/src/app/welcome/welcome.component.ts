@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FEATURED } from '../cars';
 import { SPONSORS } from '../sponsor';
+import { FEATURED } from '../mock-cars';
 
 @Component({
   selector: 'app-welcome',
