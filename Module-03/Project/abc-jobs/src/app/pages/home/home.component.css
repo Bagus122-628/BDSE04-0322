@@ -1,0 +1,24 @@
+.hero-content .heading {
+  min-width: 550px;
+  max-width: 600px;
+}
+
+.hero-login-form {
+  width: 450px;
+}
+
+@media (max-width: 768px) {
+  .hero-login-form {
+    width: 100%;
+  }
+
+  .hero-image img {
+    min-width: 300px;
+    max-width: 600px;
+  }
+
+  .hero-content .heading {
+    min-width: auto;
+    max-width: auto;
+  }
+}
