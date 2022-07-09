@@ -16,6 +16,30 @@
   width: 200px;
 }
 
+/* Topics */
+.topic-tag {
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.topic-tag:hover {
+  background-color: #eeeeee;
+}
+
+/* Featured Jobs */
+.job-container {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+  width: 60px;
+}
+
 @media (max-width: 768px) {
   .hero-login-form {
     width: 100%;
