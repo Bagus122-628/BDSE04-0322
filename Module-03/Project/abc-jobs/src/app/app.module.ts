@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './users/login/login.component';
 import { RegistrationComponent } from './users/registration/registration.component';
 import { RegistrationConfirmationComponent } from './users/registration/registration-confirmation/registration-confirmation.component';
+import { RegistrationConfirmationEmailComponent } from './users/registration/registration-confirmation-email/registration-confirmation-email.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RegistrationConfirmationComponent } from './users/registration/registra
     LoginComponent,
     RegistrationComponent,
     RegistrationConfirmationComponent,
+    RegistrationConfirmationEmailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
