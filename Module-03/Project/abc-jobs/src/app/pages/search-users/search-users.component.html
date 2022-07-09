@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<section id="search-users">
+  <div class="container d-flex flex-column">
+    <div class="heading mt-4">
+      <h2 class="fw-semibold">Search User</h2>
+    </div>
+    <form class="search-user-form d-flex">
+      <input type="text" id="search-user" placeholder="Search" />
+      <button
+        type="button"
+        class="btn btn-outline-secondary btn-search"
+        (click)="searchUser()"
+      >
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+
+    <!-- Search Result -->
+    <div id="search-results" class="mt-5">
+      <div class="result d-flex pb-3 pt-3">
+        <div class="image me-3">
+          <img src="../../../assets/images/user/user-default.png" alt="" />
+        </div>
+        <div class="detail">
+          <p class="name">Ida Bagus Ketut Yoghantara</p>
+          <p class="address text-secondary">Country, City</p>
+          <p class="company text-secondary">
+            <i class="fa-solid fa-building"></i> Company
+          </p>
+        </div>
+      </div>
+      <div class="result d-flex pb-3 pt-3">
+        <div class="image me-3">
+          <img src="../../../assets/images/user/user-default.png" alt="" />
+        </div>
+        <div class="detail">
+          <p class="name">Ida Bagus Ketut Yoghantara</p>
+          <p class="address text-secondary">Country, City</p>
+          <p class="company text-secondary">
+            <i class="fa-solid fa-building"></i> Company
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

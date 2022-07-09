@@ -11,6 +11,7 @@ import { LoginComponent } from './users/login/login.component';
 import { RegistrationComponent } from './users/registration/registration.component';
 import { RegistrationConfirmationComponent } from './users/registration/registration-confirmation/registration-confirmation.component';
 import { RegistrationConfirmationEmailComponent } from './users/registration/registration-confirmation-email/registration-confirmation-email.component';
+import { SearchUsersComponent } from './pages/search-users/search-users.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RegistrationConfirmationEmailComponent } from './users/registration/reg
     RegistrationComponent,
     RegistrationConfirmationComponent,
     RegistrationConfirmationEmailComponent,
+    SearchUsersComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
