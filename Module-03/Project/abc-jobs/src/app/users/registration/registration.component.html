@@ -1,0 +1,89 @@
+<app-navbar></app-navbar>
+
+<!-- Registration Form -->
+<section id="registration-form">
+  <div class="container">
+    <form class="mt-4">
+      <!-- Email and Password -->
+      <div class="row justify-content-center" *ngIf="element === false">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex flex-column">
+            <div class="heading">
+              <h2>Register</h2>
+            </div>
+
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email-regis"
+              placeholder="sulivan@email.com"
+              required
+            />
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password-regis"
+              placeholder="Password"
+            />
+
+            <button
+              type="button"
+              class="btn btn-primary mt-3"
+              (click)="registerNext()"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Detail Profile -->
+      <div class="row justify-content-center" *ngIf="element === true">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex flex-column">
+            <div class="heading">
+              <h2>Register</h2>
+            </div>
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              name="first-name"
+              id="first-name-regis"
+              placeholder="Alex"
+            />
+
+            <label for="last-name">Last Name</label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name-regis"
+              placeholder="Sulivan"
+            />
+
+            <label for="country">Country</label>
+            <input
+              type="text"
+              name="country"
+              id="country-regis"
+              placeholder="Indonesia"
+            />
+
+            <label for="city">City</label>
+            <input type="text" name="city" id="city-regis" placeholder="Bali" />
+
+            <label for="company">Company</label>
+            <input
+              type="text"
+              name="company"
+              id="company-regis"
+              placeholder="Lithan"
+            />
+            <button type="submit" class="btn btn-primary mt-3">Register</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
