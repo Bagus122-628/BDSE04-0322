@@ -7,6 +7,15 @@
   width: 450px;
 }
 
+/* Partners */
+#partners {
+  background-color: #f3f2f0;
+}
+
+.partner img {
+  width: 200px;
+}
+
 @media (max-width: 768px) {
   .hero-login-form {
     width: 100%;
@@ -20,5 +29,15 @@
   .hero-content .heading {
     min-width: auto;
     max-width: auto;
+  }
+
+  .partner img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .partner img {
+    width: 100px;
   }
 }
