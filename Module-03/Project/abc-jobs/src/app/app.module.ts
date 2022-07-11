@@ -14,6 +14,7 @@ import { RegistrationConfirmationComponent } from './users/registration/registra
 import { RegistrationConfirmationEmailComponent } from './users/registration/registration-confirmation-email/registration-confirmation-email.component';
 import { SearchUsersComponent } from './pages/search-users/search-users.component';
 import { ProfileUserComponent } from './pages/profile-user/profile-user.component';
+import { UserAccountsService } from './user-accounts.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { ProfileUserComponent } from './pages/profile-user/profile-user.componen
     ProfileUserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [UserAccountsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
