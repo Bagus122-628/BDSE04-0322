@@ -2,91 +2,207 @@
 
 <!-- Registration Form -->
 <section id="registration-form">
-  <div class="container">
-    <form class="mt-5">
-      <!-- Email and Password -->
-      <div class="row justify-content-center" *ngIf="element === false">
-        <div class="col-lg-5 col-md-7">
+  <div class="container mt-5">
+    <form
+      name="form"
+      (ngSubmit)="regisForm.form.valid && onSubmit()"
+      #regisForm="ngForm"
+      novalidate
+    >
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8">
           <div class="d-flex flex-column regis-wrapper">
             <div class="heading">
               <h2>Register</h2>
             </div>
 
-            <label for="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email-regis"
-              placeholder="sulivan@email.com"
-              required
-            />
-            <label for="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password-regis"
-              placeholder="Password"
-            />
-
-            <button
-              type="button"
-              class="btn btn-primary mt-3"
-              (click)="registerNext()"
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- User Detail Profile -->
-      <div class="row justify-content-center" *ngIf="element">
-        <div class="col-lg-5 col-md-7">
-          <div class="d-flex flex-column regis-wrapper">
-            <div class="heading">
-              <h2>Register</h2>
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                placeholder="sulivan@email.com"
+                class="form-control"
+                [(ngModel)]="forms.email"
+                #email="ngModel"
+                [ngClass]="{
+                  'is-invalid': regisForm.submitted && email.invalid
+                }"
+                required
+                email
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="regisForm.submitted && email.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="email.errors?.['required']">Email is required</div>
+                <div *ngIf="email.errors?.['email']">
+                  Email must be a valid email address
+                </div>
+              </div>
             </div>
-            <label for="first-name">First Name</label>
-            <input
-              type="text"
-              name="first-name"
-              id="first-name-regis"
-              placeholder="Alex"
-            />
 
-            <label for="last-name">Last Name</label>
-            <input
-              type="text"
-              name="last-name"
-              id="last-name-regis"
-              placeholder="Sulivan"
-            />
+            <!-- Password -->
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                class="form-control"
+                [(ngModel)]="forms.password"
+                #password="ngModel"
+                [ngClass]="{
+                  'is-invalid': regisForm.submitted && password.invalid
+                }"
+                required
+                minlength="6"
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="regisForm.submitted && password.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="password.errors?.['required']">
+                  Password is required
+                </div>
+                <div *ngIf="password.errors?.['minlength']">
+                  Password must be at least 6 characters
+                </div>
+              </div>
+            </div>
 
-            <label for="country">Country</label>
-            <input
-              type="text"
-              name="country"
-              id="country-regis"
-              placeholder="Indonesia"
-            />
+            <!-- First Name -->
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input
+                type="text"
+                name="first-name"
+                placeholder="Alex"
+                class="form-control"
+                [(ngModel)]="forms.firstName"
+                #firstName="ngModel"
+                [ngClass]="{
+                  'is-invalid': regisForm.submitted && firstName.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="regisForm.submitted && firstName.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="firstName.errors?.['required']">
+                  First Name is required
+                </div>
+              </div>
+            </div>
 
-            <label for="city">City</label>
-            <input type="text" name="city" id="city-regis" placeholder="Bali" />
+            <!-- Last Name -->
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input
+                type="text"
+                name="last-name"
+                placeholder="Sulivan"
+                class="form-control"
+                [(ngModel)]="forms.lastName"
+                #lastName="ngModel"
+                [ngClass]="{
+                  'is-invalid': regisForm.submitted && lastName.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="regisForm.submitted && lastName.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="lastName.errors?.['required']">
+                  Last Name is required
+                </div>
+              </div>
+            </div>
 
-            <label for="company">Company</label>
-            <input
-              type="text"
-              name="company"
-              id="company-regis"
-              placeholder="Lithan"
-            />
-            <button
-              type="submit"
-              class="btn btn-primary mt-3"
-              routerLink="/registration-confirmation"
-            >
-              Register
-            </button>
+            <!-- Country -->
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input
+                type="text"
+                name="country"
+                placeholder="Indonesia"
+                class="form-control"
+                [(ngModel)]="forms.country"
+                #country="ngModel"
+                [ngClass]="{
+                  'is-invalid': regisForm.submitted && country.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="regisForm.submitted && country.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="country.errors?.['required']">
+                  Country is required
+                </div>
+              </div>
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                name="city"
+                placeholder="Bali"
+                class="form-control"
+                [(ngModel)]="forms.city"
+                #city="ngModel"
+                [ngClass]="{
+                  'is-invalid': regisForm.submitted && city.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="regisForm.submitted && city.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="city.errors?.['required']">City is required</div>
+              </div>
+            </div>
+
+            <!-- Company -->
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input
+                type="text"
+                name="company"
+                placeholder="Lithan"
+                class="form-control"
+                [(ngModel)]="forms.company"
+                #company="ngModel"
+                [ngClass]="{
+                  'is-invalid': regisForm.submitted && company.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="regisForm.submitted && company.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="company.errors?.['required']">
+                  Company is required
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4">Register</button>
           </div>
         </div>
       </div>
