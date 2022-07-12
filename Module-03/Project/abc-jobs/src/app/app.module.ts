@@ -15,6 +15,7 @@ import { RegistrationConfirmationEmailComponent } from './users/registration/reg
 import { SearchUsersComponent } from './pages/search-users/search-users.component';
 import { ProfileUserComponent } from './pages/profile-user/profile-user.component';
 import { UserAccountsService } from './user-accounts.service';
+import { EditProfileComponent } from './pages/profile-user/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserAccountsService } from './user-accounts.service';
     RegistrationConfirmationEmailComponent,
     SearchUsersComponent,
     ProfileUserComponent,
+    EditProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [UserAccountsService],

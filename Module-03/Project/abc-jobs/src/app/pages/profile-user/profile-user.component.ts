@@ -9,7 +9,7 @@ import { UserAccountsService } from 'src/app/user-accounts.service';
   styleUrls: ['./profile-user.component.css'],
 })
 export class ProfileUserComponent implements OnInit {
-  userData: User | any;
+  userProfileData: User | any;
   dummyUser: User[] = [];
 
   constructor(
@@ -21,7 +21,7 @@ export class ProfileUserComponent implements OnInit {
     this.getUsers();
     this.getUser();
     const filteredUser = this.dummyUser.filter(
-      (user) => user.email != this.userData.email
+      (user) => user.email != this.userProfileData.email
     );
     this.dummyUser = filteredUser;
   }
@@ -32,6 +32,8 @@ export class ProfileUserComponent implements OnInit {
 
   getUser(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.getUserID(id).subscribe((id) => (this.userData = id));
+    this.userService
+      .getUserID(id)
+      .subscribe((id) => (this.userProfileData = id));
   }
 }
