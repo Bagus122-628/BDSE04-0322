@@ -13,8 +13,8 @@ export class UserAccountsService {
   constructor() {}
 
   getUsers(): Observable<User[]> {
-    const cars = of(USERS);
-    return cars;
+    const users = of(USERS);
+    return users;
   }
 
   getUserID(id: number): Observable<User> {
