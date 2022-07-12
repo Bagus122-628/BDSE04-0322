@@ -7,38 +7,24 @@
     </div>
     <form class="search-user-form d-flex">
       <input type="text" id="search-user" placeholder="Search" />
-      <button
-        type="button"
-        class="btn btn-outline-secondary btn-search"
-        (click)="searchUser()"
-      >
+      <button type="button" class="btn btn-outline-secondary btn-search">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
     </form>
 
     <!-- Search Result -->
     <div id="search-results" class="mt-5">
-      <div class="result d-flex pb-3 pt-3">
+      <div class="result d-flex pb-3 pt-3" *ngFor="let user of userData">
         <div class="image me-3">
           <img src="../../../assets/images/user/user-default.png" alt="" />
         </div>
         <div class="detail">
-          <p class="name">Ida Bagus Ketut Yoghantara</p>
-          <p class="address text-secondary">Country, City</p>
-          <p class="company text-secondary">
-            <i class="fa-solid fa-building"></i> Company
+          <p class="name">{{ user.firstName }} {{ user.lastName }}</p>
+          <p class="address text-secondary">
+            {{ user.country }}, {{ user.city }}
           </p>
-        </div>
-      </div>
-      <div class="result d-flex pb-3 pt-3">
-        <div class="image me-3">
-          <img src="../../../assets/images/user/user-default.png" alt="" />
-        </div>
-        <div class="detail">
-          <p class="name">Ida Bagus Ketut Yoghantara</p>
-          <p class="address text-secondary">Country, City</p>
           <p class="company text-secondary">
-            <i class="fa-solid fa-building"></i> Company
+            <i class="fa-solid fa-building"></i> {{ user.company }}
           </p>
         </div>
       </div>
