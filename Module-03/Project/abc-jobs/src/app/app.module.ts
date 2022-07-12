@@ -16,6 +16,7 @@ import { SearchUsersComponent } from './pages/search-users/search-users.componen
 import { ProfileUserComponent } from './pages/profile-user/profile-user.component';
 import { UserAccountsService } from './user-accounts.service';
 import { EditProfileComponent } from './pages/profile-user/edit-profile/edit-profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { EditProfileComponent } from './pages/profile-user/edit-profile/edit-pro
     ProfileUserComponent,
     EditProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule],
   providers: [UserAccountsService],
   bootstrap: [AppComponent],
 })

@@ -1,1 +1,149 @@
 <app-navbar></app-navbar>
+
+<!-- Registration Form -->
+<section id="registration-form">
+  <div class="container mt-5 mb-5">
+    <form
+      name="form"
+      (ngSubmit)="editForm.form.valid && onSubmit()"
+      #editForm="ngForm"
+      novalidate
+    >
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8">
+          <div class="d-flex flex-column regis-wrapper">
+            <div class="heading">
+              <h2>Edit Profile</h2>
+            </div>
+            <!-- First Name -->
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input
+                type="text"
+                name="first-name"
+                class="form-control"
+                [(ngModel)]="userProfileData.firstName"
+                #firstName="ngModel"
+                [ngClass]="{
+                  'is-invalid': editForm.submitted && firstName.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="editForm.submitted && firstName.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="firstName.errors?.['required']">
+                  First Name is required
+                </div>
+              </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input
+                type="text"
+                name="last-name"
+                class="form-control"
+                [(ngModel)]="userProfileData.lastName"
+                #lastName="ngModel"
+                [ngClass]="{
+                  'is-invalid': editForm.submitted && lastName.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="editForm.submitted && lastName.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="lastName.errors?.['required']">
+                  Last Name is required
+                </div>
+              </div>
+            </div>
+
+            <!-- Country -->
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input
+                type="text"
+                name="country"
+                class="form-control"
+                [(ngModel)]="userProfileData.country"
+                #country="ngModel"
+                [ngClass]="{
+                  'is-invalid': editForm.submitted && country.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="editForm.submitted && country.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="country.errors?.['required']">
+                  Country is required
+                </div>
+              </div>
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                name="city"
+                class="form-control"
+                [(ngModel)]="userProfileData.city"
+                #city="ngModel"
+                [ngClass]="{
+                  'is-invalid': editForm.submitted && city.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="editForm.submitted && city.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="city.errors?.['required']">City is required</div>
+              </div>
+            </div>
+
+            <!-- Company -->
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input
+                type="text"
+                name="company"
+                class="form-control"
+                [(ngModel)]="userProfileData.company"
+                #company="ngModel"
+                [ngClass]="{
+                  'is-invalid': editForm.submitted && company.invalid
+                }"
+                required
+              />
+              <!-- Error Message -->
+              <div
+                *ngIf="editForm.submitted && company.invalid"
+                class="invalid-feedback"
+              >
+                <div *ngIf="company.errors?.['required']">
+                  Company is required
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4">
+              Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

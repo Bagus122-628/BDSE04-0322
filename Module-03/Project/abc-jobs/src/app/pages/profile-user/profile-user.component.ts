@@ -11,6 +11,8 @@ import { UserAccountsService } from 'src/app/user-accounts.service';
 export class ProfileUserComponent implements OnInit {
   userProfileData: User | any;
   dummyUser: User[] = [];
+  filteredUser: User[] = [];
+  privateProfile = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,10 +22,14 @@ export class ProfileUserComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
     this.getUser();
+    this.getFilteredUser();
+  }
+
+  getFilteredUser(): void {
     const filteredUser = this.dummyUser.filter(
       (user) => user.email != this.userProfileData.email
     );
-    this.dummyUser = filteredUser;
+    this.filteredUser = filteredUser;
   }
 
   getUsers(): void {

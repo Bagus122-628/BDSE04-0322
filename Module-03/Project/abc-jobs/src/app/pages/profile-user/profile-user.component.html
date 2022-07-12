@@ -13,9 +13,20 @@
             <div class="profile-picture position-absolute">
               <img src="../../../assets/images/user/user-default.png" alt="" />
             </div>
-            <h3 class="name">
-              {{ userProfileData.firstName }} {{ userProfileData.lastName }}
-            </h3>
+            <div class="d-flex justify-content-between">
+              <h3 class="name">
+                {{ userProfileData.firstName }} {{ userProfileData.lastName }}
+              </h3>
+              <!-- Edit -->
+              <div class="d-flex flex-column">
+                <button
+                  class="btn btn-primary"
+                  routerLink="/profile/{{ userProfileData.id }}/edit-profile"
+                >
+                  Edit Profile
+                </button>
+              </div>
+            </div>
             <p class="address m-0 mb-1">
               {{ userProfileData.country }}, {{ userProfileData.city }}
             </p>
@@ -28,11 +39,7 @@
             </div>
           </div>
         </div>
-        <!-- Edit Profile -->
-        <div class="d-flex d-md-none flex-column mt-3">
-          <button class="btn btn-primary">Edit Profile</button>
-        </div>
-        <!-- Edit Profile -->
+
         <ul class="navigation d-flex mt-3 list-unstyled fw-semibold">
           <li class="nav-profile">About</li>
           <li class="nav-profile">Jobs</li>
@@ -53,16 +60,11 @@
       </main>
       <!-- aside -->
       <aside class="d-none d-md-flex flex-column">
-        <!-- Edit Profile -->
-        <div class="d-flex flex-column">
-          <button class="btn btn-primary">Edit Profile</button>
-        </div>
-        <!-- Edit Profile -->
-        <div class="people d-flex flex-column mt-3 p-3">
+        <div class="people d-flex flex-column p-3">
           <h5 class="mb-3">People you may know</h5>
           <div
             class="people-profile d-flex mb-3"
-            *ngFor="let user of dummyUser"
+            *ngFor="let user of filteredUser"
           >
             <div class="image me-3">
               <img src="../../../assets/images/user/user-default.png" alt="" />
