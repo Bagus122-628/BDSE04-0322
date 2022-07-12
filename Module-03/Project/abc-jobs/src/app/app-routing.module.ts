@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { HomeComponent } from './pages/home/home.component';
 import { EditProfileComponent } from './pages/profile-user/edit-profile/edit-profile.component';
 import { ProfileUserComponent } from './pages/profile-user/profile-user.component';
+import { PublicProfileComponent } from './pages/profile-user/public-profile/public-profile.component';
 import { SearchUsersComponent } from './pages/search-users/search-users.component';
 import { LoginComponent } from './users/login/login.component';
 import { RegistrationConfirmationEmailComponent } from './users/registration/registration-confirmation-email/registration-confirmation-email.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'search', component: SearchUsersComponent },
   { path: 'profile/:id', component: ProfileUserComponent },
   { path: 'profile/:id/edit-profile', component: EditProfileComponent },
+  { path: 'profile/:id/:firstName', component: PublicProfileComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   {
     path: 'forgot-password-confirmation',

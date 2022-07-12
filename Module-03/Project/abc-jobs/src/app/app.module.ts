@@ -19,6 +19,7 @@ import { EditProfileComponent } from './pages/profile-user/edit-profile/edit-pro
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ForgotPasswordConfirmationComponent } from './pages/forgot-password/forgot-password-confirmation/forgot-password-confirmation.component';
+import { PublicProfileComponent } from './pages/profile-user/public-profile/public-profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ForgotPasswordConfirmationComponent } from './pages/forgot-password/for
     EditProfileComponent,
     ForgotPasswordComponent,
     ForgotPasswordConfirmationComponent,
+    PublicProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule],
   providers: [UserAccountsService],
