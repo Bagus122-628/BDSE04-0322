@@ -14,6 +14,10 @@
       [(ngModel)]="userInputEmail"
       [ngModelOptions]="{ standalone: true }"
       required
+      [ngClass]="{
+        'is-invalid': loginForm.submitted && email.invalid
+      }"
+      #email="ngModel"
     />
   </div>
 
@@ -26,6 +30,10 @@
       [(ngModel)]="userInputPassword"
       [ngModelOptions]="{ standalone: true }"
       required
+      [ngClass]="{
+        'is-invalid': loginForm.submitted && password.invalid
+      }"
+      #password="ngModel"
     />
   </div>
 
