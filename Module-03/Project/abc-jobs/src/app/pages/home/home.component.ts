@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAccountsService } from 'src/app/user-accounts.service';
 
 const PARTNERS = [
   {
@@ -69,8 +70,9 @@ export class HomeComponent implements OnInit {
   partners = PARTNERS;
   topics = TOPICS;
   jobs = FEATUREDJOBS;
+  loggedIn = this.userAccounts.loggedIn;
 
-  constructor() {}
+  constructor(private userAccounts: UserAccountsService) {}
 
   ngOnInit(): void {}
 }

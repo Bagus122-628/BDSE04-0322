@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/user';
+import { UserAccountsService } from 'src/app/user-accounts.service';
 
 const DUMMYUSER = [
   {
@@ -28,7 +31,19 @@ const DUMMYUSER = [
 })
 export class ProfileUserComponent implements OnInit {
   dummyUser = DUMMYUSER;
-  constructor() {}
+  userData: User | any;
 
-  ngOnInit(): void {}
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserAccountsService
+  ) {}
+
+  ngOnInit(): void {
+    this.getUser();
+  }
+
+  getUser(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.userService.getUserID(id).subscribe((id) => (this.userData = id));
+  }
 }

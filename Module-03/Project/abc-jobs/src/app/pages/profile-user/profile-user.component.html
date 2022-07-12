@@ -4,7 +4,7 @@
   <div class="container">
     <div class="d-flex mt-5">
       <!-- profile -->
-      <main class="me-3">
+      <main class="me-3" *ngIf="userData">
         <div class="profile">
           <div class="banner">
             <img src="" alt="" />
@@ -13,8 +13,15 @@
             <div class="profile-picture position-absolute">
               <img src="../../../assets/images/user/user-default.png" alt="" />
             </div>
-            <h3 class="name">gustut yoghantara</h3>
-            <p class="address">Country, City</p>
+            <h3 class="name">
+              {{ userData.firstName }} {{ userData.lastName }}
+            </h3>
+            <p class="address m-0 mb-1">
+              {{ userData.country }}, {{ userData.city }}
+            </p>
+            <p class="company">
+              <i class="fa-solid fa-building"></i> {{ userData.company }}
+            </p>
             <div class="d-flex">
               <button class="btn btn-primary me-3">Add profile section</button>
               <button class="btn btn-outline-dark">More</button>

@@ -13,7 +13,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse text-center" id="navbarNav">
-      <ul class="navbar-nav ms-auto me-0 me-lg-auto fw-semibold text-uppercase">
+      <ul
+        [ngClass]="[
+          !loggedIn
+            ? 'navbar-nav ms-auto me-0 me-lg-auto fw-semibold text-uppercase'
+            : 'navbar-nav ms-auto me-0 fw-semibold text-uppercase'
+        ]"
+      >
         <li class="nav-item me-0 me-lg-3">
           <a class="nav-link" routerLink="/"
             ><i class="fa-solid fa-house"></i> Home</a
@@ -30,7 +36,7 @@
           >
         </li>
       </ul>
-      <div class="nav-button d-flex flex-column flex-lg-row">
+      <div class="nav-button d-flex flex-column flex-lg-row" *ngIf="!loggedIn">
         <button
           class="btn btn-outline-secondary me-0 me-lg-3 mb-3 mb-lg-0"
           routerLink="/login"

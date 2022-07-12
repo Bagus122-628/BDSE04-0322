@@ -1,23 +1,37 @@
-<form class="mt-4 d-flex flex-column">
-  <input
-    id="loginEmail"
-    class="d-block mb-3"
-    type="text"
-    placeholder="Email or phone"
-  />
-  <input
-    id="loginPassword"
-    class="d-block"
-    type="password"
-    placeholder="Password"
-  />
+<form
+  class="mt-4 d-flex flex-column"
+  name="form"
+  (ngSubmit)="loginForm.form.valid && onLogin()"
+  #loginForm="ngForm"
+  novalidate
+>
+  <div class="form-group">
+    <input
+      id="loginEmail"
+      class="form-control mb-3"
+      type="text"
+      placeholder="Email or phone"
+      [(ngModel)]="userInputEmail"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+
+  <div class="form-group">
+    <input
+      id="loginPassword"
+      class="form-control"
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="userInputPassword"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+
   <div class="forgot-password mt-3 mb-3 text-end">
     <a class="text-decoration-none" routerLink="/forgot-password"
       >Forgot Password?</a
     >
   </div>
 
-  <button class="btn btn-primary" type="submit" routerLink="/profile">
-    Login
-  </button>
+  <button class="btn btn-primary" type="submit">Login</button>
 </form>

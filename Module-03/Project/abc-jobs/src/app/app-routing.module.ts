@@ -21,7 +21,7 @@ const routes: Routes = [
     component: RegistrationConfirmationEmailComponent,
   },
   { path: 'search', component: SearchUsersComponent },
-  { path: 'profile', component: ProfileUserComponent },
+  { path: 'profile/:id', component: ProfileUserComponent },
 ];
 
 @NgModule({

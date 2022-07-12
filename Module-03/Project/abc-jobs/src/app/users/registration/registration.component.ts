@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { USERS } from 'src/app/mock-user';
+import { User } from 'src/app/user';
 import { UserAccountsService } from 'src/app/user-accounts.service';
 
 @Component({
@@ -9,17 +11,25 @@ import { UserAccountsService } from 'src/app/user-accounts.service';
 })
 export class RegistrationComponent implements OnInit {
   forms: any = {};
-  formSubmitData = {};
+  users: User[] = [];
+  mockUsers = USERS;
 
   constructor(
     private router: Router,
     private userAccounts: UserAccountsService
   ) {}
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  getUsers(): void {
+    this.userAccounts.getUsers().subscribe((users) => (this.users = users));
+  }
 
   onSubmit() {
-    this.formSubmitData = {
-      id: this.userAccounts.id + 1,
+    this.mockUsers.push({
+      id: this.users.length + 1,
       email: this.forms.email,
       password: this.forms.password,
       firstName: this.forms.firstName,
@@ -27,9 +37,9 @@ export class RegistrationComponent implements OnInit {
       country: this.forms.country,
       city: this.forms.city,
       company: this.forms.company,
-    };
+    });
+    console.log(this.users);
 
-    this.userAccounts.addNewAccount(this.formSubmitData);
     this.router.navigate(['/registration-confirmation']);
   }
 }
