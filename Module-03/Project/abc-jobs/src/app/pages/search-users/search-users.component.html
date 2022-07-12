@@ -20,7 +20,7 @@
         routerLink="/profile/{{ user.id }}/{{ user.firstName }}"
       >
         <div class="image me-3">
-          <img src="../../../assets/images/user/user-default.png" alt="" />
+          <img src="{{ user.picture }}" alt="" />
         </div>
         <div class="detail">
           <p class="name">{{ user.firstName }} {{ user.lastName }}</p>

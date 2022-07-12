@@ -7,4 +7,6 @@ export interface User {
   country: string;
   city: string;
   company: string;
+  picture: string;
+  banner: string;
 }

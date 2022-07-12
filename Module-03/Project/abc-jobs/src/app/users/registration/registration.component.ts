@@ -37,6 +37,8 @@ export class RegistrationComponent implements OnInit {
       country: this.forms.country,
       city: this.forms.city,
       company: this.forms.company,
+      picture: '',
+      banner: '',
     });
     console.log(this.users);
 

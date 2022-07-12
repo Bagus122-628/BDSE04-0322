@@ -7,11 +7,11 @@
       <main class="me-3" *ngIf="userProfileData">
         <div class="profile">
           <div class="banner">
-            <img src="" alt="" />
+            <img src="{{ userProfileData.banner }}" alt="" />
           </div>
           <div class="p-4 pt-5 position-relative">
             <div class="profile-picture position-absolute">
-              <img src="../../../assets/images/user/user-default.png" alt="" />
+              <img src="{{ userProfileData.picture }}" alt="" />
             </div>
             <div class="d-flex justify-content-between">
               <h3 class="name">
@@ -68,7 +68,7 @@
             routerLink="/profile/{{ user.id }}/{{ user.firstName }}"
           >
             <div class="image me-3">
-              <img src="../../../assets/images/user/user-default.png" alt="" />
+              <img src="{{ user.picture }}" alt="" />
             </div>
             <div class="detail">
               <p>{{ user.firstName }} {{ user.lastName }}</p>
