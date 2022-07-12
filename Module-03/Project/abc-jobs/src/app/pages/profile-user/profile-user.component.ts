@@ -3,35 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/user';
 import { UserAccountsService } from 'src/app/user-accounts.service';
 
-const DUMMYUSER = [
-  {
-    name: 'Ricky',
-    country: 'country',
-    city: 'city',
-    company: 'company',
-  },
-  {
-    name: 'Alex',
-    country: 'country',
-    city: 'city',
-    company: 'company',
-  },
-  {
-    name: 'Molarya',
-    country: 'country',
-    city: 'city',
-    company: 'company',
-  },
-];
-
 @Component({
   selector: 'app-profile-user',
   templateUrl: './profile-user.component.html',
   styleUrls: ['./profile-user.component.css'],
 })
 export class ProfileUserComponent implements OnInit {
-  dummyUser = DUMMYUSER;
   userData: User | any;
+  dummyUser: User[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +18,16 @@ export class ProfileUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getUsers();
     this.getUser();
+    const filteredUser = this.dummyUser.filter(
+      (user) => user.email != this.userData.email
+    );
+    this.dummyUser = filteredUser;
+  }
+
+  getUsers(): void {
+    this.userService.getUsers().subscribe((users) => (this.dummyUser = users));
   }
 
   getUser(): void {

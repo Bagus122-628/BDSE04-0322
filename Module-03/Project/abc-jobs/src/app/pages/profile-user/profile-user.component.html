@@ -55,6 +55,7 @@
           <button class="btn btn-primary">Edit Profile</button>
         </div>
         <div class="people d-flex flex-column mt-3 p-3">
+          <h5 class="mb-3">People you may know</h5>
           <div
             class="people-profile d-flex mb-3"
             *ngFor="let user of dummyUser"
@@ -63,7 +64,7 @@
               <img src="../../../assets/images/user/user-default.png" alt="" />
             </div>
             <div class="detail">
-              <p>{{ user.name }}</p>
+              <p>{{ user.firstName }} {{ user.lastName }}</p>
               <p class="text-secondary">{{ user.country }}, {{ user.city }}</p>
               <p class="text-secondary">
                 <i class="fa-solid fa-building"></i> {{ user.company }}
