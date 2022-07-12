@@ -7,6 +7,11 @@ import { User } from './user';
   providedIn: 'root',
 })
 export class UserAccountsService {
+  loggedIn = false;
+  userLoginID: number = 0;
+
+  constructor() {}
+
   getUsers(): Observable<User[]> {
     const cars = of(USERS);
     return cars;
@@ -16,8 +21,4 @@ export class UserAccountsService {
     const ID = USERS.find((ID) => ID.id === id)!;
     return of(ID);
   }
-
-  loggedIn = false;
-
-  constructor() {}
 }

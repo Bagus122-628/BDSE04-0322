@@ -47,6 +47,7 @@ export class LoginFormComponent implements OnInit {
 
     if (this.validEmail && this.validPassword) {
       this.userAccounts.loggedIn = true;
+      this.userAccounts.userLoginID = this.emailFounded?.id!;
       this.router.navigate([`/profile/${this.emailFounded?.id}`]);
     }
   }

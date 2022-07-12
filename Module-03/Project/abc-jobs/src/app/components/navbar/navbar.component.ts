@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/user';
 import { UserAccountsService } from 'src/app/user-accounts.service';
 
 @Component({
@@ -7,9 +8,23 @@ import { UserAccountsService } from 'src/app/user-accounts.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  loggedIn = this.userAccounts.loggedIn;
+  userProfileData: User | any;
+  loggedIn = this.userService.loggedIn;
 
-  constructor(private userAccounts: UserAccountsService) {}
+  constructor(private userService: UserAccountsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUser();
+  }
+
+  logout() {
+    this.userService.loggedIn = false;
+  }
+
+  getUser(): void {
+    const id = this.userService.userLoginID;
+    this.userService
+      .getUserID(id)
+      .subscribe((id) => (this.userProfileData = id));
+  }
 }
