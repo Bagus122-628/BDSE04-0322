@@ -21,4 +21,9 @@ export class UserAccountsService {
     const ID = USERS.find((ID) => ID.id === id)!;
     return of(ID);
   }
+
+  getUserEmail(email: string): Observable<User> {
+    const userEmail = USERS.find((user) => user.email === email)!;
+    return of(userEmail);
+  }
 }

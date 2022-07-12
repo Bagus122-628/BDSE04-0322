@@ -17,6 +17,8 @@ import { ProfileUserComponent } from './pages/profile-user/profile-user.componen
 import { UserAccountsService } from './user-accounts.service';
 import { EditProfileComponent } from './pages/profile-user/edit-profile/edit-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ForgotPasswordConfirmationComponent } from './pages/forgot-password/forgot-password-confirmation/forgot-password-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SearchUsersComponent,
     ProfileUserComponent,
     EditProfileComponent,
+    ForgotPasswordComponent,
+    ForgotPasswordConfirmationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, NgbModule],
   providers: [UserAccountsService],

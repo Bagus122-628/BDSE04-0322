@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ForgotPasswordConfirmationComponent } from './pages/forgot-password/forgot-password-confirmation/forgot-password-confirmation.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EditProfileComponent } from './pages/profile-user/edit-profile/edit-profile.component';
 import { ProfileUserComponent } from './pages/profile-user/profile-user.component';
@@ -24,6 +26,11 @@ const routes: Routes = [
   { path: 'search', component: SearchUsersComponent },
   { path: 'profile/:id', component: ProfileUserComponent },
   { path: 'profile/:id/edit-profile', component: EditProfileComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  {
+    path: 'forgot-password-confirmation',
+    component: ForgotPasswordConfirmationComponent,
+  },
 ];
 
 @NgModule({
