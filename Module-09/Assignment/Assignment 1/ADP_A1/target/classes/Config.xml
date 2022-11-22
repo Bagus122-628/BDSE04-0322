@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Factory Bean -->
+	<bean id="factory" class="lithan.training.javawebapp.PaymentProcessorFactory"></bean>
+	
+	<!-- Google Pay -->
+	<bean id="gpay-method" factory-bean="factory" factory-method="getPaymentProcessor">
+		<constructor-arg name="mode" value="gpay"></constructor-arg>
+	</bean>
+	
+	<bean id="gpay-service" class="lithan.training.javawebapp.BillingService">
+		<property name="paymentProcessor" ref="gpay-method"></property>
+	</bean>
+	
+	<!-- Credit Card -->
+	<bean id="credit-card-method" factory-bean="factory" factory-method="getPaymentProcessor">
+		<constructor-arg name="mode" value="credit_card"></constructor-arg>
+	</bean>
+	
+	<bean id="credit-card-service" class="lithan.training.javawebapp.BillingService">
+		<property name="paymentProcessor" ref="credit-card-method"></property>
+	</bean>
+</beans>
