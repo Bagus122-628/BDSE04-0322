@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="AAACustomerServices">
+	<namespace>AAA</namespace>
+	
+	<entity name="Customer" local-service="true" uuid="true" remote-service="false">
+	
+		<column name="customerId" type="long" primary="true"></column>
+		<column name="name" type="String"></column>
+		<column name="email" type="String"></column>
+		<column name="address" type="String"></column>
+		<column name="national_Id" type="String"></column>
+		<column name="contact" type="String"></column>
+		<column name="start_date" type="Date"></column>
+		
+		<!--  Relationishp with Service Entity -->
+		<column name="serviceId" type="long"></column>
+		
+		<!-- Group instance &  Audit fields -->
+		<column name="groupId" type="long"></column>
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<!-- End Group instance &  Audit fields -->
+		
+		<order>
+			<order-column name="start_date" order-by="asc"></order-column>
+		</order>
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+	</entity>
+	
+	<entity name="Services" local-service="true" uuid="true" remote-service="false">
+	
+		<column name="serviceId" type="long" primary="true"></column>
+		<column name="serviceName" type="String"></column>
+		<column name="serviceDescription" type="String"></column>
+		<column name="servicePrice" type="String"></column>
+		
+		<!-- Group instance &  Audit fields -->
+		<column name="groupId" type="long"></column>
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<!-- End Group instance &  Audit fields -->
+
+		<order>
+			<order-column name="serviceName" order-by="asc"></order-column>
+		</order>
+		
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+	</entity>
+
+	<exceptions>
+		<exception>CustomerName</exception>
+		<exception>CustomerEmail</exception>
+		<exception>ServiceName</exception>
+	</exceptions>
+</service-builder>
