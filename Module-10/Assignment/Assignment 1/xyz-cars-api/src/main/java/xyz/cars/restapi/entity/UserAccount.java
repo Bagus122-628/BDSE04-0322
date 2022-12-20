@@ -11,9 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -34,11 +31,9 @@ public class UserAccount {
   private int idUser;
 
   @Column(nullable = false)
-  @NotBlank(message = "Username is required")
   private String username;
 
   @Column(nullable = false)
-  @Size(min = 6, message = "Password must be at least 6 characters long")
   private String password;
 
   @JsonIgnore

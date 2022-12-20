@@ -1,17 +1,25 @@
 package xyz.cars.restapi.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+  @Autowired
+  private JWTAuthEntryPoint authEntryPoint;
 
   @Bean
   public static PasswordEncoder passwordEncoder() {
@@ -21,25 +29,49 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-    // Authorize
-    http.authorizeRequests()
+    http.cors().and().csrf().disable()
+        // Exception Handling
+        .exceptionHandling()
+        .authenticationEntryPoint(authEntryPoint)
+        .and()
+
+        // Session Management
+        .sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+
+        // Authorize Requests
+        .authorizeRequests()
         .antMatchers(HttpMethod.GET).permitAll()
-        .antMatchers("/api/users/register").permitAll()
-        .antMatchers(HttpMethod.POST).authenticated();
+        .antMatchers("/api/auth/**").permitAll()
+        .antMatchers(HttpMethod.POST).authenticated()
+        .and()
 
-    http.cors().and().csrf().disable();
+        // Form Login
+        .httpBasic()
 
-    // Form Login
-    http.httpBasic()
         .and()
         .formLogin()
+        .permitAll()
+        .and()
+
+        // Logout
+        .logout()
         .permitAll();
 
-    // Logout
-    http.logout()
-        .permitAll();
-
+    http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     return http.build();
+  }
+
+  @Bean
+  public AuthenticationManager authenticationManager(
+      AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    return authenticationConfiguration.getAuthenticationManager();
+  }
+
+  @Bean
+  public JWTAuthenticationFilter jwtAuthenticationFilter() {
+    return new JWTAuthenticationFilter();
   }
 
 }
