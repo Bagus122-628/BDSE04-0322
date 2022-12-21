@@ -42,6 +42,7 @@ public class SecurityConfig {
 
         // Authorize Requests
         .authorizeRequests()
+        .antMatchers("/api/users/me").authenticated()
         .antMatchers(HttpMethod.GET).permitAll()
         .antMatchers("/api/auth/**").permitAll()
         .antMatchers(HttpMethod.POST).authenticated()
