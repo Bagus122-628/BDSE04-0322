@@ -1,0 +1,7 @@
+.nav-link:hover,
+.nav-link:active,
+.nav-link.active {
+  color: #95bcf0 !important;
+  padding-bottom: 0.25rem !important;
+  border-bottom: 4px solid #95bcf0 !important;
+}
