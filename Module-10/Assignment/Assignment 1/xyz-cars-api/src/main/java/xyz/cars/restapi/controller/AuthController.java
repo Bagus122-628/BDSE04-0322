@@ -1,5 +1,7 @@
 package xyz.cars.restapi.controller;
 
+import java.net.URI;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import xyz.cars.restapi.entity.AuthProvider;
 import xyz.cars.restapi.entity.UserAccount;
-import xyz.cars.restapi.models.AuthResponseDto;
+import xyz.cars.restapi.models.ApiResponse;
+import xyz.cars.restapi.models.AuthResponse;
 import xyz.cars.restapi.models.LoginDto;
 import xyz.cars.restapi.models.RegisterDto;
 import xyz.cars.restapi.repository.UserAccountRepository;
@@ -40,32 +45,39 @@ public class AuthController {
 
   // Login
   @PostMapping("login")
-  public ResponseEntity<AuthResponseDto> login(@RequestBody LoginDto loginDto) {
+  public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginDto loginDto) {
     Authentication authentication = authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(
-            loginDto.getUsername(),
+            loginDto.getEmail(),
             loginDto.getPassword()));
 
     SecurityContextHolder.getContext().setAuthentication(authentication);
     String token = jwtGenerator.generateToken(authentication);
-    return new ResponseEntity<>(new AuthResponseDto(token), HttpStatus.OK);
+    return new ResponseEntity<>(new AuthResponse(token), HttpStatus.OK);
   }
 
   // Register
   @PostMapping("register")
-  public ResponseEntity<String> addUser(@Valid @RequestBody RegisterDto registerDto) throws Exception {
+  public ResponseEntity<?> addUser(@Valid @RequestBody RegisterDto registerDto) throws Exception {
 
-    if (userRepo.existsByUsername(registerDto.getUsername())) {
-      return new ResponseEntity<>("Username is taken!", HttpStatus.BAD_REQUEST);
+    if (userRepo.existsByEmail(registerDto.getEmail())) {
+      return new ResponseEntity<>("Email is taken!", HttpStatus.BAD_REQUEST);
     }
 
     UserAccount user = new UserAccount();
-    user.setUsername(registerDto.getUsername());
+    user.setName(registerDto.getName());
+    user.setEmail(registerDto.getEmail());
     user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
+    user.setProvider(AuthProvider.local);
 
-    userRepo.save(user);
+    UserAccount newUser = userRepo.save(user);
 
-    return new ResponseEntity<>("User registered successfully!", HttpStatus.OK);
+    URI location = ServletUriComponentsBuilder
+        .fromCurrentContextPath().path("api/users/me")
+        .buildAndExpand(newUser.getIdUser()).toUri();
+
+    return ResponseEntity.created(location)
+        .body(new ApiResponse(true, "User registered successfully@"));
 
   }
 }

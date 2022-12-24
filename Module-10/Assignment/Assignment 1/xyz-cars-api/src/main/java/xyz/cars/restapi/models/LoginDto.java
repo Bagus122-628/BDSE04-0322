@@ -1,25 +1,23 @@
 package xyz.cars.restapi.models;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import xyz.cars.restapi.entity.UserAccount;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class LoginDto {
 
-  private int idUser;
-
-  @NotBlank(message = "Username is required")
-  private String username;
+  @Email
+  @NotBlank(message = "Email is required")
+  private String email;
 
   @NotBlank(message = "Password is required")
   private String password;
-
-  public LoginDto(UserAccount user) {
-    this.idUser = user.getIdUser();
-    this.username = user.getUsername();
-  }
 }

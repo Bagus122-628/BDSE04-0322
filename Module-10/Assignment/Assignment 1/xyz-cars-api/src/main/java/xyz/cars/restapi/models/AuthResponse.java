@@ -3,12 +3,11 @@ package xyz.cars.restapi.models;
 import lombok.Data;
 
 @Data
-public class AuthResponseDto {
-  private int idUser;
+public class AuthResponse {
   private String accessToken;
   private String tokenType = "Bearer ";
 
-  public AuthResponseDto(String accessToken) {
+  public AuthResponse(String accessToken) {
     this.accessToken = accessToken;
   }
 

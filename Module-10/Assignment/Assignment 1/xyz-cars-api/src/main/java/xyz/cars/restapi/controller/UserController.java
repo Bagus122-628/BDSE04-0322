@@ -3,15 +3,16 @@ package xyz.cars.restapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import xyz.cars.restapi.entity.UserAccount;
-import xyz.cars.restapi.models.LoginDto;
+import xyz.cars.restapi.exception.ResourceNotFoundException;
 import xyz.cars.restapi.repository.UserAccountRepository;
+import xyz.cars.restapi.security.CurrentUser;
+import xyz.cars.restapi.security.UserPrincipal;
 import xyz.cars.restapi.service.UserService;
 
 @RestController
@@ -33,14 +34,20 @@ public class UserController {
   @GetMapping("/{idUser}")
   public UserAccount getUser(@PathVariable("idUser") int idUser) throws Exception {
     UserAccount user = userService.getUserById(idUser);
+
+    if (user == null) {
+      throw new ResourceNotFoundException("User", "id", idUser);
+    }
     return user;
   }
 
   @GetMapping("/me")
-  public LoginDto getLoginUser(Authentication authentication) {
-    UserAccount user = userRepo.findByUsername(authentication.getName());
+  public UserAccount getCurrentUser(@CurrentUser UserPrincipal userPrincipal) {
+    UserAccount user = userRepo.findById(userPrincipal.getId()).get();
 
-    return new LoginDto(user);
+    if (user == null) {
+      throw new ResourceNotFoundException("User", "id", userPrincipal.getId());
+    }
+    return user;
   }
-
 }
