@@ -63,11 +63,9 @@ public class SecurityConfig {
         // Authorize Requests
         .authorizeRequests()
         .antMatchers("/oauth2/**", "/api/auth/**").permitAll()
+        .antMatchers("/api/cars/**").permitAll()
         .antMatchers("/api/cars/post").authenticated()
-        .antMatchers("/api/cars/**").authenticated()
         .antMatchers("/api/users/me").authenticated()
-        .anyRequest()
-        .authenticated()
         .and()
 
         // Login

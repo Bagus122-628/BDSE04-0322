@@ -3,6 +3,7 @@ package xyz.cars.restapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import xyz.cars.restapi.entity.UserAccount;
 import xyz.cars.restapi.exception.ResourceNotFoundException;
+import xyz.cars.restapi.models.UserDto;
 import xyz.cars.restapi.repository.UserAccountRepository;
 import xyz.cars.restapi.security.CurrentUser;
 import xyz.cars.restapi.security.UserPrincipal;
@@ -42,12 +44,12 @@ public class UserController {
   }
 
   @GetMapping("/me")
-  public UserAccount getCurrentUser(@CurrentUser UserPrincipal userPrincipal) {
-    UserAccount user = userRepo.findById(userPrincipal.getId()).get();
+  public UserDto getLoginUser(Authentication authentication) {
+    UserAccount user = userRepo.findByEmail(authentication.getName()).get();
 
     if (user == null) {
-      throw new ResourceNotFoundException("User", "id", userPrincipal.getId());
+      throw new ResourceNotFoundException("User", "Email", authentication.getName());
     }
-    return user;
+    return new UserDto(user.getIdUser(), user.getName(), user.getEmail());
   }
 }
