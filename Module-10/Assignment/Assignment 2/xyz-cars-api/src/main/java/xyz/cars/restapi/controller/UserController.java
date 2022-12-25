@@ -3,14 +3,15 @@ package xyz.cars.restapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import xyz.cars.restapi.entity.UserAccount;
+import xyz.cars.restapi.models.LoginDto;
+import xyz.cars.restapi.repository.UserAccountRepository;
 import xyz.cars.restapi.service.UserService;
 
 @RestController
@@ -19,6 +20,9 @@ public class UserController {
 
   @Autowired
   private UserService userService;
+
+  @Autowired
+  private UserAccountRepository userRepo;
 
   @GetMapping("/")
   public List<UserAccount> listUser() throws Exception {
@@ -32,9 +36,11 @@ public class UserController {
     return user;
   }
 
-  @PostMapping("/register")
-  public UserAccount addUser(@RequestBody UserAccount user) throws Exception {
-    UserAccount newUser = userService.addUser(user);
-    return newUser;
+  @GetMapping("/me")
+  public LoginDto getLoginUser(Authentication authentication) {
+    UserAccount user = userRepo.findByUsername(authentication.getName());
+
+    return new LoginDto(user);
   }
+
 }

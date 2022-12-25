@@ -10,5 +10,4 @@ public interface UserService {
 
   UserAccount getUserById(int idUser) throws Exception;
 
-  UserAccount addUser(UserAccount user) throws Exception;
 }
