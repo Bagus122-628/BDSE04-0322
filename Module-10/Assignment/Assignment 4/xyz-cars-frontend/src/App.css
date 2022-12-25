@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #e0e9f5 !important;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  overflow: hidden;
+}
