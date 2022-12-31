@@ -59,7 +59,7 @@ public class SecurityConfig {
         // Authorize Requests
         .authorizeRequests()
         .antMatchers("/api/auth/**", "/oauth2/**").permitAll()
-        .antMatchers("/api/users/me").hasRole("VIEW_STORE")
+        .antMatchers("/api/users/**").hasRole("VIEW_STORE")
         .and()
 
         // Login
