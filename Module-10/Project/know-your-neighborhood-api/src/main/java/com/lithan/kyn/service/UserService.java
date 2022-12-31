@@ -6,4 +6,5 @@ import com.lithan.kyn.entity.Roles;
 public interface UserService {
 
   Roles createRole(ERole roleName);
+
 }

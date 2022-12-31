@@ -58,10 +58,12 @@ public class SecurityConfig {
 
         // Authorize Requests
         .authorizeRequests()
-        .anyRequest().permitAll()
+        .antMatchers("/api/auth/**", "/oauth2/**").permitAll()
+        .antMatchers("/api/users/me").hasRole("VIEW_STORE")
         .and()
 
         // Login
+        // Disabling http basic & form login to only using token based authentication
         .httpBasic()
         .disable()
         .formLogin()

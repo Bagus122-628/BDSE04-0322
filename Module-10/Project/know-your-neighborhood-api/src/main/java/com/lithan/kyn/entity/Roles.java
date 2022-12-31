@@ -32,4 +32,9 @@ public class Roles {
   @NaturalId
   @Column(name = "role_name")
   private ERole name;
+
+  public Roles(ERole name) {
+    this.name = name;
+  }
+
 }

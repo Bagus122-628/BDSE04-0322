@@ -1,9 +1,7 @@
 package com.lithan.kyn.controller;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -25,7 +23,6 @@ import com.lithan.kyn.entity.EAuthProvider;
 import com.lithan.kyn.entity.ERole;
 import com.lithan.kyn.entity.Roles;
 import com.lithan.kyn.entity.UserAccount;
-import com.lithan.kyn.exception.ResourceNotFoundException;
 import com.lithan.kyn.model.ApiResponse;
 import com.lithan.kyn.model.AuthResponse;
 import com.lithan.kyn.model.LoginDto;
@@ -86,14 +83,13 @@ public class AuthController {
     user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
     user.setProvider(EAuthProvider.local);
 
-    UserAccount newUser = userRepo.save(user);
     Roles role = rolesRepo.findByName(ERole.ROLE_VIEW_STORE);
-
     if (role == null) {
       role = userService.createRole(ERole.ROLE_VIEW_STORE);
     }
-
     user.setRoles(Arrays.asList(role));
+
+    UserAccount newUser = userRepo.save(user);
 
     URI location = ServletUriComponentsBuilder
         .fromCurrentContextPath().path("api/users/me")
