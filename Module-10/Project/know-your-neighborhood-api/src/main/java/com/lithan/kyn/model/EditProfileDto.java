@@ -1,5 +1,7 @@
 package com.lithan.kyn.model;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -11,16 +13,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class EditProfileDto {
+  @NotBlank
   private int userId;
 
+  @NotBlank
   private String name;
 
-  private String email;
-
-  private String imageUrl;
-
+  @NotBlank
   private String address;
 
+  @NotBlank
   private String phoneNumber;
 }

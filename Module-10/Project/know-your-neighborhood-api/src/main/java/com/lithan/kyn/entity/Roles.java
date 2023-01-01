@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -21,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_roles")
+@Table(name = "tb_roles", uniqueConstraints = { @UniqueConstraint(columnNames = "role_name") })
 public class Roles {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

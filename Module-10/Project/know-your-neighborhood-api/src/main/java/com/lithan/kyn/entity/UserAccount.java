@@ -3,6 +3,7 @@ package com.lithan.kyn.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
@@ -61,11 +63,20 @@ public class UserAccount {
 
   @NotNull
   @Enumerated(EnumType.STRING)
+  @JsonIgnore
   private EAuthProvider provider;
 
+  @JsonIgnore
   private String providerId;
 
   @ManyToMany(fetch = FetchType.EAGER)
-  @JoinTable(name = "tb_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+  @JoinTable(name = "tb_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"), uniqueConstraints = @UniqueConstraint(columnNames = {
+      "user_id", "role_id" }))
+  @JsonIgnore
   private List<Roles> roles = new ArrayList<>();
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+  @JsonIgnore
+  private List<Store> stores;
+
 }

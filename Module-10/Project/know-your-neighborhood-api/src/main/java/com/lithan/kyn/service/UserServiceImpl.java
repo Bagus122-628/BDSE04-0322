@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 import com.lithan.kyn.entity.ERole;
 import com.lithan.kyn.entity.Roles;
 import com.lithan.kyn.entity.UserAccount;
-import com.lithan.kyn.exception.ResourceNotFoundException;
+import com.lithan.kyn.model.EditProfileDto;
 import com.lithan.kyn.model.UserDto;
+import com.lithan.kyn.model.UserFullData;
 import com.lithan.kyn.repository.RolesRepository;
 import com.lithan.kyn.repository.UserAccountRepository;
 
@@ -44,12 +45,12 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public UserAccount editProfile(UserDto userDto) {
-    UserAccount user = getById(userDto.getUserId());
+  public UserAccount editProfile(EditProfileDto editProfileDto) {
+    UserAccount user = getById(editProfileDto.getUserId());
 
-    user.setName(userDto.getName());
-    user.setAddress(userDto.getAddress());
-    user.setPhoneNumber(userDto.getPhoneNumber());
+    user.setName(editProfileDto.getName());
+    user.setAddress(editProfileDto.getAddress());
+    user.setPhoneNumber(editProfileDto.getPhoneNumber());
 
     return userRepo.save(user);
   }

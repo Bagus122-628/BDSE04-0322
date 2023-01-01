@@ -5,6 +5,7 @@ import java.util.List;
 import com.lithan.kyn.entity.ERole;
 import com.lithan.kyn.entity.Roles;
 import com.lithan.kyn.entity.UserAccount;
+import com.lithan.kyn.model.EditProfileDto;
 import com.lithan.kyn.model.UserDto;
 
 public interface UserService {
@@ -17,6 +18,6 @@ public interface UserService {
 
   UserAccount getById(int userId);
 
-  UserAccount editProfile(UserDto userDto);
+  UserAccount editProfile(EditProfileDto editProfileDto);
 
 }

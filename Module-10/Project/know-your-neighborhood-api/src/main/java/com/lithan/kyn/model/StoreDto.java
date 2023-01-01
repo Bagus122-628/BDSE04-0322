@@ -11,16 +11,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
-  private int userId;
+public class StoreDto {
 
-  private String name;
+  private int storeId;
 
-  private String email;
+  private String storeName;
 
-  private String imageUrl;
+  private String country;
 
-  private String address;
+  private String city;
+
+  private String storeEmail;
 
   private String phoneNumber;
+
+  private int userId;
 }
