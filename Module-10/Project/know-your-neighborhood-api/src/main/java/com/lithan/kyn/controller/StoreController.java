@@ -35,35 +35,28 @@ public class StoreController {
   @PostMapping("/add")
   public ResponseEntity<?> addStore(@RequestBody StoreDto storeDto) {
 
-    Store newStore = storeService.addStore(storeDto);
+    StoreDto newStore = storeService.addStore(storeDto);
 
     URI location = ServletUriComponentsBuilder
         .fromCurrentContextPath().path("api/stores/{storeId}")
         .buildAndExpand(newStore.getStoreId()).toUri();
 
     return ResponseEntity.created(location)
-        .body(new ApiResponse(true, "Store successfully added"));
+        .body(new ApiResponse(true, "Store: " + newStore.getStoreName() + " successfully added"));
   }
 
   @GetMapping("/{storeId}")
-  public Store getStoreById(@PathVariable("storeId") int storeId) {
+  public StoreDto getStoreById(@PathVariable("storeId") int storeId) {
     Store store = storeService.getStoreById(storeId);
 
-    return store;
+    return new StoreDto(store);
   }
 
   @PutMapping("/edit")
   public StoreDto editStore(@RequestBody StoreDto storeDto) {
     Store store = storeService.editStore(storeDto);
 
-    return new StoreDto(
-        store.getStoreId(),
-        store.getStoreName(),
-        store.getCountry(),
-        store.getCity(),
-        store.getStoreEmail(),
-        store.getPhoneNumber(),
-        store.getUser().getUserId());
+    return new StoreDto(store);
   }
 
 }

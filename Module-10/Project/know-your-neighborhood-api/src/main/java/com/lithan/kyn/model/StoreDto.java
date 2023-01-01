@@ -1,5 +1,7 @@
 package com.lithan.kyn.model;
 
+import com.lithan.kyn.entity.Store;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -25,5 +27,16 @@ public class StoreDto {
 
   private String phoneNumber;
 
-  private int userId;
+  private UserDto user;
+
+  public StoreDto(Store store) {
+    this.storeId = store.getStoreId();
+    this.storeName = store.getStoreName();
+    this.country = store.getCountry();
+    this.city = store.getCity();
+    this.storeEmail = store.getStoreEmail();
+    this.phoneNumber = store.getPhoneNumber();
+    this.user = new UserDto(store.getUser());
+  }
+
 }

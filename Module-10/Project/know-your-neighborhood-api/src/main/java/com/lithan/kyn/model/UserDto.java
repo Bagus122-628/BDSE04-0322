@@ -1,5 +1,7 @@
 package com.lithan.kyn.model;
 
+import com.lithan.kyn.entity.UserAccount;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -23,4 +25,14 @@ public class UserDto {
   private String address;
 
   private String phoneNumber;
+
+  public UserDto(UserAccount user) {
+    this.userId = user.getUserId();
+    this.name = user.getName();
+    this.email = user.getEmail();
+    this.imageUrl = user.getImageUrl();
+    this.address = user.getAddress();
+    this.phoneNumber = user.getPhoneNumber();
+  }
+
 }

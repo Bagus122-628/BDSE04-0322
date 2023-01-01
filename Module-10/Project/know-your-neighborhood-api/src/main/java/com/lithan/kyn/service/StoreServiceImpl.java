@@ -35,9 +35,9 @@ public class StoreServiceImpl implements StoreService {
   }
 
   @Override
-  public Store addStore(StoreDto storeDto) {
+  public StoreDto addStore(StoreDto storeDto) {
     Store store = new Store();
-    UserAccount user = userRepo.findById(storeDto.getUserId()).get();
+    UserAccount user = userRepo.findById(storeDto.getUser().getUserId()).get();
 
     store.setStoreName(storeDto.getStoreName());
     store.setCountry(storeDto.getCountry());
@@ -46,8 +46,12 @@ public class StoreServiceImpl implements StoreService {
     store.setPhoneNumber(storeDto.getPhoneNumber());
 
     store.setUser(user);
+    storeRepo.save(store);
 
-    return storeRepo.save(store);
+    StoreDto newStore = new StoreDto(store);
+
+    return newStore;
+
   }
 
   @Override

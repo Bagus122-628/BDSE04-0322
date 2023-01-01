@@ -11,7 +11,7 @@ public interface StoreService {
 
   Store getStoreById(int storeId);
 
-  Store addStore(StoreDto storeDto);
+  StoreDto addStore(StoreDto storeDto);
 
   Store editStore(StoreDto storeDto);
 
