@@ -2,7 +2,6 @@ package com.lithan.kyn.model;
 
 import java.util.List;
 
-import com.lithan.kyn.entity.Roles;
 import com.lithan.kyn.entity.Store;
 
 import lombok.AllArgsConstructor;

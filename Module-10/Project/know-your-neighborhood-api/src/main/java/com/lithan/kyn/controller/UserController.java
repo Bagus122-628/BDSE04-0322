@@ -1,6 +1,5 @@
 package com.lithan.kyn.controller;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +17,7 @@ import com.lithan.kyn.exception.ResourceNotFoundException;
 import com.lithan.kyn.model.EditProfileDto;
 import com.lithan.kyn.model.UserDto;
 import com.lithan.kyn.model.UserFullData;
-import com.lithan.kyn.model.UserFullData.*;
+import com.lithan.kyn.model.UserFullData.Profile;
 import com.lithan.kyn.service.UserService;
 
 @RestController

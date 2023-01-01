@@ -12,7 +12,6 @@ import com.lithan.kyn.entity.Roles;
 import com.lithan.kyn.entity.UserAccount;
 import com.lithan.kyn.model.EditProfileDto;
 import com.lithan.kyn.model.UserDto;
-import com.lithan.kyn.model.UserFullData;
 import com.lithan.kyn.repository.RolesRepository;
 import com.lithan.kyn.repository.UserAccountRepository;
 
