@@ -1,4 +1,3 @@
-import logo from "./logo/store-icon.png";
-import kyn from "./logo/kyn.png";
+import facebookLogo from "./logo/facebook.png";
 
-export { logo, kyn };
+export { facebookLogo };
