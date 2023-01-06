@@ -88,10 +88,10 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
     user.setEmail(oAuth2UserInfo.getEmail());
     user.setImageUrl(oAuth2UserInfo.getImageUrl());
 
-    Roles role = rolesRepo.findByName(ERole.ROLE_VIEW_STORE);
+    Roles role = rolesRepo.findByName(ERole.ROLE_USER);
 
     if (role == null) {
-      role = userService.createRole(ERole.ROLE_VIEW_STORE);
+      role = userService.createRole(ERole.ROLE_USER);
     }
 
     user.setRoles(Arrays.asList(role));

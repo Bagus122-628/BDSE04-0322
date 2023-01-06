@@ -17,12 +17,12 @@ public class DataLoader implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
-    if (rolesRepo.findByName(ERole.ROLE_VIEW_STORE) == null) {
-      rolesRepo.save(new Roles(ERole.ROLE_VIEW_STORE));
+    if (rolesRepo.findByName(ERole.ROLE_USER) == null) {
+      rolesRepo.save(new Roles(ERole.ROLE_USER));
     }
 
-    if (rolesRepo.findByName(ERole.ROLE_ADD_STORE) == null) {
-      rolesRepo.save(new Roles(ERole.ROLE_ADD_STORE));
+    if (rolesRepo.findByName(ERole.ROLE_ADMIN) == null) {
+      rolesRepo.save(new Roles(ERole.ROLE_ADMIN));
     }
   }
 }

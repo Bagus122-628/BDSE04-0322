@@ -83,9 +83,9 @@ public class AuthController {
     user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
     user.setProvider(EAuthProvider.local);
 
-    Roles role = rolesRepo.findByName(ERole.ROLE_VIEW_STORE);
+    Roles role = rolesRepo.findByName(ERole.ROLE_USER);
     if (role == null) {
-      role = userService.createRole(ERole.ROLE_VIEW_STORE);
+      role = userService.createRole(ERole.ROLE_USER);
     }
     user.setRoles(Arrays.asList(role));
 
