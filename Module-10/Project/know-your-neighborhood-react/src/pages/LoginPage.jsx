@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { FACEBOOK_URL } from "../../api/constant";
-import { loginAPI } from "../../api/user-api";
-import { facebookLogo } from "../../assets";
-import FailedMessage from "../../components/form/FailedMessage";
-import Input from "../../components/form/Input";
-import MainLayout from "../../components/layout/MainLayout";
+import { FACEBOOK_URL } from "../api/constant";
+import { loginAPI } from "../api/user-api";
+import { facebookLogo } from "../assets";
+import FailedMessage from "../components/form/FailedMessage";
+import Input from "../components/form/Input";
+import MainLayout from "../components/layout/MainLayout";
 
 const LoginPage = () => {
   const [invalid, setInvalid] = useState(false);
@@ -48,37 +47,33 @@ const LoginPage = () => {
             </FailedMessage>
           )}
 
-          <div className="mb-2">
-            <Input
-              label="Email"
-              name="email"
-              type="text"
-              errors={errors}
-              placeholder="Enter your email"
-              register={register}
-              validation={{
-                required: "Please enter email address",
-                pattern: {
-                  value: /^\S+@\S+$/i,
-                  message: "Please enter valid email",
-                },
-              }}
-            />
-          </div>
+          <Input
+            label="Email"
+            name="email"
+            type="text"
+            errors={(errors.email = true)}
+            placeholder="Enter your email"
+            register={register}
+            validation={{
+              required: "Please enter email address",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Please enter valid email",
+              },
+            }}
+          />
 
-          <div className="mb-2">
-            <Input
-              label="Password"
-              name="password"
-              type="password"
-              errors={errors}
-              placeholder="Enter your password"
-              register={register}
-              validation={{
-                required: "Please enter password",
-              }}
-            />
-          </div>
+          <Input
+            label="Password"
+            name="password"
+            type="password"
+            errors={errors}
+            placeholder="Enter your password"
+            register={register}
+            validation={{
+              required: "Please enter password",
+            }}
+          />
 
           <button
             type="submit"
