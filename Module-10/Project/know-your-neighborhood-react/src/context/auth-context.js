@@ -3,6 +3,7 @@ import { getUserLoginAPI } from "../api/user-api";
 
 // Create Context API
 const AuthContext = React.createContext({
+  userId: "",
   profile: {
     userId: "",
     name: "",
@@ -85,6 +86,7 @@ export const AuthContextProvider = (props) => {
 
   // Context Value
   const contextValue = {
+    userId: userProfile.userId,
     profile: userProfile,
     stores: userStores,
     roles: userRoles,

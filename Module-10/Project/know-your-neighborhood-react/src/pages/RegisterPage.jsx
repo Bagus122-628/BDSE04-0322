@@ -39,7 +39,7 @@ const RegisterPage = () => {
 
   return (
     <MainLayout>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-10 text-white">
         <form
           onSubmit={handleSubmit(onSubmitHandler)}
           className="p-[30px] bg-secondary w-full max-w-[500px] rounded-lg shadow-md shadow-primary"

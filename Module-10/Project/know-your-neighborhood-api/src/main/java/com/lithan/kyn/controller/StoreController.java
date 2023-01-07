@@ -1,10 +1,8 @@
 package com.lithan.kyn.controller;
 
-import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,10 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.lithan.kyn.entity.Store;
-import com.lithan.kyn.model.ApiResponse;
 import com.lithan.kyn.model.StoreDto;
 import com.lithan.kyn.service.StoreService;
 
@@ -33,16 +29,11 @@ public class StoreController {
   }
 
   @PostMapping("/add")
-  public ResponseEntity<?> addStore(@RequestBody StoreDto storeDto) {
+  public StoreDto addStore(@RequestBody StoreDto storeDto) {
 
     StoreDto newStore = storeService.addStore(storeDto);
 
-    URI location = ServletUriComponentsBuilder
-        .fromCurrentContextPath().path("api/stores/{storeId}")
-        .buildAndExpand(newStore.getStoreId()).toUri();
-
-    return ResponseEntity.created(location)
-        .body(new ApiResponse(true, "Store: " + newStore.getStoreName() + " successfully added"));
+    return newStore;
   }
 
   @GetMapping("/{storeId}")

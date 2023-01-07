@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { FACEBOOK_URL } from "../api/constant";
 import { loginAPI } from "../api/user-api";
 import { facebookLogo } from "../assets";
 import FailedMessage from "../components/form/FailedMessage";
 import Input from "../components/form/Input";
 import MainLayout from "../components/layout/MainLayout";
+import AuthContext from "../context/auth-context";
 
 const LoginPage = () => {
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
   const [invalid, setInvalid] = useState(false);
 
   const {
@@ -20,9 +24,10 @@ const LoginPage = () => {
   const onSubmitHandler = (data) => {
     loginAPI(data.email, data.password)
       .then((res) => {
-        console.log(res);
+        authCtx.login(res.data.accessToken);
         setInvalid(false);
         reset();
+        navigate("/");
       })
       .catch((err) => {
         setInvalid(true);
@@ -31,7 +36,7 @@ const LoginPage = () => {
 
   return (
     <MainLayout>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-10 text-white">
         <form
           onSubmit={handleSubmit(onSubmitHandler)}
           className="p-[30px] bg-secondary max-w-[400px] rounded-lg"
