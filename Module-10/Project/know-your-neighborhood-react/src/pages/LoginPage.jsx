@@ -27,7 +27,7 @@ const LoginPage = () => {
         authCtx.login(res.data.accessToken);
         setInvalid(false);
         reset();
-        navigate("/");
+        navigate("/profile");
       })
       .catch((err) => {
         setInvalid(true);

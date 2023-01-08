@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import MainLayout from "../../components/layout/MainLayout";
 import AuthContext from "../../context/auth-context";
@@ -23,7 +23,7 @@ const ProfilePage = () => {
         <div>
           <h2 className="font-medium text-xl">Stores</h2>
           {stores.map((store) => (
-            <div key={store.storeId} className="flex space-x-2 mb-2">
+            <div key={store.storeId} className="flex flex-wrap space-x-2 mb-2">
               <p>{store.storeId}.</p>
               <p>{store.storeName}</p>
               <p>{store.country}</p>
