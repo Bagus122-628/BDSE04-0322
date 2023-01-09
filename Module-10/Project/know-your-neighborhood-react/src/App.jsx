@@ -44,9 +44,10 @@ function App() {
           />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/profile/edit" element={<EditProfilePage />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/profile/:name/:userId" element={<ProfilePage />} />
         </>
       )}
+      {/* <Route path="*" element={<Navigate to="/" />} /> */}
     </Routes>
   );
 }

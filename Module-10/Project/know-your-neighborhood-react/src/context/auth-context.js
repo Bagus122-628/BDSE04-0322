@@ -27,6 +27,7 @@ const AuthContext = React.createContext({
   isLoggedIn: false,
   login: (token) => {},
   logout: () => {},
+  refresh: () => {},
 });
 
 // Retrive Stored Token From Local Storage
@@ -84,6 +85,20 @@ export const AuthContextProvider = (props) => {
     localStorage.setItem("token", token);
   };
 
+  // REFRESH USER LOGIN DATA
+  const refreshHandler = () => {
+    getUserLoginAPI(token)
+      .then((res) => {
+        setUserProfile(res.data.profile);
+        setUserStores(res.data.stores);
+        setUserRoles(res.data.roles);
+      })
+      .catch((err) => {
+        console.log(err);
+        logoutHandler();
+      });
+  };
+
   // Context Value
   const contextValue = {
     userId: userProfile.userId,
@@ -94,6 +109,7 @@ export const AuthContextProvider = (props) => {
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
+    refresh: refreshHandler,
   };
 
   return (

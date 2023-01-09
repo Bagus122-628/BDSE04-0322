@@ -14,7 +14,7 @@ const StoresPage = () => {
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-1 gap-4">
         {stores.map((store) => (
-          <StoreCard store={store} />
+          <StoreCard key={store.storeId} store={store} />
         ))}
       </div>
     </MainLayout>

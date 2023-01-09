@@ -31,6 +31,7 @@ const AddStorePage = () => {
     addStoreAPI(store, authCtx.token)
       .then((res) => {
         setStatus("SUCCESS");
+        authCtx.refresh();
         navigate(`/stores/${res.data.storeName}/${res.data.storeId}`);
         reset();
       })

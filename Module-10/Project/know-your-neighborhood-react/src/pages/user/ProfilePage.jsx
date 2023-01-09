@@ -1,14 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { getUserAPI } from "../../api/user-api";
 import { userDefault } from "../../assets";
 import MainLayout from "../../components/layout/MainLayout";
 import StoreCard from "../../components/stores/StoreCard";
 import AuthContext from "../../context/auth-context";
 
 const ProfilePage = () => {
-  const { profile, stores } = useContext(AuthContext);
-  const profilePicture = profile.imageUrl;
-  const params = useParams();
+  const { profile, stores, token } = useContext(AuthContext);
+  const [userProfile, setUserProfile] = useState({});
+  const [userStores, setUserStores] = useState([]);
+  const [profilePicture, setProfilePicture] = useState("");
+  const [isUser, setIsUser] = useState(false);
+
+  const { userId } = useParams();
+
+  useEffect(() => {
+    if (userId === undefined) {
+      setUserProfile(profile);
+      setUserStores(stores);
+      setProfilePicture(profile.imageUrl);
+      setIsUser(profile.userId === userProfile.userId);
+    }
+
+    if (userId !== undefined && userId !== 0) {
+      getUserAPI(userId, token)
+        .then((res) => {
+          setUserProfile(res.data.profile);
+          setUserStores(res.data.stores);
+          setProfilePicture(res.data.profile.imageUrl);
+        })
+        .catch((err) => {
+          setUserProfile({ name: "User not found!!" });
+        });
+    }
+  }, [userId, token, profile, stores, userProfile.userId]);
 
   return (
     <MainLayout>
@@ -21,33 +47,46 @@ const ProfilePage = () => {
         />
         <div className="mt-2 font-inter font-medium text-gray-400 w-full">
           <h3 className="text-2xl md:text-3xl text-primary mb-1 pb-2 border-b">
-            {profile.name}
+            {userProfile.name}
           </h3>
           <div className="grid grid-cols-1 gap-2">
             <div>
               <p className="text-secondary">Email</p>
-              <p>{profile.email}</p>
+              <p>{userProfile.email}</p>
             </div>
             <div>
               <p className="text-secondary">Address</p>
-              <p>{profile.address}</p>
+              <p>{userProfile.address}</p>
             </div>
             <div>
               <p className="text-secondary">Phone Number</p>
-              <p>{profile.phoneNumber}</p>
+              <p>{userProfile.phoneNumber}</p>
             </div>
           </div>
         </div>
+        {isUser && (
+          <Link to="/profile/edit">
+            <i className="fa-solid fa-pen-to-square text-2xl hover:text-color1 transition duration-100" />
+          </Link>
+        )}
       </div>
       <div className="mt-5 mb-10">
-        <div className="border-b-2 border-gray-300 mb-3 pb-1">
+        <div className="flex justify-between border-b-2 border-gray-300 mb-3 pb-1">
           <h2 className="font-inter text-4xl font-bold drop-shadow ">Stores</h2>
+          {isUser && (
+            <Link
+              to="/stores/add"
+              className="flex items-center space-x-2 font-medium text-color1 text-lg"
+            >
+              <p>Add Store</p> <i className="fa-solid fa-plus"></i>
+            </Link>
+          )}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-1 gap-5">
-          {stores.map((store) => (
-            <StoreCard store={store} />
+          {userStores.map((store) => (
+            <StoreCard key={store.storeId} store={store} />
           ))}
-          {stores.length <= 0 && (
+          {userStores.length <= 0 && (
             <p className="text-gray-500">No store available</p>
           )}
         </div>

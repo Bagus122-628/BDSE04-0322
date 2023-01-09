@@ -29,11 +29,12 @@ const EditProfilePage = () => {
   const onSubmitHandler = (data) => {
     editProfileAPI(data, authCtx.token)
       .then((res) => {
-        authCtx.profile = res.data;
+        authCtx.refresh();
         navigate("/profile");
       })
       .catch((err) => {
-        alert(err.message);
+        console.log(err.message);
+        navigate("/profile");
       });
   };
 

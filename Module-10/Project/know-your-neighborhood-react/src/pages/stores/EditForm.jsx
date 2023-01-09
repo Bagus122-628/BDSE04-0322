@@ -38,6 +38,7 @@ const EditForm = ({
   const onSubmitHandler = (data) => {
     editStoreAPI(data, authCtx.token)
       .then((res) => {
+        authCtx.refresh();
         navigate(`/stores/${res.data.storeName}/${res.data.storeId}`);
       })
       .catch((err) => {
