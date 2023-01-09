@@ -67,4 +67,12 @@ public class StoreServiceImpl implements StoreService {
     return storeRepo.save(store);
   }
 
+  @Override
+  public List<Store> searchStore(String keyword) {
+
+    List<Store> listStore = storeRepo.searchStore(keyword);
+
+    return listStore;
+  }
+
 }

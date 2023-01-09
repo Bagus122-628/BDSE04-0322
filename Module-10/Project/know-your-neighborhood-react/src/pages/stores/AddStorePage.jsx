@@ -122,7 +122,7 @@ const AddStorePage = () => {
             type="submit"
             className="py-3 mt-3 rounded-md border border-secondary text-primary bg-color1 w-full"
           >
-            Register
+            Add Store
           </button>
         </form>
       </div>

@@ -48,3 +48,11 @@ export const editStoreAPI = (store, token) => {
     { headers: { Authorization: `Bearer ${token}` } }
   );
 };
+
+// SEARCH STORE
+export const searchStoreAPI = (keyword, token) => {
+  return axios.get(`${BASE_URL}/stores`, {
+    params: { keyword: keyword },
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};

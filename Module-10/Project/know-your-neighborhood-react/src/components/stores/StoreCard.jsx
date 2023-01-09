@@ -6,8 +6,8 @@ const StoreCard = ({ store }) => {
   const { storeId, storeName, country, city, user } = store;
   const profilePicture = user.imgUrl;
 
-  const strName = user.name.replace(" ", "-").toLowerCase();
-  const strStoreName = storeName.replace(" ", "-").toLowerCase();
+  const strName = user.name.replace(/\s+/g, "-").toLowerCase();
+  const strStoreName = storeName.replace(/\s+/g, "-").toLowerCase();
 
   return (
     <div className="shadow-lg overflow-hidden rounded-md">

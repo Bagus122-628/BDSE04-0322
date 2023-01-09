@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lithan.kyn.entity.Store;
@@ -48,6 +49,12 @@ public class StoreController {
     Store store = storeService.editStore(storeDto);
 
     return new StoreDto(store);
+  }
+
+  @GetMapping(value = "", params = "keyword")
+  public List<Store> searchStore(@RequestParam("keyword") String keyword) {
+
+    return storeService.searchStore(keyword);
   }
 
 }

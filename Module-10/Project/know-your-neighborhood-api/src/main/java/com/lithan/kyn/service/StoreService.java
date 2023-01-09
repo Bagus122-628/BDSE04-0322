@@ -15,4 +15,5 @@ public interface StoreService {
 
   Store editStore(StoreDto storeDto);
 
+  List<Store> searchStore(String keyword);
 }
