@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { facebookLogo } from "../../assets";
+import { userDefault } from "../../assets";
 import AuthContext from "../../context/auth-context";
 
 const link =
@@ -13,6 +13,8 @@ const Navbar = () => {
   const [expand, setExpand] = useState(false);
   const [show, setShow] = useState(false);
 
+  const profilePicture = authCtx.profile.imageUrl;
+
   const logoutHandler = () => {
     authCtx.logout();
     navigate("/login");
@@ -21,11 +23,11 @@ const Navbar = () => {
   return (
     <nav className="bg-secondary flex justify-center items-center font-inter min-h-[60px] px-6 py-4">
       <div className="xl:max-w-[1280px] w-full flex justify-between items-center">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center">
           <i
             className={`${
               expand ? "fa-x mr-[3px]" : "fa-bars"
-            } fa-solid text-color2 text-2xl cursor-pointer inline md:hidden`}
+            } fa-solid text-color2 text-2xl cursor-pointer inline md:hidden mr-3`}
             onClick={() => setExpand((prev) => !prev)}
           />
           <Link to="/" className="text-color1 font-bold text-3xl">
@@ -68,13 +70,16 @@ const Navbar = () => {
                 onClick={() => setShow((prev) => !prev)}
               >
                 <div className="object-cover rounded-full overflow-hidden w-[36px] h-[36px]">
-                  <img src={facebookLogo} alt="profile_picture" />
+                  <img
+                    src={profilePicture ? profilePicture : userDefault}
+                    alt="profile_picture"
+                  />
                 </div>
                 <p className="font-inter">{authCtx.profile.name}</p>
                 <i className="fa-solid fa-caret-down"></i>
               </div>
               <div
-                className={`w-[150px] absolute text-primary bg-slate-100 border border-color2 
+                className={`w-[150px] absolute text-primary bg-gray-100 border border-color2 
               mt-2 py-3 px-3 rounded-md shadow-md ${show ? "" : "hidden"}`}
               >
                 <Link

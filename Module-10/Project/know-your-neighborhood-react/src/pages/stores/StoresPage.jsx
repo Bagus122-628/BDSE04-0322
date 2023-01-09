@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MainLayout from "../../components/layout/MainLayout";
+import StoreCard from "../../components/stores/StoreCard";
 import useListStore from "../../hooks/useListStore";
 
 const StoresPage = () => {
@@ -11,19 +12,11 @@ const StoresPage = () => {
       <Link to="add" className="block text-color1 mb-5">
         Add Store
       </Link>
-      {stores.map((store, index) => (
-        <div className="text-primary mb-5" key={store.storeId}>
-          <p>
-            {index + 1}. {store.storeName}
-          </p>
-          <Link
-            to={`${store.storeName}/${store.storeId}`}
-            className="block text-color1 "
-          >
-            Detail
-          </Link>
-        </div>
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-1 gap-4">
+        {stores.map((store) => (
+          <StoreCard store={store} />
+        ))}
+      </div>
     </MainLayout>
   );
 };

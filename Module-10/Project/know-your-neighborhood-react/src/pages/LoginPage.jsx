@@ -39,7 +39,7 @@ const LoginPage = () => {
       <div className="flex justify-center mt-10 text-white">
         <form
           onSubmit={handleSubmit(onSubmitHandler)}
-          className="p-[30px] bg-secondary max-w-[400px] rounded-lg"
+          className="p-[30px] bg-secondary w-full max-w-[400px] rounded-lg"
         >
           <h2 className="text-center font-semibold text-3xl mb-3">Login</h2>
           {invalid && (

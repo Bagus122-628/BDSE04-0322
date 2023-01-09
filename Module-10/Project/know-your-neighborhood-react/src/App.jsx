@@ -1,41 +1,54 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import { useContext } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import AuthContext from "./context/auth-context";
+import FacebookLogin from "./pages/FacebookLogin";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AddStorePage from "./pages/stores/AddStorePage";
-import StoreDetailPage from "./pages/stores/StoreDetailPage";
 import EditStorePage from "./pages/stores/EditStorePage";
+import StoreDetailPage from "./pages/stores/StoreDetailPage";
 import StoresPage from "./pages/stores/StoresPage";
 import EditProfilePage from "./pages/user/EditProfilePage";
 import ProfilePage from "./pages/user/ProfilePage";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/">
-      <Route index element={<HomePage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/stores">
-        <Route index element={<StoresPage />} />
-        <Route path="add" element={<AddStorePage />} />
-        <Route path=":storeName/:storeId" element={<StoreDetailPage />} />
-        <Route path=":storeName/:storeId/edit" element={<EditStorePage />} />
-      </Route>
-      <Route path="/profile">
-        <Route index element={<ProfilePage />} />
-        <Route path="edit" element={<EditProfilePage />} />
-      </Route>
-    </Route>
-  )
-);
-
 function App() {
-  return <RouterProvider router={router} />;
+  const { isLoggedIn } = useContext(AuthContext);
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+
+      {!isLoggedIn && (
+        <>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/oauth2/redirect" element={<FacebookLogin />} />
+
+          <Route path="/stores/*" element={<Navigate to="/login" />} />
+          <Route path="/profile/*" element={<Navigate to="/login" />} />
+        </>
+      )}
+
+      {isLoggedIn && (
+        <>
+          <Route path="/stores" element={<StoresPage />} />
+          <Route path="/stores/add" element={<AddStorePage />} />
+          <Route
+            path="/stores/:storeName/:storeId"
+            element={<StoreDetailPage />}
+          />
+          <Route
+            path="/stores/:storeName/:storeId/edit"
+            element={<EditStorePage />}
+          />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/edit" element={<EditProfilePage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </>
+      )}
+    </Routes>
+  );
 }
 
 export default App;
