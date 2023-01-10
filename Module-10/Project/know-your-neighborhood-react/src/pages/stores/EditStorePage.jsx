@@ -20,6 +20,7 @@ const EditStorePage = () => {
           city={store.city}
           storeEmail={store.storeEmail}
           phoneNumber={store.phoneNumber}
+          description={store.description}
         />
       ) : (
         <NoPermission />

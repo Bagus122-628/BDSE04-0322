@@ -4,7 +4,7 @@ import { store1, userDefault } from "../../assets";
 
 const StoreCard = ({ store }) => {
   const { storeId, storeName, country, city, user } = store;
-  const profilePicture = user.imgUrl;
+  const profilePicture = user.imageUrl;
 
   const strName = user.name.replace(/\s+/g, "-").toLowerCase();
   const strStoreName = storeName.replace(/\s+/g, "-").toLowerCase();

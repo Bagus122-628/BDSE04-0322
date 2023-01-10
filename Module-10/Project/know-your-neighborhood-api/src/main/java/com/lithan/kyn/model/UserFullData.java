@@ -17,29 +17,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserFullData {
 
-  private Profile profile;
+  private UserDto profile;
 
   private List<Store> stores;
 
   private List<String> roles;
-
-  @Data
-  @Getter
-  @Setter
-  @NoArgsConstructor
-  @AllArgsConstructor
-  public static class Profile {
-    private int userId;
-
-    private String name;
-
-    private String email;
-
-    private String imageUrl;
-
-    private String address;
-
-    private String phoneNumber;
-  }
 
 }

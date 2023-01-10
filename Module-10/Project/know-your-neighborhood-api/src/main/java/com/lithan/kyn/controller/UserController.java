@@ -17,7 +17,6 @@ import com.lithan.kyn.exception.ResourceNotFoundException;
 import com.lithan.kyn.model.EditProfileDto;
 import com.lithan.kyn.model.UserDto;
 import com.lithan.kyn.model.UserFullData;
-import com.lithan.kyn.model.UserFullData.Profile;
 import com.lithan.kyn.service.UserService;
 
 @RestController
@@ -42,13 +41,7 @@ public class UserController {
 
     UserAccount user = userService.findByEmail(authentication.getName());
 
-    Profile profile = new Profile(
-        user.getUserId(),
-        user.getName(),
-        user.getEmail(),
-        user.getImageUrl(),
-        user.getAddress(),
-        user.getPhoneNumber());
+    UserDto profile = new UserDto(user);
 
     List<String> roles = user.getRoles().stream().map(role -> role.getName().name()).collect(Collectors.toList());
 
@@ -63,13 +56,7 @@ public class UserController {
 
     UserAccount user = userService.getById(userId);
 
-    Profile profile = new Profile(
-        user.getUserId(),
-        user.getName(),
-        user.getEmail(),
-        user.getImageUrl(),
-        user.getAddress(),
-        user.getPhoneNumber());
+    UserDto profile = new UserDto(user);
 
     List<String> roles = user.getRoles().stream().map(role -> role.getName().name()).collect(Collectors.toList());
 
@@ -80,12 +67,6 @@ public class UserController {
   public UserDto editProfile(@RequestBody EditProfileDto editProfileDto) {
     UserAccount user = userService.editProfile(editProfileDto);
 
-    return new UserDto(
-        user.getUserId(),
-        user.getName(),
-        user.getEmail(),
-        user.getImageUrl(),
-        user.getAddress(),
-        user.getPhoneNumber());
+    return new UserDto(user);
   }
 }

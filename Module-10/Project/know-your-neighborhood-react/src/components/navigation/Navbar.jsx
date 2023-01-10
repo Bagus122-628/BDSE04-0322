@@ -84,9 +84,15 @@ const Navbar = () => {
               >
                 <Link
                   to="/profile"
-                  className="block mb-3 text-center font-medium hover:text-color1"
+                  className="block mb-3 ml-1 font-medium hover:text-color1"
                 >
                   My Profile
+                </Link>
+                <Link
+                  to="/stores/add"
+                  className="block mb-3 ml-1 font-medium hover:text-color1"
+                >
+                  Add Store
                 </Link>
                 <button
                   className="w-full bg-color1 py-2 rounded-md"

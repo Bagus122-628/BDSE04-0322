@@ -8,8 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.lithan.kyn.model.StoreDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,8 +47,24 @@ public class Store {
   @Column(nullable = false)
   private String phoneNumber;
 
+  private String description;
+
+  @Lob
+  private String imageUrl;
+
   @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @JoinColumn(name = "user_id")
   private UserAccount user;
+
+  public Store(StoreDto storeDto, UserAccount user) {
+    this.storeName = storeDto.getStoreName();
+    this.country = storeDto.getCountry();
+    this.city = storeDto.getCity();
+    this.storeEmail = storeDto.getStoreEmail();
+    this.phoneNumber = storeDto.getPhoneNumber();
+    this.description = storeDto.getDescription();
+    this.imageUrl = storeDto.getImageUrl();
+    this.user = user;
+  }
 
 }

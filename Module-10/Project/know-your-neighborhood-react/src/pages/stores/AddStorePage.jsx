@@ -117,6 +117,14 @@ const AddStorePage = () => {
               required: "Phone number is required",
             }}
           />
+          <Input
+            label="Description"
+            name="description"
+            errors={errors}
+            type="text"
+            placeholder="Enter store description"
+            register={register}
+          />
 
           <button
             type="submit"

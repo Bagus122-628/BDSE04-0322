@@ -27,6 +27,10 @@ public class StoreDto {
 
   private String phoneNumber;
 
+  private String imageUrl;
+
+  private String description;
+
   private UserDto user;
 
   public StoreDto(Store store) {
@@ -36,6 +40,8 @@ public class StoreDto {
     this.city = store.getCity();
     this.storeEmail = store.getStoreEmail();
     this.phoneNumber = store.getPhoneNumber();
+    this.imageUrl = store.getImageUrl();
+    this.description = store.getDescription();
     this.user = new UserDto(store.getUser());
   }
 

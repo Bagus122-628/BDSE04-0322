@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FACEBOOK_URL } from "../api/constant";
 import { loginAPI } from "../api/user-api";
 import { facebookLogo } from "../assets";
@@ -86,6 +86,14 @@ const LoginPage = () => {
           >
             Login
           </button>
+          <div className="relative mt-4">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-b border-gray-300"></div>
+            </div>
+            <div className="relative flex justify-center">
+              <span className="px-4 bg-secondary">Or</span>
+            </div>
+          </div>
           <a
             href={FACEBOOK_URL}
             className="flex justify-center py-3 rounded-md border mt-4 text-primary bg-color2"
@@ -97,6 +105,12 @@ const LoginPage = () => {
             />
             Login with Facebook
           </a>
+          <p className="text-center mt-4">
+            Don't have account?{" "}
+            <Link to="/register" className="text-color1">
+              register
+            </Link>
+          </p>
         </form>
       </div>
     </MainLayout>

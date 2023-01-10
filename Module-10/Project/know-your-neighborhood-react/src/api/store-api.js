@@ -25,6 +25,7 @@ export const addStoreAPI = (store, token) => {
       city: store.city,
       storeEmail: store.storeEmail,
       phoneNumber: store.phoneNumber,
+      description: store.description,
       user: {
         userId: store.userId,
       },
@@ -44,6 +45,7 @@ export const editStoreAPI = (store, token) => {
       city: store.city,
       storeEmail: store.storeEmail,
       phoneNumber: store.phoneNumber,
+      description: store.description,
     },
     { headers: { Authorization: `Bearer ${token}` } }
   );

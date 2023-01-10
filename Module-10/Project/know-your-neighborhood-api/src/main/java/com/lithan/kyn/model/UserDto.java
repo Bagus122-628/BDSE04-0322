@@ -26,6 +26,8 @@ public class UserDto {
 
   private String phoneNumber;
 
+  private String provider;
+
   public UserDto(UserAccount user) {
     this.userId = user.getUserId();
     this.name = user.getName();
@@ -33,6 +35,7 @@ public class UserDto {
     this.imageUrl = user.getImageUrl();
     this.address = user.getAddress();
     this.phoneNumber = user.getPhoneNumber();
+    this.provider = user.getProvider().toString();
   }
 
 }

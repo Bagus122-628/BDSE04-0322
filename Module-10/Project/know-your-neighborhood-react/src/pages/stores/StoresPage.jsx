@@ -75,7 +75,9 @@ const StoresPage = () => {
           ))}
         </div>
       )}
-      {listStore.length <= 0 && <h2>No store found!!</h2>}
+      {listStore.length <= 0 && (
+        <h2 className="text-gray-500 font-medium text-xl">No store found!!</h2>
+      )}
     </MainLayout>
   );
 };

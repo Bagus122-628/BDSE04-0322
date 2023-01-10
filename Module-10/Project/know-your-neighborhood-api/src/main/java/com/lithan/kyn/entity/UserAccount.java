@@ -63,7 +63,6 @@ public class UserAccount {
 
   @NotNull
   @Enumerated(EnumType.STRING)
-  @JsonIgnore
   private EAuthProvider provider;
 
   @JsonIgnore

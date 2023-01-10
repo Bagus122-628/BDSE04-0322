@@ -13,6 +13,7 @@ const EditForm = ({
   city,
   storeEmail,
   phoneNumber,
+  description,
 }) => {
   const [status, setStatus] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -32,6 +33,7 @@ const EditForm = ({
       city,
       storeEmail,
       phoneNumber,
+      description,
     },
   });
 
@@ -123,6 +125,15 @@ const EditForm = ({
           validation={{
             required: "Phone number is required",
           }}
+        />
+
+        <Input
+          label="Description"
+          name="description"
+          errors={errors}
+          type="text"
+          placeholder="Enter store description"
+          register={register}
         />
 
         <button
