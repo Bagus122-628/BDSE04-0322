@@ -10,7 +10,7 @@ module.exports = {
         color2: "#EEEEEE",
       },
       fontFamily: {
-        inter: ["Inter"],
+        inter: ["'Inter'", "sans-serif"],
         poppins: ["Poppins"],
       },
     },

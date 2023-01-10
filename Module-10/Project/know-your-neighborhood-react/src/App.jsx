@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import AuthContext from "./context/auth-context";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import FacebookLogin from "./pages/FacebookLogin";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AddStorePage from "./pages/stores/AddStorePage";
@@ -18,6 +20,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<ContactPage />} />
 
       {!isLoggedIn && (
         <>

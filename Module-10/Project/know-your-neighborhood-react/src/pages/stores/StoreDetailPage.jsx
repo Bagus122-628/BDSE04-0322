@@ -29,7 +29,7 @@ const StoreDetailPage = () => {
               <div className="flex">
                 <i className="fa-sharp fa-solid fa-location-dot text-lg w-7" />
                 <p>
-                  {store.country},{store.city}
+                  {store.country}, {store.city}
                 </p>
               </div>
               <div className="flex">

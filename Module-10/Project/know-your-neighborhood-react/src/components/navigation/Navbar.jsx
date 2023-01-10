@@ -79,7 +79,7 @@ const Navbar = () => {
                 <i className="fa-solid fa-caret-down"></i>
               </div>
               <div
-                className={`w-[150px] absolute text-primary bg-gray-100 border border-color2 
+                className={`w-[150px] absolute z-10 text-primary bg-gray-100 border border-color2 
               mt-2 py-3 px-3 rounded-md shadow-md ${show ? "" : "hidden"}`}
               >
                 <Link
