@@ -7,6 +7,7 @@ import indomaret from "./images/indomaret.jpg";
 import circleK from "./images/circle-k.jpg";
 import hero from "./images/hero.jpg";
 import hero2 from "./images/hero2.jpg";
+import contact from "./images/contact.jpg";
 
 export {
   facebookLogo,
@@ -18,4 +19,5 @@ export {
   circleK,
   hero,
   hero2,
+  contact,
 };

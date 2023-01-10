@@ -6,7 +6,7 @@ const AboutPage = () => {
   return (
     <LayoutFull>
       <section
-        className="min-h-[30vh] w-full bg-cover bg-center relative flex justify-center px-6
+        className="min-h-[35vh] w-full bg-cover bg-center relative flex justify-center px-6
         after:absolute after:content-[''] after:top-0 after:bottom-0 after:left-0 after:right-0 after:bg-gradient-to-t
         after:from-[#0000004d] after:to-[#00000033]"
         style={{ backgroundImage: `url(${hero2})` }}

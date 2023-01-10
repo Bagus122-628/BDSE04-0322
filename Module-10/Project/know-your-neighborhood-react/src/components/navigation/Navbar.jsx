@@ -35,6 +35,9 @@ const Navbar = () => {
           </Link>
         </div>
         <ul className="md:flex hidden md:space-x-3 ">
+          <NavLink to="/" className={link}>
+            Home
+          </NavLink>
           <NavLink to="/stores" className={link}>
             Stores
           </NavLink>
@@ -48,10 +51,13 @@ const Navbar = () => {
         <ul
           className={`${
             expand
-              ? "md:hidden flex flex-col justify-center items-center absolute top-[68px] left-0 right-0 bg-primary space-y-10 py-10"
+              ? "md:hidden flex flex-col justify-center items-center absolute z-10 top-[68px] left-0 right-0 bg-primary space-y-10 py-10"
               : "hidden"
           } `}
         >
+          <NavLink to="/" className={link}>
+            Home
+          </NavLink>
           <NavLink to="/stores" className={link}>
             Stores
           </NavLink>
@@ -79,7 +85,7 @@ const Navbar = () => {
                 <i className="fa-solid fa-caret-down"></i>
               </div>
               <div
-                className={`w-[150px] absolute z-10 text-primary bg-gray-100 border border-color2 
+                className={`w-[150px] absolute z-20 text-primary bg-gray-100 border border-color2 
               mt-2 py-3 px-3 rounded-md shadow-md ${show ? "" : "hidden"}`}
               >
                 <Link
@@ -104,7 +110,7 @@ const Navbar = () => {
             </div>
           )}
           {!isLoggedIn && (
-            <div className=" space-x-3 ">
+            <div className="space-x-3">
               <NavLink
                 to="/login"
                 className="font-medium px-3 md:px-5 py-2 transition duration-300 rounded-md border 
